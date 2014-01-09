@@ -1,0 +1,4888 @@
+
+@inproceedings{POPL14:Azevedo:al, 
+author = {Arthur Azevedo de Amorim and Nathan Collins and André DeHon and Delphine Demange and Catalin Hritcu and David Pichardie and Benjamin Pierce and Randy Pollack and Andrew Tolmach}, 
+title = {A Verified Information-Flow Architecture}, 
+booktitle = {Proc. of the 41th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, POPL 2014}, 
+year = 2014, 
+publisher = {ACM}, 
+pdf = {papers/popl14.pdf}, 
+abstract = { 
+SAFE is a clean-slate design for a highly secure computer system, 
+with pervasive mechanisms for tracking and limiting information 
+flows. At the lowest level, the SAFE hardware supports 
+fine-grained programmable tags, with efficient and flexible propagation 
+and combination of tags as instructions are executed. The 
+operating system virtualizes these generic facilities to present 
+an information-flow abstract machine that allows user programs to 
+label sensitive data with rich confidentiality policies. We 
+present a formal, machine-checked model of the key hardware and 
+software mechanisms used to control information flow in SAFE and 
+an end- to-end proof of noninterference for this model.} 
+} 
+
+
+@inproceedings{VSTTE13:Blazy:al, 
+author = {Sandrine Blazy and Andr\'e Maroneze and David Pichardie}, 
+title = {Formal Verification of Loop Bound Estimation for {WCET} Analysis}, 
+booktitle = {Proc. of the 5th Working Conference on Verified Software: 
+Theories, Tools, and Experiments (VSTTE 2013)}, 
+year = {2013}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/vstte13.pdf}, 
+note = {To appear}, 
+abstract = {Worst-case execution time (WCET) estimation tools are complex 
+pieces of software performing tasks such as computation on 
+control flow graphs (CFGs) and bound calculation. 
+In this paper, we present a formal verification (in Coq) of a loop bound 
+estimation. It relies on program slicing and bound calculation. 
+
+The work has been integrated into the CompCert verified C compiler. 
+Our verified analyses directly operate on non-structured CFGs. We 
+extend the CompCert RTL intermediate language with a notion of loop 
+nesting (a.k.a. weak topological ordering on CFGs) that is useful for 
+reasoning on CFGs. 
+The automatic extraction of our loop bound estimation into OCaml yields 
+a program with competitive results, obtained from experiments on a 
+reference benchmark for WCET bound estimation tools.} 
+} 
+
+@inproceedings{SAS13:Blazy:al, 
+author = {Sandrine Blazy and Vincent Laporte and Andr\'e Maroneze and David Pichardie}, 
+title = {Formal Verification of a {C} Value Analysis Based on Abstract Interpretation}, 
+booktitle = {Proc. of the 20th Static Analysis Symposium (SAS 2013)}, 
+year = {2013}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/sas13.pdf}, 
+note = {To appear}, 
+abstract = {Static analyzers based on abstract interpretation are complex 
+pieces of software implementing delicate algorithms. Even if 
+static analysis techniques are well understood, their 
+implementation on real languages is still error-prone. 
+
+This paper presents a formal verification using the Coq proof 
+assistant: a formalization of a value analysis (based on abstract 
+interpretation), and a soundness proof of the value analysis. The 
+formalization relies on generic interfaces. The mechanized proof 
+is facilitated by a translation validation of a Bourdoncle 
+fixpoint iterator. 
+
+The work has been integrated into the CompCert verified 
+C-compiler. Our verified analysis directly operates over an 
+intermediate language of the compiler having the same 
+expressiveness as C. The automatic extraction of our value 
+analysis into OCaml yields a program with competitive results, 
+obtained from experiments on a number of benchmarks and 
+comparisons with the Frama-C tool.} 
+} 
+
+@inproceedings{POPL13:Demange:al, 
+author = {Delphine Demange and Vincent Laporte and Lei Zhao and David Pichardie and Suresh Jagannathan and Jan Vitek}, 
+title = {Plan {B}: A Buffered Memory Model for {J}ava}, 
+booktitle = {Proc. of the 40th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, POPL 2013}, 
+year = 2013, 
+publisher = {ACM}, 
+pdf = {papers/popl13.pdf}, 
+abstract = { Recent advances in verification have made it possible to envision trusted 
+implementations of real-world languages. Java with its type-safety and 
+fully specified semantics would appear to be an ideal candidate; yet, the 
+complexity of the translation steps used in production virtual machines 
+have made it a challenging target for verifying compiler technology. One 
+of Java's key innovations, its memory model, poses significant obstacles 
+to such an endeavor. The Java Memory Model is an ambitious attempt at 
+specifying the behavior of multithreaded programs in a portable, hardware 
+agnostic, way. While experts have an intuitive grasp of the properties 
+that the model should enjoy, the specification is complex and not 
+well-suited for integration within a verifying compiler infrastructure. 
+Moreover, the specification is given in an axiomatic style that is distant 
+from the intuitive reordering-based reasonings traditionally used to 
+justify or rule out behaviors, and ill suited to the kind of operational 
+reasoning one would expect to employ in a compiler. This paper takes a 
+step back, and introduces a Buffered Memory Model (BMM) for 
+Java. We choose a pragmatic point in the design space sacrificing 
+generality in favor of a model that is fully characterized in terms of the 
+reorderings it allows, amenable to formal reasoning, and which can be 
+efficiently applied to a specific hardware family, namely x86 
+multiprocessors. Although the BMM restricts the reorderings compilers are 
+allowed to perform, it serves as the key enabling device to achieving a 
+verification pathway from bytecode to machine instructions. Despite its 
+restrictions, we show that it is backwards compatible with the Java Memory 
+Model and that it does not cripple performance on TSO architectures.} 
+} 
+
+@article{MSCS12:Cachera:Pichardie, 
+author = {Gilles Barthe and David Pichardie and Tamara Rezk}, 
+title = {A Certified Lightweight Non-Interference {J}ava Bytecode Verifier}, 
+journal = {Mathematical Structures in Computer Science (MSCS)}, 
+year = {2012}, 
+note = {To appear}, 
+pdf = {papers/mscs12.pdf}, 
+abstract = {Non-interference guarantees the absence of illicit information 
+flow throughout program execution. It can be enforced by appropriate 
+information flow type systems. Much of previous work on type systems for 
+non-interference has focused on calculi or high-level programming languages, 
+and existing type systems for low-level languages typically omit objects, 
+exceptions, and method calls. We define an information flow type system for 
+a sequential JVM-like language that includes all these programming features, 
+and we prove, in the Coq proof assistant, that it guarantees non-interference. 
+An additional benefit of the formalization is that we have extracted from our 
+proof a certified lightweight bytecode verifier for information flow. Our work 
+provides, to our best knowledge, the first sound and certified information 
+flow type system for such an expressive fragment of the JVM.} 
+} 
+
+@article{LMCS12:Jensen:Kirchner:Pichardie, 
+author = {Thomas Jensen and Florent Kirchner and David Pichardie}, 
+title = {Secure the Clones: Static Enforcement of Policies for Secure Object 
+Copying}, 
+journal = {Logical Methods in Computer Science (LMCS)}, 
+year = {2012}, 
+volume = {8}, 
+number = {2}, 
+pdf = {papers/lmcs12.pdf}, 
+abstract = {Exchanging mutable data objects with untrusted code is a delicate 
+matter because of the risk of creating a data space that is accessible by 
+an attacker. Consequently, secure programming guidelines for Java stress the 
+importance of using defensive copying before accepting or handing out 
+references to an internal mutable object. However, implementation of a copy 
+method (like clone()) is entirely left to the programmer. It may not provide a 
+sufficiently deep copy of an object and is subject to overriding by a 
+malicious subclass. Currently no language-based mechanism supports secure 
+object cloning. This paper proposes a type-based annotation system for 
+defining modular copy policies for class-based object-oriented programs. A 
+copy policy specifies the maximally allowed sharing between an object and its 
+clone. We present a static enforcement mechanism that will guarantee that all 
+classes fulfil their copy policy, even in the presence of overriding of copy 
+methods, and establish the semantic correctness of the overall approach in 
+Coq. The mechanism has been implemented and experimentally evaluated on clone 
+methods from several Java libraries.} 
+} 
+
+@inproceedings{ESOP12:Barthe:demange:Pichardie, 
+author = {Gilles Barthe and Delphine Demange and David Pichardie}, 
+title = {A formally verified {SSA}-based middle-end - 
+{S}tatic {S}ingle {A}ssignment meets {C}omp{C}ert}, 
+booktitle = {Proc. of 21th European Symposium on Programming (ESOP 2012)}, 
+volume = {7211}, 
+pages = {47-66}, 
+year = {2012}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/esop12.pdf}, 
+abstract = {CompCert is a formally verified compiler that generates compact 
+and efficient PowerPC, ARM and x86 code for a large and realistic subset 
+of the C language. However, CompCert foregoes using Static Single 
+Assignment (SSA), an intermediate representation that allows for 
+writing simpler and faster optimizers, and is used by many 
+compilers. In fact, it has remained an open problem to verify 
+formally a SSA-based compiler middle-end. 
+We report on a formally verified, SSA-based, middle-end for 
+CompCert. Our middle-end performs conversion from CompCert 
+intermediate form to SSA form, optimization of SSA programs, 
+including Global Value Numbering, and transforming out of SSA to 
+intermediate form. In addition to provide the first formally 
+verified SSA-based middle-end, we address two problems 
+raised by Leroy: giving a simple and intuitive formal 
+semantics to SSA, and leveraging the global properties 
+of SSA to reason locally about program optimizations.} 
+} 
+
+@inproceedings{CPP11:Besson:Cornilleau:Pichardie, 
+author = {Frédéric Besson and Pierre-Emmanuel Cornilleau and David Pichardie}, 
+title = {Modular {SMT} Proofs for Fast Reflexive Checking inside {C}oq}, 
+booktitle = {Proc. of the 1st International Conference on Certified Programs 
+and Proofs (CPP 2011)}, 
+year = {2011}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/cpp11.pdf}, 
+pages = {151-166}, 
+volume = {7086}, 
+abstract = { We present a new methodology for exchanging unsatisfiability 
+proofs between an untrusted SMT solver and a sceptical proof 
+assistant with computation capabilities like Coq. We advocate 
+modular SMT proofs that separate boolean reasoning and theory 
+reasoning; and structure the communication between theories 
+using Nelson-Oppen combination scheme. We present the design 
+and implementation of a Coq reflexive verifier that is modular 
+and allows for fine-tuned theory-specific verifiers. The 
+current verifier is able to verify proofs for quantifier-free 
+formulae mixing linear arithmetic and uninterpreted functions. 
+Our proof generation scheme benefits from the efficiency of 
+state-of-the-art SMT solvers while being independent from a 
+specific SMT solver proof format. Our only requirement for the 
+SMT solver is the ability to extract unsat cores and generate 
+boolean models. In practice, unsat cores are relatively small 
+and their proof is obtained with a modest overhead by our 
+proof-producing prover. We present experiments assessing the 
+feasibility of the approach for benchmarks obtained from the 
+SMT competition.} 
+} 
+
+@inproceedings{ESOP11:Jensen:Kirchner:Pichardie, 
+author = {Thomas Jensen and Florent Kirchner and David Pichardie}, 
+title = {Secure the Clones: Static Enforcement of Policies for Secure Object 
+Copying}, 
+booktitle = {Proc. of 20th European Symposium on Programming (ESOP 2011)}, 
+year = {2011}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/esop11.pdf}, 
+pages = {317-337}, 
+volume = {6602}, 
+abstract = {Exchanging mutable data objects with untrusted code is a delicate 
+matter because of the risk of creating a data space that is 
+accessible by an attacker. Consequently, secure programming guidelines for 
+Java stress the importance of using defensive copying before accepting or 
+handing out references to an internal mutable object. 
+
+However, implementation of a copy method (like clone()) is entirely 
+left to the programmer. It may not provide a sufficiently deep copy of 
+an object and is subject to overriding by a malicious sub-class. Currently 
+no language-based mechanism supports secure object cloning. 
+
+This paper proposes a type-based annotation system for defining modular 
+copy policies for class-based object-oriented programs. 
+A copy policy specifies the maximally allowed sharing between an 
+object and its clone. We present a static 
+enforcement mechanism that will guarantee that all classes fulfill their 
+copy policy, even in the presence of overriding of copy methods, and 
+establish the semantic correctness of the overall approach in Coq. 
+
+The mechanism has been implemented and experimentally evaluated on 
+clone methods from several Java libraries.} 
+} 
+
+@article{TSI11:Cachera:Pichardie, 
+author = {David Cachera and David Pichardie}, 
+title = {Programmation d'un interpr\'eteur abstrait certifi\'e en 
+logique constructive}, 
+journal = {Technique et Science Informatiques (TSI)}, 
+year = 2011, 
+volume = {30}, 
+number = {4}, 
+year = {2011}, 
+pages = {381-408} 
+} 
+
+@inproceedings{ESORICS10:Hubert:Pichardie, 
+author = {Laurent Hubert and Thomas Jensen and Vincent Monfort and 
+David Pichardie}, 
+title = {Enforcing Secure Object Initialization in {J}ava}, 
+booktitle = {Proc. of the 15th European Symposium on Research in Computer 
+Security (ESORICS 2010)}, 
+year = {2010}, 
+pages = {101-115}, 
+volume = {6345}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/esorics10.pdf}, 
+abstract = {Sun and the CERT recommend for secure Java development to not 
+allow partially initialized objects to be accessed. The CERT considers the 
+severity of the risks taken by not following this recommendation as 
+high. The solution currently used to enforce object initialization is 
+to implement a coding pattern proposed by Sun, which is not formally checked. 
+We propose a modular type system to formally specify the initialization policy 
+of libraries or programs and a type checker to statically check at load time 
+that all loaded classes respect the policy. This allows to prove the absence 
+of bugs which have allowed some famous privilege escalations in Java. Our 
+experimental results show that our safe default policy allows to prove 91\% of 
+classes of java.lang, java.security and 
+javax.security safe without any annotation and by adding 57 simple 
+annotations we proved all classes but four safe. The type system and its 
+soundness theorem have been formalized and machine checked using Coq.} 
+} 
+@inproceedings{ITP10:Cachera:Pichardie, 
+author = {David Cachera and David Pichardie}, 
+title = {A Certified Denotational Abstract Interpreter}, 
+booktitle = {Proc. of International Conference on Interactive Theorem 
+Proving (ITP-10)}, 
+year = {2010}, 
+pages = {9-24}, 
+volume = {6172}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/itp10.pdf}, 
+abstract = {Abstract Interpretation proposes advanced techniques for 
+static analysis of programs that raise specific challenges for 
+machine-checked soundness proofs. Most classical dataflow analysis 
+techniques iterate operators on lattices without infinite ascending 
+chains. In contrast, abstract interpreters are looking for fixpoints 
+in infinite lattices where widening and narrowing are used for 
+accelerating the convergence. Smart iteration strategies are crucial 
+when using such accelerating operators because they directly impact 
+the precision of the analysis diagnostic. In this paper, we show 
+how we manage to program and prove correct in Coq an abstract 
+interpreter that uses iteration strategies based on program syntax. 
+A key component of the formalization is the introduction of an 
+intermediate semantics based on a generic least-fixpoint operator 
+on complete lattices and allows us to decompose the soundness proof in an 
+elegant manner.} 
+} 
+@inproceedings{TGC10:Besson:Jensen:Pichardie:Turpin, 
+author = {Fr\'ed\'eric Besson and Thomas Jensen and David Pichardie and 
+Tiphaine Turpin}, 
+title = {Certified Result Checking for Polyhedral Analysis of Bytecode 
+Programs}, 
+booktitle = {Proc. of the 5th International Symposium on Trustworthy Global 
+Computing (TGC 2010)}, 
+year = {2010}, 
+pages = {253-267}, 
+volume = {6084}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pdf = {papers/tgc10.pdf} 
+} 
+@article{JCS10:Besson:Jensen:Dufay:Pichardie, 
+author = {Fr\'ed\'eric Besson and Thomas Jensen and Guillaume Dufay and David 
+Pichardie}, 
+title = {Verifying Resource Access Control on Mobile Interactive Devices}, 
+journal = {Journal of Computer Security}, 
+volume = {18}, 
+number = {6}, 
+pages = {971-998}, 
+year = 2010, 
+pdf = {papers/jcs10.pdf} 
+} 
+
+@inproceedings{FOSAD09:BessonCacheraJensenPichardie, 
+author = {Fr{\'e}d{\'e}ric Besson and 
+David Cachera and 
+Thomas P. Jensen and 
+David Pichardie}, 
+title = {Certified Static Analysis by Abstract Interpretation}, 
+booktitle = {Foundations of Security Analysis and Design V, FOSAD 
+2007/2008/2009 Tutorial Lectures}, 
+year = {2009}, 
+pages = {223-257}, 
+publisher = {Springer-Verlag}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {5705}, 
+pdf = {papers/fosad09.pdf} 
+} 
+
+@inproceedings{TPHOLs09:Dabrowski:Pichardie, 
+author = {Fr\'ed\'eric Dabrowski and David Pichardie}, 
+title = {A Certified Data Race Analysis for a {J}ava-like Language}, 
+booktitle = {Proc. of 22nd International Conference on Theorem Proving in 
+Higher Order Logics (TPHOLs'09)}, 
+year = {2009}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+volume = {5674}, 
+pages = {212-227}, 
+pdf = {papers/tphols09.pdf} 
+} 
+
+@inproceedings{FMOODS08:HubertJensenPichardie, 
+author = {Laurent Hubert and Thomas Jensen and David Pichardie}, 
+title = {Semantic foundations and inference of non-null annotations},
+booktitle = {Proc. of the 10th International Conference on Formal Methods for 
+Open Object-based Distributed Systems (FMOODS'08)}, 
+year = {2008}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+volume = {5051}, 
+pages = {132-149}, 
+pdf = {papers/fmoods08.pdf} 
+} 
+@inproceedings{FICS08:Pichardie, 
+author = {David Pichardie}, 
+title = {Building certified static analysers by modular construction of 
+well-founded lattices},
+year = 2008, 
+series = {Electronic Notes in Theoretical Computer Science}, 
+booktitle = {Proc. of the 1st International Conference on Foundations of 
+Informatics, Computing and Software (FICS'08)}, 
+pdf = {papers/fics08.pdf}, 
+volume = {212}, 
+pages = {225-239} 
+} 
+
+@inproceedings{FMCO7:BCGJP, 
+author = {Gilles Barthe and Pierre Cr\'egut and Benjamin Gr\'egoire and Thomas 
+Jensen and David Pichardie}, 
+title = {The MOBIUS Proof Carrying Code infrastructure},
+booktitle = {Proc. of the 6th International Symposium on Formal Methods for 
+Components and Objects (FMCO'07)}, 
+year = {2007}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+volume = {5382}, 
+pages = {1-24} 
+} 
+
+@inproceedings{BPR07, 
+author = {Gilles Barthe and David Pichardie and Tamara Rezk}, 
+title = {A Certified Lightweight Non-Interference {J}ava Bytecode Verifier},
+booktitle = {Proc. of 16th European Symposium on Programming (ESOP'07)}, 
+year = {2007}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+volume = {4421}, 
+pages = {125-140}, 
+pdf = {papers/esop07.pdf} 
+} 
+
+@article{TCSAppSem:BessonJensenPichardie, 
+author = {Fr\'ed\'eric Besson and Thomas Jensen and David Pichardie}, 
+title = {Proof-Carrying Code from Certified Abstract Interpretation to Fixpoint 
+Compression}, 
+journal = {Theoretical Computer Science}, 
+year = 2006, 
+volume = 364, 
+number = 3, 
+pages = {273--291}, 
+pdf = {papers/tcs06.pdf} 
+} 
+
+@inproceedings{BartheFPR06, 
+author = {Gilles Barthe and 
+Julien Forest and 
+David Pichardie and 
+Vlad Rusu}, 
+title = {Defining and Reasoning About Recursive Functions: A Practical 
+Tool for the Coq Proof Assistant.}, 
+pages = {114-129}, 
+booktitle = {Proc. of 8th International Symposium on Functional and 
+Logic Programming (FLOPS'06)}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag},
+volume = {3945}, 
+year = {2006}, 
+pdf = {papers/flops06.pdf} 
+} 
+
+@phdthesis{Pich:these, 
+author = {Pichardie David}, 
+title = {Interprétation abstraite en logique intuitionniste~: 
+extraction d'analyseurs {J}ava certifiés}, 
+school = {Université Rennes~1}, 
+year = {2005}, 
+pdf = {papers/these-pichardie.pdf}, 
+note = {In french} 
+} 
+
+@inproceedings{Pich05ParamConcr, 
+author = {David Pichardie}, 
+title = {Modular proof principles for parameterized concretizations}, 
+booktitle = {Proc. of 2nd International Workshop on Construction and 
+Analysis of Safe, Secure and Interoperable Smart Devices (CASSIS 2005)}, 
+year = {2005}, 
+number = {3956}, 
+pages = {138--154}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag},
+pdf = {papers/param.pdf} 
+} 
+
+@inproceedings{CaJePiSc05MemoryUsage, 
+author = {David Cachera and Thomas Jensen and David Pichardie and 
+Gerardo Schneider}, 
+title = {Certified Memory Usage Analysis},
+booktitle = {Proc. of 13th International Symposium on Formal Methods (FM'05)}, 
+year = {2005}, 
+pages = {91--106}, 
+number = {3582}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag},
+pdf = {papers/memoryusage.pdf} 
+} 
+
+@article{CaJePiRu05TCSExtractAnalyser, 
+author = {David Cachera and Thomas Jensen and David Pichardie and 
+Vlad Rusu}, 
+title = {Extracting a Data Flow Analyser in Constructive Logic},
+journal = {Theoretical Computer Science}, 
+year = {2005}, 
+volume = {342}, 
+number = {1}, 
+pages = {56-78}, 
+month = {September}, 
+pdf = {papers/extract_TCS.pdf}, 
+note = {Extended version of \cite{CaJePiRu04ExtractAnalyser}} 
+} 
+
+@inproceedings{CaJePiRu04ExtractAnalyser, 
+author = {David Cachera and Thomas Jensen and David Pichardie and 
+Vlad Rusu}, 
+title = {Extracting a Data Flow Analyser in Constructive Logic},
+booktitle = {Proc. of 13th European Symposium on Programming (ESOP'04)}, 
+year = {2004}, 
+pages = {385--400}, 
+number = {2986}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag},
+pdf = {papers/extractDataFlow.pdf} 
+} 
+
+@inproceedings{CaPi03AffineRec, 
+author = {David Cachera and David Pichardie}, 
+title = {Embedding of Systems of Affine Recurrence Equations in Coq},
+booktitle = {Proc. of 16th International Conference on Theorem Proving in 
+Higher Order Logics (TPHOLs'03)}, 
+year = {2003}, 
+pages = {155--170}, 
+number = {2758}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag},
+pdf = {papers/embedSARE.pdf} 
+} 
+@inproceedings{BePi01Convexhull, 
+author = {David Pichardie and Yves Bertot}, 
+title = {Formalizing Convex Hulls Algorithms},
+booktitle = {Proc. of 14th International Conference on Theorem Proving in 
+Higher Order Logics (TPHOLs'01)}, 
+year = {2001}, 
+pages = {346--361}, 
+number = {2152}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag},
+pdf = {papers/hulls.pdf} 
+}
+ 
+@inproceedings{hal-00685150, 
+Address = {Dubrovnik, Croatie}, 
+Affiliation = {ASCOLA - INRIA - EMN , Laboratoire d'Informatique de Nantes Atlantique - LINA , PI.R2 - INRIA Paris - Rocquencourt}, 
+Audience = {internationale}, 
+Author = {Jaber, Guilhem and Tabareau, Nicolas and Sozeau, Matthieu}, 
+Booktitle = {Proceedings of LICS'12},
+Date-Added = {2013-12-23 11:08:38 +0000}, 
+Date-Modified = {2013-12-23 11:08:38 +0000}, 
+Hal_Id = {hal-00685150}, 
+Language = {Anglais}, 
+Month = Jun, 
+Pdf = {http://hal.archives-ouvertes.fr/hal-00685150/PDF/forcing\_lics.pdf}, 
+Title = {Extending Type Theory with Forcing},
+Url = {http://hal.archives-ouvertes.fr/hal-00685150}, 
+Year = {2012}, 
+Bdsk-Url-1 = {http://hal.archives-ouvertes.fr/hal-00685150}} 
+
+@article{BoveKraussSozeau2011, 
+Author = {Ana Bove and Alexander Krauss and Matthieu Sozeau}, 
+Date-Added = {2013-12-23 11:07:49 +0000}, 
+Date-Modified = {2013-12-23 11:07:49 +0000}, 
+Journal = {To appear in MSCS}, 
+Month = {January}, 
+Title = {Partiality and Recursion in Interactive Theorem Provers - An Overview},
+Url = {http://mattam.org/research/publications/drafts/Partiality_and_Recursion_in_Interactive_Theorem_Provers_-_An_Overview.pdf}, 
+Year = {2011}, 
+Bdsk-Url-1 = {http://mattam.org/research/publications/drafts/Partiality_and_Recursion_in_Interactive_Theorem_Provers_-_An_Overview.pdf}} 
+
+@inproceedings{sozeau.Coq/Russell/article, 
+Author = {Matthieu Sozeau}, 
+Booktitle = {TYPES'06}, 
+Copyright = {Springer}, 
+Date-Added = {2013-12-23 11:07:22 +0000}, 
+Date-Modified = {2013-12-23 11:07:22 +0000}, 
+Doi = {http://dx.doi.org/10.1007/978-3-540-74464-1_16}, 
+Editor = {Thorsten Altenkirch and Conor McBride}, 
+Pages = {237-252}, 
+Pdf = {http://mattam.org/research/publications/Subset_Coercions_in_Coq.pdf}, 
+Publisher = {Springer}, 
+Read = {Oui}, 
+Series = {Lecture Notes in Computer Science}, 
+Slides = {http://mattam.org/research/publications/Subset_Coercions_in_Coq-types06-210406.pdf}, 
+Title = {Subset Coercions in Coq},
+Volume = {4502}, 
+Year = {2007}, 
+Bdsk-Url-1 = {http://dx.doi.org/10.1007/978-3-540-74464-1_16}} 
+
+@inproceedings{sozeau.Coq/Equations/ITP10, 
+Author = {Matthieu Sozeau}, 
+Booktitle = {First International Conference on Interactive Theorem Proving}, 
+Date-Added = {2013-12-23 11:07:10 +0000}, 
+Date-Modified = {2013-12-23 11:07:10 +0000}, 
+Month = {July}, 
+Pdf = {http://mattam.org/research/publications/Equations:_A_Dependent_Pattern-Matching_Compiler.pdf}, 
+Publisher = {Springer}, 
+Read = {Oui}, 
+Slides = {http://mattam.org/research/publications/Equations:_A_Dependent_Pattern-Matching_Compiler-ITP10-140710.pdf}, 
+Title = {Equations: A Dependent Pattern-Matching Compiler}, 
+Year = {2010}, 
+Bdsk-Url-1 = {http://mattam.org/research/publications/drafts/Equations.pdf}} 
+
+@inproceedings{sozeau.Coq/classes/fctc, 
+Author = {Matthieu Sozeau and Nicolas Oury}, 
+Booktitle = {Theorem Proving in Higher Order Logics, 21th International Conference}, 
+Copyright = {Springer}, 
+Date-Added = {2013-12-23 11:06:07 +0000}, 
+Date-Modified = {2013-12-23 11:06:07 +0000}, 
+Doi = {10.1007/978-3-540-71067-7_23}, 
+Editor = {Otmane Ait Mohamed, C{\'e}sar Mu{\~n}oz and Sofi{\`e}ne Tahar}, 
+Keywords = {Type classes}, 
+Month = {August}, 
+Pages = {278-293}, 
+Pdf = {http://mattam.org/research/publications/First-Class_Type_Classes.pdf}, 
+Publisher = {Springer}, 
+Read = {Oui}, 
+Series = {Lecture Notes in Computer Science}, 
+Slides = {http://mattam.org/research/publications/First-Class_Type_Classes-TPHOLs-200808.pdf}, 
+Title = {{F}irst-{C}lass {T}ype {C}lasses},
+Volume = {5170}, 
+Year = {2008}, 
+Bdsk-Url-1 = {http://dx.doi.org/10.1007/978-3-540-71067-7_23}
+}
+@inproceedings{sozeau.Coq/FingerTrees/article, 
+Address = {Freiburg, Germany}, 
+Author = {Matthieu Sozeau}, 
+Booktitle = {ICFP'07: Proceedings of the 2007 ACM SIGPLAN International Conference on Functional Programming}, 
+Copyright = {ACM, 2007. This is the author's version of the work. It is posted here by permission of ACM for your personal use. Not for redistribution. The definitive version was published in ICFP'07, http://doi.acm.org/10.1145/1291151.1291156}, 
+Date-Added = {2013-12-23 11:05:56 +0000}, 
+Date-Modified = {2013-12-23 11:05:56 +0000}, 
+Doi = {http://doi.acm.org/10.1145/1291151.1291156}, 
+Isbn = {978-1-59593-815-2}, 
+Pages = {13--24}, 
+Pdf = {http://mattam.org/research/publications/Program-ing_Finger_Trees_in_Coq.pdf}, 
+Publisher = {ACM Press}, 
+Read = {Oui}, 
+Slides = {http://mattam.org/research/publications/Program-ing_Finger_Trees_in_Coq-icfp07-011007.pdf}, 
+Title = {{P}rogram-ing {F}inger {T}rees in {C}oq},
+Year = {2007}, 
+Bdsk-Url-1 = {http://doi.acm.org/10.1145/1291151.1291156 }}
+
+
+@phdthesis{sozeau.thesis, 
+Address = {Orsay, France}, 
+Author = {Matthieu Sozeau}, 
+Date-Added = {2013-12-23 11:05:41 +0000}, 
+Date-Modified = {2013-12-23 11:05:41 +0000}, 
+Month = {December}, 
+Pdf = {http://mattam.org/research/publications/thesis-sozeau.pdf}, 
+Read = {Oui}, 
+School = {Universit{\'e} Paris 11}, 
+Slides = {http://mattam.org/research/publications/An_Environment_for_Programming_with_Dependent_Types-LRI-081208.pdf}, 
+Title = {Un environnement pour la programmation avec types d{\'e}pendants}, 
+Year = {2008}} 
+
+@article{sozeau.Coq/rewrite/JFR, 
+Author = {Matthieu Sozeau}, 
+Date-Added = {2013-12-23 11:05:10 +0000}, 
+Date-Modified = {2013-12-23 11:05:10 +0000}, 
+Journal = {Journal of Formalized Reasoning}, 
+Keywords = {rewriting setoid typeclasses}, 
+Month = {December}, 
+Number = {1}, 
+Pages = {41-62}, 
+Pdf = {http://jfr.cib.unibo.it/article/view/1574/1077}, 
+Read = {Oui}, 
+Title = {A New Look at Generalized Rewriting in Type Theory},
+Volume = {2}, 
+Year = {2009}}
+ 
+ J. Heras, M. Poza, M. Dénès and L. Rideau. Incidence simplicial matrices formalized in Coq/SSReflect. Proceedings CICM'2011. LNCS 6824, pp. 30–44, Bertinoro (Italy), 2011. 
+
+J. Heras, M. Dénès, G. Mata, A. Mörtberg, M. Poza, and V. Siles. Towards a certified computation of homology groups for digital images. Proceedings CTIC'2012. LNCS 7309, pp. 49–57, Bertinoro (Italy), 2012. 
+
+J. Heras, M. Poza and J. Rubio. Verifying an algorithm computing Discrete Vector Fields for digital imaging. Proceedings CICM'2012. LNCS 7362, pp. 215–229, Bremen (Germany), 2012. 
+
+J. Heras, T. Coquand, A. Mörtberg and V. Siles. Computing Persistent Homology within Coq/SSReflect. ACM Transactions on Computational Logic, 14(4) 2013 
+
+J. Heras, G. Mata, A. Romero, J. Rubio, and R. Sáenz. Verifying a platform for digital imaging: a multi-tool strategy. Proceedings of Conferences on Intelligent Computer Mathematics 2013 (Calculemus track). LNCS 7961, pp. 66-81. 2013.
+ A coq formalization of the relational data model. Benzaken v Contejean E Dumbrava Stefania Esop Etaps 2014.
+ 
+@INPROCEEDINGS{poernomo-2010, 
+author = {Poernomo, I.H. and Terrell, J.W.}, 
+title = {Correct-by-Construction Model Transformations from Partially Ordered 
+Specifications}, 
+booktitle = {Formal Methods and Software Engineering}, 
+year = {2010}, 
+editor = {Dong, J.S. and Zhu, H.}, 
+volume = {6447}, 
+series = {Lecture Notes in Computer Science}, 
+organization = {12th International Conference on Formal Engineering Methods, ICFEM 
+2010, Shanghai, China, November 17-19}, 
+publisher = {Springer}, 
+doi = {10.1007/978-3-642-16901-4\_6}, 
+owner = {jeff}, 
+timestamp = {2010.10.28} 
+} 
+
+@INPROCEEDINGS{fernandez-2013, 
+author = {Fern\'{a}ndez, M. and Terrell, J.}, 
+title = {Assembling the Proofs of Ordered Model Transformations},
+booktitle = {Formal Engineering Approaches to Software Components and Architectures},
+year = {2013}, 
+editor = {Buhnova, B. and Happe, L. and Kofro\v{n}, J.}, 
+series = {FESCA @ ETAPS}, 
+pages = {63--78}, 
+address = {Rome, Italy}, 
+month = {March}, 
+doi = {10.4204/EPTCS.108}, 
+owner = {jeffreyterrell}, 
+timestamp = {2013.07.12} 
+} 
+ @article{boender2011formal, 
+title={Formal verification of a theory of packages}, 
+author={Boender, Jaap}, 
+journal={ECEASST}, 
+volume={48}, 
+year={2011} 
+} 
+ @article{DBLP:journals/jbcs/RibeiroFC13, 
+author = {Rodrigo Ribeiro and 
+Luc\'{\i}lia Figueiredo and 
+Carlos Camar{\~a}o}, 
+title = {Mechanized metatheory for a -calculus with trust types}, 
+journal = {J. Braz. Comp. Soc.}, 
+volume = {19}, 
+number = {4}, 
+year = {2013}, 
+pages = {433-443}, 
+ee = {http://dx.doi.org/10.1007/s13173-013-0119-5}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+}
+ @inproceedings{Almeida:2010:PDA:1964285.1964292, 
+author = {Almeida, Jos{\'e} Bacelar and Moreira, Nelma and Pereira, David and de Sousa, Sim\~{a}o Melo}, 
+title = {Partial Derivative Automata Formalized in Coq}, 
+booktitle = {Proceedings of the 15th International Conference on Implementation and Application of Automata}, 
+series = {CIAA'10}, 
+year = {2011}, 
+isbn = {978-3-642-18097-2}, 
+location = {Winnipeg, MB, Canada}, 
+pages = {59--68}, 
+numpages = {10}, 
+url = {http://dl.acm.org/citation.cfm?id=1964285.1964292}, 
+acmid = {1964292}, 
+publisher = {Springer-Verlag}, 
+address = {Berlin, Heidelberg}, 
+} 
+
+@inproceedings{Moreira:2012:DRE:2413712.2413721, 
+author = {Moreira, Nelma and Pereira, David and Melo de Sousa, Sim\~{a}o}, 
+title = {Deciding Regular Expressions (In-)Equivalence in Coq}, 
+booktitle = {Proceedings of the 13th International Conference on Relational and Algebraic Methods in Computer Science}, 
+series = {RAMiCS'12}, 
+year = {2012}, 
+isbn = {978-3-642-33313-2}, 
+location = {Cambridge, UK}, 
+pages = {98--113}, 
+numpages = {16}, 
+url = {http://dx.doi.org/10.1007/978-3-642-33314-9_7}, 
+doi = {10.1007/978-3-642-33314-9_7}, 
+acmid = {2413721}, 
+publisher = {Springer-Verlag}, 
+address = {Berlin, Heidelberg}, 
+}
+ @inproceedings{Jedynak:2013:OFT:2505879.2505890, 
+author = {Jedynak, Wojciech and Biernacka, Ma\lgorzata and Biernacki, Dariusz}, 
+title = {An Operational Foundation for the Tactic Language of Coq}, 
+booktitle = {Proceedings of the 15th Symposium on Principles and Practice of Declarative Programming}, 
+series = {PPDP '13}, 
+year = {2013}, 
+isbn = {978-1-4503-2154-9}, 
+location = {Madrid, Spain}, 
+pages = {25--36}, 
+numpages = {12}, 
+url = {http://doi.acm.org/10.1145/2505879.2505890}, 
+doi = {10.1145/2505879.2505890}, 
+acmid = {2505890}, 
+publisher = {ACM}, 
+address = {New York, NY, USA}, 
+keywords = {abstract machine, natural semantics, proof assistant Coq, reduction semantics, tactics}, 
+}
+ @Article{CpdtJFR, 
+author = {Adam Chlipala}, 
+title = {An Introduction to Programming and Proving with Dependent Types in Coq}, 
+volume = {3(2)}, 
+pages = {1-93}, 
+year = {2010}, 
+journal = {Journal of Formalized Reasoning}, 
+url = {http://adam.chlipala.net/papers/CpdtJFR/} 
+} 
+
+@Article{CertVerJFP, 
+author = {Adam Chlipala}, 
+title = {Modular Development of Certified Program Verifiers with a Proof Assistant}, 
+volume = {18(5/6)}, 
+pages = {599-647}, 
+year = {2008}, 
+journal = {Journal of Functional Programming}, 
+url = {http://adam.chlipala.net/papers/CertVerJFP/} 
+} 
+
+@InProceedings{BedrockICFP13, 
+author = {Adam Chlipala}, 
+title = {The Bedrock Structured Programming System: Combining Generative Metaprogramming and Hoare Logic in an Extensible Program Verifier}, 
+booktitle = {ICFP'13: Proceedings of the 18th ACM SIGPLAN International Conference on Functional Programming}, 
+month = sep, 
+year = {2013}, 
+location = {Boston, MA, USA}, 
+url = {http://adam.chlipala.net/papers/BedrockICFP13/} 
+} 
+
+@InProceedings{FesiCAV13, 
+author = {Thomas Braibant and Adam Chlipala}, 
+title = {Formal Verification of Hardware Synthesis}, 
+booktitle = {CAV'13: Proceedings of the 25th International Conference on Computer Aided Verification}, 
+month = jul, 
+year = {2013}, 
+location = {Saint Petersburg, Russia}, 
+url = {http://adam.chlipala.net/papers/FesiCAV13/} 
+} 
+
+@InProceedings{BedrockPLDI11, 
+author = {Adam Chlipala}, 
+title = {Mostly-Automated Verification of Low-Level Programs in Computational Separation Logic}, 
+booktitle = {PLDI'11: Proceedings of the ACM SIGPLAN 2011 Conference on Programming Language Design and Implementation}, 
+month = jun, 
+year = {2011}, 
+location = {San Jose, CA, USA}, 
+url = {http://adam.chlipala.net/papers/BedrockPLDI11/} 
+} 
+
+@InProceedings{UrPLDI10, 
+author = {Adam Chlipala}, 
+title = {Ur: Statically-Typed Metaprogramming with Type-Level Record Computation}, 
+booktitle = {PLDI'10: Proceedings of the ACM SIGPLAN 2010 Conference on Programming Language Design and Implementation}, 
+month = jun, 
+year = {2010}, 
+location = {Toronto, Canada}, 
+url = {http://adam.chlipala.net/papers/UrPLDI10/} 
+} 
+
+@InProceedings{ImpurePOPL10, 
+author = {Adam Chlipala}, 
+title = {A Verified Compiler for an Impure Functional Language}, 
+booktitle = {POPL'10: Proceedings of the 37th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages}, 
+month = jan, 
+year = {2010}, 
+location = {Madrid, Spain}, 
+url = {http://adam.chlipala.net/papers/ImpurePOPL10/} 
+} 
+
+@InProceedings{YnotICFP09, 
+author = {Adam Chlipala and Gregory Malecha and Greg Morrisett and Avraham Shinnar and Ryan Wisnesky}, 
+title = {Effective Interactive Proofs for Higher-Order Imperative Programs}, 
+booktitle = {ICFP'09: Proceedings of the 14th ACM SIGPLAN International Conference on Functional Programming}, 
+month = aug, 
+year = {2009}, 
+location = {Edinburgh, Scotland}, 
+url = {http://adam.chlipala.net/papers/YnotICFP09/} 
+} 
+
+@InProceedings{PhoasICFP08, 
+author = {Adam Chlipala}, 
+title = {Parametric Higher-Order Abstract Syntax for Mechanized Semantics}, 
+booktitle = {ICFP'08: Proceedings of the 13th ACM SIGPLAN International Conference on Functional Programming}, 
+month = sep, 
+year = {2008}, 
+location = {Victoria, British Columbia, Canada}, 
+url = {http://adam.chlipala.net/papers/PhoasICFP08/} 
+} 
+
+@InProceedings{CtpcPLDI07, 
+author = {Adam Chlipala}, 
+title = {A Certified Type-Preserving Compiler from Lambda Calculus to Assembly Language}, 
+booktitle = {PLDI'07: Proceedings of the ACM SIGPLAN 2007 Conference on Programming Language Design and Implementation}, 
+month = jun, 
+year = {2007}, 
+location = {San Diego, California, USA}, 
+url = {http://adam.chlipala.net/papers/CtpcPLDI07/} 
+} 
+
+@InProceedings{CertVerICFP06, 
+author = {Adam Chlipala}, 
+title = {Modular Development of Certified Program Verifiers with a Proof Assistant}, 
+booktitle = {ICFP'06: Proceedings of the 11th ACM SIGPLAN International Conference on Functional Programming}, 
+month = sep, 
+year = {2006}, 
+location = {Portland, Oregon, USA}, 
+url = {http://adam.chlipala.net/papers/CertVerICFP06/} 
+} 
+
+@InProceedings{PcvVMCAI06, 
+author = {Bor-Yuh Evan Chang and Adam Chlipala and George C. Necula}, 
+title = {A Framework for Certified Program Analysis and Its Applications to Mobile-Code Safety}, 
+booktitle = {VMCAI'06: Proceedings of the 7th International Conference on Verification, Model Checking, and Abstract Interpretation}, 
+month = jan, 
+year = {2006}, 
+location = {Charleston, South Carolina, USA}, 
+url = {http://adam.chlipala.net/papers/PcvVMCAI06/} 
+} 
+
+@InProceedings{PositionPLPV06, 
+author = {Adam Chlipala}, 
+title = {Position Paper: Thoughts on Programming with Proof Assistants}, 
+booktitle = {PLPV'06: Proceedings of the Programming Languages meets Program Verification Workshop}, 
+month = aug, 
+year = {2006}, 
+location = {Seattle, Washington, USA}, 
+url = {http://adam.chlipala.net/papers/PositionPLPV06/} 
+} 
+
+@InProceedings{KettleStrategies06, 
+author = {Adam Chlipala and George C. Necula}, 
+title = {Cooperative Integration of an Interactive Proof Assistant and an Automated Prover}, 
+booktitle = {STRATEGIES'06: Proceedings of the 6th International Workshop on Strategies in Automated Deduction}, 
+month = aug, 
+year = {2006}, 
+location = {Seattle, Washington, USA}, 
+url = {http://adam.chlipala.net/papers/KettleStrategies06/} 
+} 
+
+@InProceedings{OpenverTLDI05, 
+author = {Bor-Yuh Evan Chang and Adam Chlipala and George C. Necula and Robert R. Schneck}, 
+title = {The {Open Verifier} Framework for Foundational Verifiers}, 
+booktitle = {TLDI'05: Proceedings of the 2nd ACM SIGPLAN Workshop on Types in Language Design and Implementation}, 
+month = jan, 
+year = {2005}, 
+location = {Long Beach, California, USA}, 
+url = {http://adam.chlipala.net/papers/OpenverTLDI05/} 
+}
+ Two or three to be submitted in January. 
+ @inproceedings{jourdan2012validating, 
+title={Validating LR (1) Parsers}, 
+author={Jourdan, Jacques-Henri and Pottier, Fran{\c{c}}ois and Leroy, Xavier}, 
+booktitle={22nd European Symposium on Programming (ESOP 2012)}, 
+pages={224--243}, 
+year={2012}, 
+organization={Springer} 
+} 
+
+@inproceedings{boldo2013formally, 
+title={A Formally-Verified C Compiler Supporting Floating-Point Arithmetic}, 
+author={Boldo, Sylvie and Jourdan, Jacques-Henri and Leroy, Xavier and Melquiond, Guillaume}, 
+booktitle={IEEE Symposium on Computer Arithmetic}, 
+pages={107--115}, 
+year={2013}, 
+organization={IEEE Computer Society} 
+} 
+
+@article{braibant2013implementing, 
+title={Implementing and reasoning about hash-consed data structures in Coq}, 
+author={Braibant, Thomas and Jourdan, Jacques-Henri and Monniaux, David}, 
+journal={arXiv preprint arXiv:1311.2959}, 
+year={2013} 
+} 
+
+ @book{citeulike:2868779, 
+author = {Bertot, Yves and Cast{\'{e}}ran, Pierre}, 
+citeulike-article-id = {2868779}, 
+citeulike-linkout-0 = {http://www.labri.fr/perso/casteran/CoqArt/index.html}, 
+keywords = {coq}, 
+posted-at = {2008-06-06 09:20:28}, 
+priority = {0}, 
+publisher = {Springer-Verlag}, 
+title = {Interactive Theorem Proving and Program Development, {Coq'Art}:the Calculus of Inductive Constructions}, 
+url = {http://www.labri.fr/perso/casteran/CoqArt/index.html}, 
+year = {2004} 
+} 
+
+@article{CASTERAN-2011-596712, 
+Author = {Cast?ran, Pierre and Filou, Vincent}, 
+Title = {Tasks, types and tactics for local computation systems}, 
+Journal = {Studia Informatica Universalis}, 
+Volume = {9.1}, 
+Pages = {39--86}, 
+Year = {2011} 
+} 
+
+%% hal-00840748, version 1 
+%% http://hal.archives-ouvertes.fr/hal-00840748 
+@incollection{barbier:hal-00840748, 
+hal_id = {hal-00840748}, 
+url = {http://hal.archives-ouvertes.fr/hal-00840748}, 
+title = {Adaptive Software based on Correct-by-Construction Metamodels},
+author = {Barbier, Franck and Cast{\'e}ran, Pierre and Cariou, Eric and Le Goaer, Olivier}, 
+abstract = {Despite significant research efforts in the last decade, UML has not reached the status of being a highconfidence modeling language. This is due to unsound foundations that result from the insufficiently formal structuring of metamodels that define the MOF/UML Infrastructure. Nowadays, UML-related metamodels are implemented in computing environments (e.g., EMF) to play the role of metadata when one seeks adaptation at runtime. To properly instrument metamodel-based adaptation, this chapter re-formalizes the core of the MOF/UML Infrastructure along with giving formal proofs that avoid ambiguities, contradictions, or redundancies. A (meta-)class creation mechanism (either by instantiation or inheritance) is based on inductive types taken from the constructive logic. Inherent proofs based on the Coq proof assistant are also provided. This chapter's contribution is aligned with a previously established metamodeling framework named "Matters of (meta-)modeling.}, 
+language = {Anglais}, 
+affiliation = {Laboratoire Informatique de l'Universit{\'e} de Pau et des Pays de l'Adour - LIUPPA , Laboratoire Bordelais de Recherche en Informatique - LaBRI}, 
+booktitle = {Progressions and Innovations in Model-Driven Software Engineering},
+publisher = {IGI Global}, 
+pages = {308-325}, 
+editor = {V. Garcia Diaz, J.M. Cueva Lovelle, B. Cristina Pelayo Gracia-Bustelo, O. Sanjuan Martinez }, 
+series = {Advances in Systems Analysis, Software Engineering, and High Performance Computing (ASASEHPC) }, 
+audience = {internationale }, 
+collaboration = {CPU }, 
+year = {2013}, 
+month = Jul, 
+} 
+
+
+ @inproceedings{DBLP:conf/cpp/RobertL12, 
+author = {Valentin Robert and 
+Xavier Leroy}, 
+title = {A Formally-Verified Alias Analysis}, 
+booktitle = {CPP}, 
+year = {2012}, 
+pages = {11-26}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-35308-6_5}, 
+crossref = {DBLP:conf/cpp/2012}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+@proceedings{DBLP:conf/cpp/2012, 
+editor = {Chris Hawblitzel and 
+Dale Miller}, 
+title = {Certified Programs and Proofs - Second International Conference, 
+CPP 2012, Kyoto, Japan, December 13-15, 2012. Proceedings}, 
+booktitle = {CPP}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {7679}, 
+year = {2012}, 
+isbn = {978-3-642-35307-9}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-35308-6}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+}
+ %% hal-00652286, version 2 
+%% http://hal.inria.fr/hal-00652286 
+@inproceedings{gonthier:hal-00652286, 
+hal_id = {hal-00652286}, 
+url = {http://hal.inria.fr/hal-00652286}, 
+title = {A language of patterns for subterm selection},
+author = {Gonthier, Georges and Tassi, Enrico}, 
+abstract = {This paper describes the language of patterns that equips the SSReflect proof shell extension for the Coq system. Patterns are used to focus proof commands on sub expressions of the conjecture under analysis in a declarative manner. They are designed to ease the writing of proof scripts and to increase their readability and maintainability. A pattern can identify the sub expression of interest approximating the sub expression itself, or its enclosing context or both. The user is free to choose the most convenient option. Patterns are matched following an extremely precise and predictable discipline, that is carefully designed to admit an efficient implementation. In this paper we report on the language of patterns, its matching algorithm and its usage in the formal library developed by the Mathematical Components team to support the verification of the Odd Order theorem.}, 
+language = {Anglais}, 
+affiliation = {Microsoft Research - Inria Joint Centre - MSR - INRIA , Laboratoire d'informatique de l'{\'e}cole polytechnique - LIX}, 
+booktitle = {ITP},
+publisher = {Springer}, 
+pages = {361-376}, 
+address = {Princeton, {\'E}tats-Unis}, 
+volume = {7406}, 
+editor = {Lennart Beringer, Amy Felty }, 
+series = {LNCS }, 
+audience = {internationale }, 
+doi = {10.1007/978-3-642-32347-8\_25 }, 
+year = {2012}, 
+pdf = {http://hal.inria.fr/hal-00652286/PDF/rew.pdf}, 
+} 
+%% inria-00139131, version 2 
+%% http://hal.inria.fr/inria-00139131 
+@techreport{gonthier:inria-00139131, 
+hal_id = {inria-00139131}, 
+url = {http://hal.inria.fr/inria-00139131}, 
+title = {A Modular Formalisation of Finite Group Theory},
+author = {Gonthier, Georges and Mahboubi, Assia and Rideau, Laurence and Tassi, Enrico and Th{\'e}ry, Laurent}, 
+abstract = {In this paper, we present a formalisation of elementary group theory done in Coq. This work is the first milestone of a long-term effort to formalise Feit-Thompson theorem. As our further developments will heavily rely on this initial base, we took special care to articulate it in the most compositional way.}, 
+keywords = {finite groups; proof assistants; formalisation of mathematics}, 
+language = {Anglais}, 
+affiliation = {Programming Principles and Tools [Cambridge] , Microsoft Research - Inria Joint Centre - MSR - INRIA , MARELLE - INRIA Sophia Antipolis , Department of Computer Science and Engineering [Bologna] - DISI}, 
+pages = {17}, 
+type = {Rapport de recherche}, 
+institution = {INRIA}, 
+number = {RR-6156}, 
+year = {2007}, 
+pdf = {http://hal.inria.fr/inria-00139131/PDF/RR-6156.pdf}, 
+} 
+%% hal-00816699, version 1 
+%% http://hal.inria.fr/hal-00816699 
+@inproceedings{gonthier:hal-00816699, 
+hal_id = {hal-00816699}, 
+url = {http://hal.inria.fr/hal-00816699}, 
+title = {A Machine-Checked Proof of the Odd Order Theorem},
+author = {Gonthier, Georges and Asperti, Andrea and Avigad, Jeremy and Bertot, Yves and Cohen, Cyril and Garillot, Fran{\c c}ois and Le Roux, St{\'e}phane and Mahboubi, Assia and O'Connor, Russell and Ould Biha, Sidi and Pasca, Ioana and Rideau, Laurence and Solovyev, Alexey and Tassi, Enrico and Th{\'e}ry, Laurent}, 
+abstract = {This paper reports on a six-year collaborative effort that cul- minated in a complete formalization of a proof of the Feit-Thompson Odd Order Theorem in the Coq proof assistant. The formalized proof is constructive, and relies on nothing but the axioms and rules of the foundational framework implemented by Coq. To support the formalization, we developed a comprehensive set of reusable libraries of formalized mathematics, including results in finite group theory, linear algebra, Galois theory, and the theories of the real and complex algebraic numbers.}, 
+language = {Anglais}, 
+affiliation = {Microsoft Research - Inria Joint Centre - MSR - INRIA , SPECFUN - INRIA Saclay - Ile de France}, 
+booktitle = {ITP 2013, 4th Conference on Interactive Theorem Proving}, 
+publisher = {Springer}, 
+pages = {163-179}, 
+address = {Rennes, France}, 
+volume = {7998}, 
+editor = {Sandrine Blazy and Christine Paulin and David Pichardie }, 
+series = {LNCS }, 
+audience = {internationale }, 
+doi = {10.1007/978-3-642-39634-2\_14 }, 
+year = {2013}, 
+pdf = {http://hal.inria.fr/hal-00816699/PDF/main.pdf}, 
+} 
+%% hal-00816703, version 2 
+%% http://hal.inria.fr/hal-00816703 
+@inproceedings{mahboubi:hal-00816703, 
+hal_id = {hal-00816703}, 
+url = {http://hal.inria.fr/hal-00816703}, 
+title = {Canonical Structures for the working Coq user},
+author = {Mahboubi, Assia and Tassi, Enrico}, 
+abstract = {This paper provides a gentle introduction to the art of programming type inference with the mechanism of Canonical Structures. Programmable type inference has been one of the key ingredients for the successful formalization of the Odd Order Theorem using the Coq proof assistant. The paper concludes comparing the language of Canonical Structures to the one of Type Classes and Unification Hints.},
+language = {Anglais}, 
+affiliation = {Microsoft Research - Inria Joint Centre - MSR - INRIA , SPECFUN - INRIA Saclay - Ile de France}, 
+booktitle = {ITP 2013, 4th Conference on Interactive Theorem Proving}, 
+publisher = {Springer}, 
+pages = {19-34}, 
+address = {Rennes, France}, 
+volume = {7998}, 
+editor = {Sandrine Blazy and Christine Paulin and David Pichardie }, 
+series = {LNCS }, 
+audience = {internationale }, 
+doi = {10.1007/978-3-642-39634-2\_5 }, 
+year = {2013}, 
+pdf = {http://hal.inria.fr/hal-00816703/PDF/main.pdf}, 
+} 
+%% hal-00908980, version 1 
+%% http://hal.inria.fr/hal-00908980 
+@inproceedings{barras:hal-00908980, 
+hal_id = {hal-00908980}, 
+url = {http://hal.inria.fr/hal-00908980}, 
+title = {Pervasive Parallelism in Highly-Trustable Interactive Theorem Proving Systems},
+author = {Barras, Bruno and Del, Lourdes and Herbelin, Hugo and R{\'e}gis-Gianas, Yann and Tassi, Enrico and Wenzel, Makarius and Wolff, Burkhart}, 
+language = {Anglais}, 
+affiliation = {SPECFUN - INRIA Saclay - Ile de France}, 
+booktitle = {MKM/Calculemus/DML},
+pages = {359-363}, 
+address = {Bath, Royaume-Uni}, 
+audience = {internationale }, 
+year = {2013}, 
+} 
+ @article{Backes:Hritcu:Maffei:13jcs, 
+author = {Michael Backes and 
+C\u{a}t\u{a}lin Hri\c{t}cu and 
+Matteo Maffei}, 
+title = {Union, Intersection, and Refinement Types and Reasoning About Type Disjointness for Secure Protocol Implementations}, 
+journal = {Special issue of the Journal of Computer Security (JCS) for TOSCA-SecCo}, 
+publisher = {IOS Press}, 
+note = {Accepted for publication; to appear}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/rcf-and-or-coq-jcs-submission.pdf}, 
+key = {Drafts}, 
+chcontrib = {firstauthor}, 
+month = dec, 
+year = 2013, 
+} 
+
+@Article{Bierman:Gordon:Hritcu:Langworthy:12, 
+author = {Gavin M. Bierman and Andrew D. Gordon and C\u{a}t\u{a}lin Hri\c{t}cu and David Langworthy}, 
+title = {Semantic Subtyping with an {SMT} Solver}, 
+journal = {Journal of Functional Programming (JFP)}, 
+publisher = {Cambridge University Press}, 
+month = mar, 
+year = 2012, 
+volume = {22}, 
+number = {1}, 
+pages = {31--105}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/dminor-jfp2012.pdf}, 
+key = {Journal Papers}, 
+chcontrib = {equalthree}, 
+} 
+
+@book{Pierce2012sf, 
+author = {Benjamin C. Pierce and Chris Casinghino and Marco Gaboardi and Michael Greenberg and C\u{a}t\u{a}lin Hri\c{t}cu and Vilhelm Sj\"oberg and Brent Yorgey}, 
+title = {Software Foundations}, 
+year = {2013}, 
+publisher = {Electronic textbook}, 
+url = {http://www.cis.upenn.edu/~bcpierce/sf/}, 
+key = {Books}, 
+chcontrib = {minor}, 
+} 
+
+@inproceedings{PicoCoq2013, 
+title = {A Verified Information-Flow Architecture}, 
+author = { 
+Arthur {Azevedo de Amorim} and 
+Nathan Collins and 
+Andr\'e DeHon and 
+Delphine Demange and 
+C\u{a}t\u{a}lin Hri\c{t}cu and 
+David Pichardie and 
+Benjamin C. Pierce and 
+Randy Pollack and 
+Andrew Tolmach 
+}, 
+month = jan, 
+year = 2014, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/verified-ifc-draft.pdf}, 
+chcontrib = {minor}, 
+note = {To appear at POPL}, 
+acceptance = {51/220=0.23}, 
+} 
+
+@inproceedings{Hritcu12exceptional, 
+author = {C\u{a}t\u{a}lin Hri\c{t}cu and 
+Michael Greenberg and 
+Ben Karel and 
+Benjamin C. Pierce and 
+Greg Morrisett}, 
+title = {All Your {IFCException} Are Belong To Us}, 
+booktitle = {34th IEEE Symposium on Security and Privacy (Oakland 2013)}, 
+pages = {3-17}, 
+publisher = {IEEE Computer Society Press}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/all-your-ifcexceptions-draft-full.pdf}, 
+acceptance = {38/315=0.12}, 
+month = may, 
+year = {2013}, 
+key = {Conference}, 
+chcontrib = {firstauthor}, 
+} 
+
+@InProceedings{Backes:Busenius:Hritcu:12, 
+author = {Michael Backes and Alex Busenius and C\u{a}t\u{a}lin Hri\c{t}cu}, 
+title = {On the Development and Formalization of an Extensible Code Generator for Real Life Security Protocols}, 
+booktitle = {4th NASA Formal Methods Symposium (NFM 2012)}, 
+year = {2012}, 
+month = apr, 
+publisher = {Springer}, 
+pages = {371-387}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/expi2java-nfm2012.pdf}, 
+acceptance = {36/93=0.39}, 
+key = {Conference Papers}, 
+chcontrib = {equaltwo}, 
+} 
+
+@InProceedings{Backes:Hritcu:Tarrach:11, 
+author = {Michael Backes and C\u{a}t\u{a}lin Hri\c{t}cu and Thorsten Tarrach}, 
+title = {Automatically Verifying Typing Constraints for a Data Processing Language}, 
+booktitle = {First International Conference on Certified Programs and Proofs (CPP 2011)}, 
+pages = {296-313}, 
+year = {2011}, 
+month = dec, 
+publisher = {Springer}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/dverify-cpp2011.pdf}, 
+acceptance = {24/49=0.49}, 
+key = {Conference Papers}, 
+chcontrib = {equaltwo}, 
+} 
+
+@InProceedings{Backes:Hritcu:Maffei:11, 
+author = {Michael Backes and C\u{a}t\u{a}lin Hri\c{t}cu and Matteo Maffei}, 
+title = {Union and Intersection Types for Secure Protocol Implementations}, 
+booktitle = {Theory of Security and Applications 
+(TOSCA 2011; part of ETAPS and the precursor of POST)}, 
+note = {Invited paper}, 
+year = {2011}, 
+pages = {1-28}, 
+month = mar, 
+publisher = {Springer}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/rcf-and-or-coq-tosca2011-post.pdf}, 
+key =	 {Conference Papers}, 
+chcontrib = {firstauthor}, 
+} 
+
+@InProceedings{Bierman:Gordon:Hritcu:Langworthy:10, 
+author = {Gavin M. Bierman and Andrew D. Gordon and C\u{a}t\u{a}lin Hri\c{t}cu and David Langworthy}, 
+title = {Semantic Subtyping with an {SMT} Solver}, 
+booktitle = {15th ACM SIGPLAN International Conference on Functional programming (ICFP 2010)}, 
+pages = {105-116}, 
+year = {2010}, 
+month = sep, 
+publisher = {ACM Press}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/dminor-icfp2010.pdf}, 
+acceptance = {30/99=0.30}, 
+key = {Conference Papers}, 
+chcontrib = {equalthree}, 
+} 
+
+@InProceedings{Backes:Hritcu:Maffei:08bb, 
+author = {Michael Backes and C\u{a}t\u{a}lin Hri\c{t}cu and Matteo Maffei}, 
+title = {Type-checking Zero-knowledge}, 
+booktitle = {15th ACM Conference on Computer and Communications Security (CCS 2008)}, 
+month = oct, 
+year = {2008}, 
+pages = {357-370}, 
+publisher = {ACM Press}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/zk-types-ccs2008.pdf}, 
+acceptance = {51/281=0.18}, 
+key =	{Conference Papers}, 
+chcontrib = {equaltwo}, 
+} 
+
+@InProceedings{Backes:Hritcu:Tarrach:11boogie, 
+author = {Michael Backes and C\u{a}t\u{a}lin Hri\c{t}cu and Thorsten Tarrach}, 
+title = {Automatically Verifying Typing Constraints for a Data Processing Language}, 
+booktitle = {First First International Workshop On Intermediate Verification Languages (BOOGIE 2011)}, 
+year = {2011}, 
+month = jul, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/dverify-cpp2011.pdf}, 
+key = {Workshop Papers}, 
+chcontrib = {equaltwo}, 
+} 
+% pages = {1-13}, 
+
+
+@InProceedings{Backes:Hritcu:Maffei:Tarrach:09, 
+author = {Michael Backes and C\u{a}t\u{a}lin Hri\c{t}cu and Matteo Maffei and Thorsten Tarrach}, 
+title = {Type-checking Implementations of Protocols Based on Zero-knowledge Proofs -- Work in Progress}, 
+booktitle = {Workshop on Foundations of Computer Security (FCS 2009)}, 
+year = {2009}, 
+month = aug, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/zk-rcf-fcs2009.pdf}, 
+key = {Workshop Papers}, 
+chcontrib = {firstauthor}, 
+} 
+
+@InProceedings{Backes:Hritcu:Maffei:08b, 
+author = {Michael Backes and C\u{a}t\u{a}lin Hri\c{t}cu and Matteo Maffei}, 
+title = {Type-checking Zero-knowledge}, 
+booktitle = {Joint Workshop on Foundations of Computer Security, 
+Automated Reasoning for Security Protocol Analysis and Issues in the 
+Theory of Security (FCS-ARSPA-WITS'08)}, 
+month = jun, 
+year = {2008}, 
+url = {http://prosecco.gforge.inria.fr/personal/hritcu/publications/typing-zk-wits-final.pdf}, 
+key =	 {Workshop Papers}, 
+chcontrib = {equaltwo}, 
+} 
+
+@PhdThesis{Hritcu:12, 
+author = {C\u{a}t\u{a}lin Hri\c{t}cu}, 
+title = {Union, Intersection, and Refinement Types and Reasoning About Type Disjointness for Security Protocol Analysis}, 
+school = {Saarland University}, 
+year = {2012}, 
+month = jan, 
+url = {http://scidok.sulb.uni-saarland.de/volltexte/2012/4800/pdf/catalin_phd_2012_03_24_final.pdf}, 
+key = {Theses}, 
+} 
+ @inproceedings{Hirsch:2013:BSA:2508859.2516667, 
+author = {Hirsch, Andrew K. and Clarkson, Michael R.}, 
+title = {Belief Semantics of Authorization Logic}, 
+booktitle = {Proceedings of the 2013 ACM SIGSAC Conference on Computer \&\#38; Communications Security}, 
+series = {CCS '13}, 
+year = {2013}, 
+isbn = {978-1-4503-2477-9}, 
+location = {Berlin, Germany}, 
+pages = {561--572}, 
+numpages = {12}, 
+url = {http://doi.acm.org/10.1145/2508859.2516667}, 
+doi = {10.1145/2508859.2516667}, 
+acmid = {2516667}, 
+publisher = {ACM}, 
+address = {New York, NY, USA}, 
+keywords = {authorization logic, cdd, nal}, 
+}
+ First, human-readable citation. Then bibtex below. 
+
+GPS: Navigating Weak Memory with Ghosts, Protocols, and Separation. 
+Aaron Turon, Viktor Vafeiadis, Derek Dreyer. 
+Submitted for conference publication, November 2013. 
+Available at http://www.mpi-sws.org/~dreyer/papers/gps/paper.pdf. 
+
+F-ing Modules. 
+Andreas Rossberg, Claudio Russo, Derek Dreyer. 
+Submitted for journal publication, December 2012. Revised, September 2013. An earlier version appeared in TLDI 2010. 
+Available at http://www.mpi-sws.org/~dreyer/papers/f-ing/journal.pdf. 
+
+Mtac: A Monad for Typed Tactic Programming in Coq. 
+Beta Ziliani, Derek Dreyer, Neelakantan R. Krishnaswami, Aleksandar Nanevski, Viktor Vafeiadis. 
+In 2013 ACM SIGPLAN International Conference on Functional Programming (ICFP 2013). 
+Available at http://www.mpi-sws.org/~dreyer/papers/mtac/paper.pdf. 
+
+How to Make Ad Hoc Proof Automation Less Ad Hoc. 
+Georges Gonthier, Beta Ziliani, Aleksandar Nanevski, Derek Dreyer. 
+In Journal of Functional Programming (JFP), 23(4):357–401, July 2013. 
+Special issue devoted to selected papers from ICFP 2011. 
+Available at http://www.mpi-sws.org/~dreyer/papers/lessadhoc/journal.pdf. 
+
+The Power of Parameterization in Coinductive Proof. 
+Chung-Kil Hur, Georg Neis, Derek Dreyer, Viktor Vafeiadis. 
+In 2013 ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL 2013). 
+Available at http://www.mpi-sws.org/~dreyer/papers/paco/paper.pdf. 
+
+The Marriage of Bisimulations and Kripke Logical Relations. 
+Chung-Kil Hur, Derek Dreyer, Georg Neis, Viktor Vafeiadis. 
+In 2012 ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL 2012). 
+Available at http://www.mpi-sws.org/~dreyer/papers/marriage/popl.pdf. 
+
+Parametric Bisimulations: A Logical Step Forward. 
+Chung-Kil Hur, Georg Neis, Derek Dreyer, Viktor Vafeiadis. 
+Draft paper, January 2013. 
+Available at http://www.mpi-sws.org/~dreyer/papers/pbs/paper.pdf. 
+
+The Transitive Composability of Relation Transition Systems. 
+Chung-Kil Hur, Georg Neis, Derek Dreyer, Viktor Vafeiadis. 
+Technical Report MPI-SWS-2012-002, May 2012. 
+Available at http://www.mpi-sws.org/~dreyer/papers/rts-trans/tr.pdf. 
+
+ later
+ Noriko Hirota, Kenichi Asai "Formalizing a Correctness Property of a Type-Directed Partial Evaluator" PLPV 2014, Programming Languages meets Program Verification, http://www.cse.chalmers.se/~nad/plpv-2014/
+ @Article{pottier-ssphs-13, 
+author = "François Pottier", 
+title = "Syntactic soundness proof of a type-and-capability 
+system with hidden state", 
+journal = jfp, 
+volume = "23", 
+number = "1", 
+pages = "38--144", 
+month = jan, 
+year = "2013", 
+URL = "http://gallium.inria.fr/~fpottier/publis/fpottier-ssphs.pdf", 
+} 
+
+@Unpublished{balabonski-pottier-protzenko-14, 
+author = {Thibaut Balabonski and François Pottier and Jonathan Protzenko}, 
+title = {Type Soundness and Race Freedom for {Mezzo}}, 
+note = {Unpublished}, 
+month = dec, 
+year = 2013, 
+URL = {http://gallium.inria.fr/~fpottier/publis/bpp-mezzo.pdf} 
+} 
+ Noriko Hirota and Kenichi Asai: Formalizing a Correctness Property of a Type-Directed Partial Evaluator, PLPV 2014, Programming Languages meets Program Verification, http://www.cse.chalmers.se/~nad/plpv-2014/
+ A. Felty and A. Momigliano. Hybrid: a Definitional Two-Level Approach to Reasoning with Higher Order Abstract Syntax. Journal of Automated Reasoning 2012 
+
+A. Felty and A. Momigliano. Reasoning with Hypothetical Judgments and Open Terms in Hybrid. PPDP 2009. 
+
+A. Momigliano., A. Martin and A. Felty. Two-level Hybrid: A System for Reasoning using HOAS. LFMTP 2007, August 2007. ENTCS, Volume 196, Pages 85-93.
+ @article{DBLP:journals/comgeo/BrunDM12, 
+author = {Christophe Brun and 
+Jean-Fran\c{c}ois Dufourd and 
+Nicolas Magaud}, 
+title = {Designing and proving correct a convex hull algorithm with hypermaps in Coq}, 
+journal = {Comput. Geom.}, 
+volume = {45}, 
+number = {8}, 
+year = {2012}, 
+pages = {436-457}, 
+ee = {http://dx.doi.org/10.1016/j.comgeo.2010.06.006}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/itp/DufourdB10, 
+author = {Jean-Fran\c{c}ois Dufourd and 
+Yves Bertot}, 
+title = {Formal Study of Plane Delaunay Triangulation}, 
+booktitle = {ITP}, 
+year = {2010}, 
+pages = {211-226}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-14052-5_16}, 
+crossref = {DBLP:conf/itp/2010}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@article{DBLP:journals/jar/Dufourd09, 
+author = {Jean-Fran\c{c}ois Dufourd}, 
+title = {An Intuitionistic Proof of a Discrete Form of the Jordan Curve Theorem Formalized in Coq with Combinatorial Hypermaps}, 
+journal = {J. Autom. Reasoning}, 
+volume = {43}, 
+number = {1}, 
+year = {2009}, 
+pages = {19-51}, 
+ee = {http://dx.doi.org/10.1007/s10817-009-9117-x}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@article{DBLP:journals/tcs/Dufourd08, 
+author = {Jean-Fran\c{c}ois Dufourd}, 
+title = {Polyhedra genus theorem and Euler formula: A hypermap-formalized intuitionistic proof}, 
+journal = {Theor. Comput. Sci.}, 
+volume = {403}, 
+number = {2-3}, 
+year = {2008}, 
+pages = {133-159}, 
+ee = {http://dx.doi.org/10.1016/j.tcs.2008.02.012}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/stacs/Dufourd08, 
+author = {Jean-Fran\c{c}ois Dufourd}, 
+title = {Discrete Jordan Curve Theorem: A proof formalized in Coq with hypermaps}, 
+booktitle = {STACS}, 
+year = {2008}, 
+pages = {253-264}, 
+ee = {http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1349}, 
+crossref = {DBLP:conf/stacs/2008}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@article{DBLP:journals/pr/Dufourd07, 
+author = {Jean-Fran\c{c}ois Dufourd}, 
+title = {Design and formal proof of a new optimal image segmentation 
+program with hypermaps}, 
+journal = {Pattern Recognition}, 
+volume = {40}, 
+number = {11}, 
+year = {2007}, 
+pages = {2974-2993}, 
+ee = {http://dx.doi.org/10.1016/j.patcog.2007.02.013}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@article{DBLP:journals/tcs/DehlingerD04, 
+author = {Christophe Dehlinger and 
+Jean-Fran\c{c}ois Dufourd}, 
+title = {Formalizing generalized maps in Coq}, 
+journal = {Theor. Comput. Sci.}, 
+volume = {323}, 
+number = {1-3}, 
+year = {2004}, 
+pages = {351-397}, 
+ee = {http://dx.doi.org/10.1016/j.tcs.2004.05.003}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@article{DBLP:journals/tcs/DehlingerD04a, 
+author = {Christophe Dehlinger and 
+Jean-Fran\c{c}ois Dufourd}, 
+title = {Formalizing the trading theorem in Coq}, 
+journal = {Theor. Comput. Sci.}, 
+volume = {323}, 
+number = {1-3}, 
+year = {2004}, 
+pages = {399-442}, 
+ee = {http://dx.doi.org/10.1016/j.tcs.2004.05.002}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/tphol/DehlingerD02, 
+author = {Christophe Dehlinger and 
+Jean-Fran\c{c}ois Dufourd}, 
+title = {Formalizing the Trading Theorem for the Classification of Surfaces}, 
+booktitle = {TPHOLs}, 
+year = {2002}, 
+pages = {148-163}, 
+ee = {http://dx.doi.org/10.1007/3-540-45685-6_11}, 
+crossref = {DBLP:conf/tphol/2002}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+
+@article{DBLP:journals/tcs/PuitgD00, 
+author = {Fran\c{c}ois Puitg and 
+Jean-Fran\c{c}ois Dufourd}, 
+title = {Formalizing mathematics in higher-order logic: A case study in geometric modelling}, 
+journal = {Theor. Comput. Sci.}, 
+volume = {234}, 
+number = {1-2}, 
+year = {2000}, 
+pages = {1-57}, 
+ee = {http://dx.doi.org/10.1016/S0304-3975(98)00228-X}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/tphol/PuitgD98, 
+author = {Fran\c{c}ois Puitg and 
+Jean-Fran\c{c}ois Dufourd}, 
+title = {Formal Specification and Theorem Proving Breakthroughs in Geometric Modeling}, 
+booktitle = {TPHOLs}, 
+year = {1998}, 
+pages = {401-422}, 
+ee = {http://dx.doi.org/10.1007/BFb0055149}, 
+crossref = {DBLP:conf/tphol/1998}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/fm/PuitgD98, 
+author = {Fran\c{c}ois Puitg and 
+Jean-Fran\c{c}ois Dufourd}, 
+title = {Formal Program Development in Geometric Modeling}, 
+booktitle = {FM-Trends}, 
+year = {1998}, 
+pages = {62-76}, 
+ee = {http://dx.doi.org/10.1007/3-540-48257-1_3}, 
+crossref = {DBLP:conf/fm/1998}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+ @inproceedings{dnk2010ScpCoq, 
+title={A Simple Supercompiler Formally Verified in {C}oq}, 
+author={Krustev, Dimitur Nikolaev}, 
+booktitle={Proceedings of the Second International Workshop on Metacomputation in Russia (META 2010)}, 
+year={2010}, 
+pages = {102--127}, 
+editor = {A. P. Nemytykh}, 
+__publisher = {Ailamazyan University of Pereslavl} 
+} 
+
+@incollection{ 
+year={2013}, 
+isbn={978-3-642-40446-7}, 
+booktitle={Trends in Functional Programming}, 
+volume={7829}, 
+series={Lecture Notes in Computer Science}, 
+editor={Loidl, Hans-Wolfgang and Peña, Ricardo}, 
+doi={10.1007/978-3-642-40447-4_9}, 
+title={Towards a Framework for Building Formally Verified supercompilers in {C}oq}, 
+url={http://dx.doi.org/10.1007/978-3-642-40447-4_9}, 
+publisher={Springer Berlin Heidelberg}, 
+keywords={program transformation; supercompilation; partial evaluation; deforestation; formal verification; Coq; dependent types}, 
+author={Krustev, Dimitur Nikolaev}, 
+pages={133-148} 
+}
+ A Characterization of Moessner's Sieve 
+Festschrift for Glynn Winskel 
+TCS, 2013 
+
+@inproceedings{Boldo-Jourdan-Leroy-Melquiond-2013},
+title = {A Formally-Verified {C} Compiler Supporting Floating-Point Arithmetic}, 
+author = {Boldo, Sylvie and Jourdan, Jacques-Henri and Leroy, Xavier and Melquiond, Guillaume}, 
+booktitle = {ARITH, 21st IEEE International Symposium on Computer Arithmetic}, 
+pages = {107-115}, 
+publisher = {\abbrev{IEEE Computer Society Press}{IEEE}}, 
+urllocal = {http://hal.inria.fr/hal-00743090}, 
+urlpublisher = {http://dx.doi.org/10.1109/ARITH.2013.30}, 
+year = 2013, 
+xtopic = {compcert}, 
+abstract = {Floating-point arithmetic is known to be tricky: roundings, formats, 
+exceptional values. The IEEE-754 standard was a push towards 
+straightening the field and made formal reasoning about floating-point 
+computations easier and flourishing. Unfortunately, this is not 
+sufficient to guarantee the final result of a program, as several 
+other actors are involved: programming language, compiler, 
+architecture. The CompCert formally-verified compiler provides a 
+solution to this problem: this compiler comes with a mathematical 
+specification of the semantics of its source language (a large subset 
+of ISO C90) and target platforms (ARM, PowerPC, x86-SSE2), and with a 
+proof that compilation preserves semantics. In this paper, we report 
+on our recent success in formally specifying and proving correct 
+CompCert's compilation of floating-point arithmetic. Since CompCert 
+is verified using the Coq proof assistant, this effort required a 
+suitable Coq formalization of the IEEE-754 standard; we extended the 
+Flocq library for this purpose. As a result, we obtain the first 
+formally verified compiler that provably preserves the semantics of 
+floating-point programs.} 
+} 
+
+@inproceedings{Leroy-APLAS-2012, 
+author = {Xavier Leroy}, 
+title = {Mechanized Semantics for Compiler Verification}, 
+note = {Abstract of invited talk}, 
+booktitle = {Programming Languages and Systems, 10th Asian Symposium, APLAS 2012}, 
+editor = {Ranjit Jhala and Atsushi Igarashi}, 
+year = {2012}, 
+pages = {386--388}, 
+series = {\abbrev{Lecture Notes in Computer Science}{LNCS}}, 
+volume = 7705, 
+publisher = {Springer}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/mechanized-semantics-aplas-cpp-2012.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/978-3-642-35182-2_27}, 
+xtopic = {mechsem}, 
+refereed = {no}, 
+abstract = {The formal verification of compilers and related programming tools 
+depends crucially on the availability of appropriate mechanized 
+semantics for the source, intermediate and target languages. In this 
+invited talk, I review various forms of operational semantics and 
+their mechanization, based on my experience with the formal 
+verification of the CompCert~C compiler.} 
+} 
+
+@inproceedings{Robert-Leroy-2012, 
+author = {Valentin Robert and Xavier Leroy}, 
+title = {A Formally-Verified Alias Analysis}, 
+booktitle = {Certified Programs and Proofs (CPP 2012)}, 
+year = 2012, 
+series = {\abbrev{Lecture Notes in Computer Science}{LNCS}}, 
+volume = 7679, 
+pages = {11-26}, 
+publisher = {Springer}, 
+urlpublisher = {http://dx.doi.org/10.1007/978-3-642-35308-6_5}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/alias-analysis.pdf}, 
+xtopic = {compcert}, 
+abstract = {This paper reports on the formalization and proof of soundness, using 
+the Coq proof assistant, of an alias analysis: a static analysis that 
+approximates the flow of pointer values. The alias analysis 
+considered is of the points-to kind and is intraprocedural, 
+flow-sensitive, field-sensitive, and untyped. Its soundness proof 
+follows the general style of abstract interpretation. 
+The analysis is designed to fit in the CompCert C verified compiler, 
+supporting future aggressive optimizations over memory accesses.} 
+} 
+
+@inproceedings{Jourdan-Pottier-Leroy, 
+author = {Jacques-Henri Jourdan and François Pottier and Xavier Leroy}, 
+title = {Validating {LR(1)} Parsers}, 
+booktitle = {Programming Languages and Systems -- 21st European Symposium on Programming, ESOP 2012}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/validated-parser.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/978-3-642-28869-2_20}, 
+year = 2012, 
+pages = {397--416}, 
+series = {\abbrev{Lecture Notes in Computer Science}{LNCS}}, 
+volume = 7211, 
+publisher = {Springer}, 
+xtopic = {compcert}, 
+abstract = { 
+An LR(1) parser is a finite-state automaton, equipped with a stack, 
+which uses a combination of its current state and one lookahead symbol 
+in order to determine which action to perform next. We present a 
+validator which, when applied to a context-free grammar G and an 
+automaton A, checks that A and G agree. This validation of the parser 
+provides the correctness guarantees required by verified compilers and 
+other high-assurance software that involves parsing. The validation 
+process is independent of which technique was used to construct A. The 
+validator is implemented and proved correct using the Coq proof 
+assistant. As an application, we build a formally-verified parser for 
+the C99 language.} 
+} 
+
+@inproceedings{Ramananandro-DosReis-Leroy-construction, 
+author = {Tahina Ramananandro and Gabriel {Dos Reis} and Xavier Leroy}, 
+title = {A Mechanized Semantics for {C++} Object Construction and Destruction, 
+with Applications to Resource Management}, 
+booktitle = {39th symposium Principles of Programming Languages}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/cpp-construction.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1145/2103656.2103718}, 
+pages = {521--532}, 
+year = 2012, 
+xtopic = {mechsem}, 
+publisher = {ACM Press}, 
+abstract = { 
+We present a formal operational semantics and its Coq mechanization 
+for the C++ object model, featuring object construction and 
+destruction, shared and repeated multiple inheritance, and virtual 
+function call dispatch. These are key C++ language features for 
+high-level system programming, in particular for predictable and 
+reliable resource management. This paper is the first to present a 
+formal mechanized account of the metatheory of construction and 
+destruction in C++, and applications to popular programming 
+techniques such as ``resource acquisition is initialization.'' We 
+also report on irregularities and apparent contradictions in the ISO 
+C++03 and C++11 standards.} 
+} 
+
+@inproceedings{Leroy-POPL11, 
+author = {Xavier Leroy}, 
+title = {Verified squared: does critical software deserve verified tools?}, 
+booktitle = {38th symposium Principles of Programming Languages}, 
+pages = {1--2}, 
+year = 2011, 
+publisher = {ACM Press}, 
+note = {Abstract of invited lecture}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/popl11-invited-talk.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1145/1926385.1926387}, 
+xtopic = {compcert}, 
+abstract = { 
+The formal verification of programs have progressed tremendously in 
+the last decade. Principled but once academic approaches such as 
+Hoare logic and abstract interpretation finally gave birth to quality 
+verification tools, operating over source code (and not just idealized 
+models thereof) and able to verify complex real-world applications. 
+In this talk, I review some of the obstacles that 
+remain to be lifted before source-level verification tools can be 
+taken really seriously in the critical software industry: not just as 
+sophisticated bug-finders, but as elements of absolute confidence in 
+the correctness of a critical application. 
+} 
+} 
+
+@inproceedings{Ramananandro-DosReis-Leroy-layout, 
+author = {Tahina Ramananandro and Gabriel {Dos Reis} and Xavier Leroy}, 
+title = {Formal verification of object layout for {C++} multiple inheritance}, 
+booktitle = {38th symposium Principles of Programming Languages}, 
+pages = {67--79}, 
+year = 2011, 
+publisher = {ACM Press}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/cpp-object-layout.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1145/1926385.1926395}, 
+year = 2011, 
+xtopic = {compcert}, 
+abstract = {Object layout --- the concrete in-memory representation of objects --- 
+raises many delicate issues in the case of the C++ language, owing 
+in particular to multiple inheritance, C compatibility and separate 
+compilation. This paper formalizes a family 
+of C++ object layout scheme and mechanically proves their correctness 
+against the operational semantics for multiple inheritance of Wasserrab 
+{\em et al}. This formalization is flexible enough to account for 
+space-saving techniques such as empty base class optimization and 
+tail-padding optimization. As an application, we obtain the first 
+formal correctness proofs for realistic, optimized object layout 
+algorithms, including one based on the popular GNU C++ application 
+binary interface. This work provides semantic foundations to discover 
+and justify new layout optimizations; it is also a first step towards 
+the verification of a C++ compiler front-end.} 
+} 
+
+@incollection{Leroy-Marktoberdorf-09, 
+author = {Xavier Leroy}, 
+title = {Mechanized semantics}, 
+booktitle = {Logics and languages for reliability and security}, 
+editors = {J. Esparza and B. Spanfelner and O. Grumberg}, 
+series = {NATO Science for Peace and Security Series D: Information and Communication Security}, 
+volume = 25, 
+pages = {195--224}, 
+publisher = {IOS Press}, 
+year = {2010}, 
+urllocal = {http://gallium.inria.fr/~xleroy/courses/Marktoberdorf-2009/notes.pdf}, 
+urlpublisher = {http://dx.doi.org/10.3233/978-1-60750-100-8-195}, 
+xtopic = {mechsem}, 
+abstract = {The goal of this lecture is to show how modern theorem provers---in 
+this case, the Coq proof assistant---can be used to mechanize the specification 
+of programming languages and their semantics, and to reason over 
+individual programs and over generic program transformations, 
+as typically found in compilers. The topics covered include: 
+operational semantics (small-step, big-step, definitional 
+interpreters); a simple form of denotational semantics; axiomatic 
+semantics and Hoare logic; generation of verification conditions, with 
+application to program proof; compilation to virtual machine code and 
+its proof of correctness; an example of an optimizing program 
+transformation (dead code elimination) and its proof of correctness.} 
+} 
+
+@inproceedings{Rideau-Leroy-regalloc, 
+author = {Silvain Rideau and Xavier Leroy}, 
+title = {Validating register allocation and spilling}, 
+booktitle = {Compiler Construction (CC 2010)}, 
+year = 2010, 
+publisher = {Springer}, 
+series = {\abbrev{Lecture Notes in Computer Science}{LNCS}}, 
+volume = 6011, 
+pages = {224-243}, 
+xtopic = {compcert}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/validation-regalloc.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/978-3-642-11970-5_13}, 
+abstract = {Following the translation validation approach to high-assurance 
+compilation, we describe a new algorithm for validating {\em a 
+posteriori} the results of a run of register allocation. The 
+algorithm is based on backward dataflow inference of 
+equations between variables, registers and stack locations, and can 
+cope with sophisticated forms of spilling and live range splitting, as 
+well as many forms of architectural irregularities such as overlapping 
+registers. The soundness of the algorithm was mechanically proved 
+using the Coq proof assistant.} 
+} 
+
+@article{Appel-Dockins-Leroy-listmachine, 
+author = {Andrew W. Appel and Robert Dockins and Xavier Leroy}, 
+title = {A list-machine benchmark for mechanized metatheory}, 
+journal = {\abbrev{Journal of Automated Reasoning}{J. Autom. Reasoning}}, 
+year = 2012, 
+volume = 49, 
+number = 3, 
+pages = {453--491}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/listmachine-journal.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/s10817-011-9226-1}, 
+xtopic = {mechsem}, 
+abstract = {We propose a benchmark to compare theorem-proving systems 
+on their ability to express proofs of compiler correctness. 
+In contrast to the first POPLmark, we emphasize the connection 
+of proofs to compiler implementations, and we point out 
+that much can be done without binders or alpha-conversion. 
+We propose specific criteria for evaluating the utility 
+of mechanized metatheory systems; we have constructed 
+solutions in both Coq and Twelf metatheory, and 
+we draw conclusions about those two systems in particular.} 
+} 
+
+@inproceedings{Tristan-Leroy-softpipe, 
+author = {Jean-Baptiste Tristan and Xavier Leroy}, 
+title = {A simple, verified validator for software pipelining}, 
+booktitle = {37th symposium Principles of Programming Languages}, 
+pages = {83--92}, 
+publisher = {ACM Press}, 
+year = 2010, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/validation-softpipe.pdf}, 
+urlpublisher = {http://doi.acm.org/10.1145/1706299.1706311}, 
+xtopic = {compcert}, 
+abstract = { Software pipelining is a loop optimization that overlaps the 
+execution of several iterations of a loop to expose more 
+instruction-level parallelism. It can result in first-class 
+performances characteristics, but at the cost of significant 
+obfuscation of the code, making this optimization difficult to test 
+and debug. In this paper, we present a translation validation 
+algorithm that uses symbolic evaluation to detect semantics 
+discrepancies between a loop and its pipelined version. Our 
+algorithm can be implemented simply and efficiently, is provably 
+sound, and appears to be complete with respect to most modulo 
+scheduling algorithms. A conclusion of this case study is that it is 
+possible and effective to use symbolic evaluation to reason about 
+loop transformations.} 
+} 
+
+@article{Leroy-Compcert-CACM, 
+author = {Xavier Leroy}, 
+title = {Formal verification of a realistic compiler}, 
+journal = {\abbrev{Communications of the ACM}{Comm. ACM}}, 
+year = 2009, 
+volume = 52, 
+number = 7, 
+pages = {107--115}, 
+xtopic = {compcert}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/compcert-CACM.pdf}, 
+urlpublisher = {http://doi.acm.org/10.1145/1538788.1538814}, 
+urlauthorizer = {http://dl.acm.org/authorize?187014}, 
+abstract = {This paper reports on the development and formal verification (proof 
+of semantic preservation) of CompCert, a compiler from Clight (a 
+large subset of the C programming language) to PowerPC assembly code, 
+using the Coq proof assistant both for programming the compiler and 
+for proving its correctness. Such a verified compiler is useful in 
+the context of critical software and its formal verification: the 
+verification of the compiler guarantees that the safety properties 
+proved on the source code hold for the executable compiled code as 
+well.} 
+} 
+
+@article{Dargaye-Leroy-uncurrying, 
+author = {Zaynah Dargaye and Xavier Leroy}, 
+title = {A verified framework for higher-order uncurrying optimizations}, 
+journal = {Higher-Order and Symbolic Computation}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/higher-order-uncurrying.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/s10990-010-9050-z}, 
+year = 2009, 
+volume = 22, 
+number = 3, 
+pages = {199--231}, 
+xtopic = {compcert}, 
+abstract = {Function uncurrying is an important optimization for the efficient 
+execution of functional programming languages. This optimization 
+replaces curried functions by uncurried, multiple-argument functions, 
+while preserving the ability to evaluate partial applications. 
+First-order uncurrying (where curried functions are optimized only in 
+the static scopes of their definitions) is well understood and 
+implemented by many compilers, but its extension to higher-order 
+functions (where uncurrying can also be performed on 
+parameters and results of higher-order functions) is challenging. 
+This article develops a generic framework that expresses higher-order 
+uncurrying optimizations as type-directed insertion of coercions, and 
+prove its correctness. The proof uses step-indexed logical relations 
+and was entirely mechanized using the Coq proof assistant.} 
+} 
+
+@inproceedings{Tristan-Leroy-LCM, 
+author = {Jean-Baptiste Tristan and Xavier Leroy}, 
+title = {Verified Validation of {Lazy} {Code} {Motion}}, 
+booktitle = {Programming Language Design and Implementation 2009}, 
+year = 2009, 
+publisher = {ACM Press}, 
+pages = {316--326}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/validation-LCM.pdf}, 
+urlpublisher = {http://doi.acm.org/10.1145/1542476.1542512}, 
+xtopic = {compcert}, 
+abstract = { Translation validation establishes a posteriori the 
+correctness of a run of a compilation pass or other program 
+transformation. In this paper, we develop an efficient translation 
+validation algorithm for the Lazy Code Motion (LCM) optimization. 
+LCM is an interesting challenge for validation because it is a 
+global optimization that moves code across loops. Consequently, 
+care must be taken not to move computations that may fail before 
+loops that may not terminate. Our validator includes a specific 
+check for anticipability to rule out such incorrect moves. 
+We present a mechanically-checked proof of correctness of the 
+validation algorithm, using the Coq proof assistant. 
+Combining our validator with an unverified implementation of LCM, we 
+obtain a LCM pass that is provably semantics-preserving and 
+was integrated in the CompCert formally verified compiler.} 
+} 
+
+@article{Blazy-Leroy-Clight-09, 
+author = {Sandrine Blazy and Xavier Leroy}, 
+title = {Mechanized semantics for the {Clight} 
+subset of the {C} language}, 
+year = 2009, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/Clight.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/s10817-009-9148-3}, 
+journal = {\abbrev{Journal of Automated Reasoning}{J. Autom. Reasoning}}, 
+volume = 43, 
+number = 3, 
+pages = {263-288}, 
+xtopic = {mechsem}, 
+abstract = {This article presents the formal semantics of a large subset of the C 
+language called Clight. Clight includes pointer arithmetic, 
+struct and union types, C loops and structured switch 
+statements. Clight is the source language of the CompCert 
+verified compiler. The formal semantics of Clight is a big-step 
+semantics equipped with traces of input/output events that observes 
+both terminating and diverging executions. The formal semantics of 
+Clight is mechanized using the Coq proof assistant. In addition 
+to the semantics of Clight, this article describes its integration 
+in the CompCert verified compiler and several ways by which the 
+semantics was validated.} 
+} 
+
+@article{Leroy-backend, 
+author = {Xavier Leroy}, 
+title = {A formally verified compiler back-end}, 
+journal = {\abbrev{Journal of Automated Reasoning}{J. Autom. Reasoning}}, 
+volume = 43, 
+number = 4, 
+pages = {363--446}, 
+year = 2009, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/compcert-backend.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/s10817-009-9155-4}, 
+xtopic = {compcert}, 
+abstract = { 
+This article describes the development and formal verification (proof 
+of semantic preservation) of a compiler back-end from Cminor (a simple 
+imperative intermediate language) to PowerPC assembly code, using the 
+Coq proof assistant both for programming the compiler and for proving 
+its correctness. Such a verified compiler is useful in the context of 
+formal methods applied to the certification of critical software: the 
+verification of the compiler guarantees that the safety properties 
+proved on the source code hold for the executable compiled code as 
+well. (Much extended and revised version of \cite{Leroy-compcert-06}.)} 
+} 
+
+@article{Leroy-Blazy-memory-model, 
+author = {Xavier Leroy and Sandrine Blazy}, 
+title = {Formal verification of a {C}-like memory model 
+and its uses for verifying program transformations}, 
+journal = {\abbrev{Journal of Automated Reasoning}{J. Autom. Reasoning}}, 
+year = {2008}, 
+volume = 41, 
+number = 1, 
+pages = {1--31}, 
+xtopic = {mechsem}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/memory-model-journal.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/s10817-008-9099-0}, 
+abstract = { 
+This article presents the formal verification, using the Coq proof 
+assistant, of a memory model for low-level imperative languages such 
+as C and compiler intermediate languages. Beyond giving semantics 
+to pointer-based programs, this model supports reasoning over 
+transformations of such programs. We show how the properties of the 
+memory model are used to prove semantic preservation for three passes 
+of the Compcert verified compiler.} 
+} 
+
+@article{Rideau-Serpette-Leroy-parmov, 
+author = {Laurence Rideau and Bernard P. Serpette and 
+Xavier Leroy}, 
+title = {Tilting at windmills with {Coq}: 
+formal verification of a compilation algorithm 
+for parallel moves}, 
+journal = {\abbrev{Journal of Automated Reasoning}{J. Autom. Reasoning}}, 
+year = {2008}, 
+volume = 40, 
+number = 4, 
+pages = {307--326}, 
+xtopic = {compcert}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/parallel-move.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/s10817-007-9096-8}, 
+abstract = { 
+This article describes the formal verification of a compilation algorithm 
+that transforms parallel moves (parallel assignments between variables) 
+into a semantically-equivalent sequence of elementary moves. 
+Two different specifications of the algorithm are given: an inductive 
+specification and a functional one, each with its correctness proofs. 
+A functional program can then be extracted and integrated in the 
+Compcert verified compiler.} 
+} 
+
+@article{Leroy-Grall-coindsem, 
+author = {Xavier Leroy and Hervé Grall }, 
+title = {Coinductive big-step operational semantics}, 
+journal = {\abbrev{Information and Computation}{Inf. and Comp.}}, 
+volume = 207, 
+number = 2, 
+pages = {284--304}, 
+year = 2009, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/coindsem-journal.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1016/j.ic.2007.12.004}, 
+abstract = {Using a call-by-value functional language as an example, this article 
+illustrates the use of coinductive definitions and proofs in big-step 
+operational semantics, enabling it to describe diverging evaluations 
+in addition to terminating evaluations. We formalize the connections 
+between the coinductive big-step semantics and the standard small-step 
+semantics, proving that both semantics are equivalent. We then study 
+the use of coinductive big-step semantics in proofs of type soundness 
+and proofs of semantic preservation for compilers. 
+A methodological originality of this paper is that all results 
+have been proved using the Coq proof assistant. We explain the 
+proof-theoretic presentation of coinductive definitions and proofs 
+offered by Coq, and show that it facilitates the discovery and the 
+presentation of the results. (See 
+\verb|http://gallium.inria.fr/~xleroy/coindsem/| 
+for the Coq on-machine formalization of these results.)}, 
+xtopic = {mechsem} 
+} 
+
+@inproceedings{Tristan-Leroy-scheduling, 
+author = {Jean-Baptiste Tristan and Xavier Leroy}, 
+title = {Formal verification of translation validators: 
+A case study on instruction scheduling optimizations}, 
+booktitle = {35th symposium Principles of Programming Languages}, 
+pages = {17--27}, 
+publisher = {ACM Press}, 
+year = 2008, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/validation-scheduling.pdf}, 
+urlpublisher = {http://doi.acm.org/10.1145/1328897.1328444}, 
+xtopic = {compcert}, 
+abstract = {Translation validation consists of transforming a program and a 
+posteriori validating it in order to detect a modification of its 
+semantics. This approach can be used in a verified compiler, provided 
+that validation is formally proved to be correct. We present two such 
+validators and their Coq proofs of correctness. The validators are 
+designed for two instruction scheduling optimizations: list 
+scheduling and trace scheduling.} 
+} 
+
+@inproceedings{Dargaye-Leroy-CPS, 
+author = {Zaynah Dargaye and Xavier Leroy}, 
+title = {Mechanized verification of {CPS} transformations}, 
+booktitle = {Logic for Programming, 
+Artificial Intelligence and Reasoning, 
+14th Int. Conf. LPAR 2007}, 
+year = 2007, 
+series = {Lecture Notes in Artificial Intelligence}, 
+volume = 4790, 
+publisher = {Springer}, 
+pages = {211--225}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/cps-dargaye-leroy.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/978-3-540-75560-9_17}, 
+xtopic = {compcert}, 
+abstract = { 
+Transformation to continuation-passing style (CPS) is often performed 
+by optimizing compilers for functional programming languages. As part 
+of the development and proof of correctness of a compiler for the 
+mini-ML functional language, we have mechanically verified the 
+correctness of two CPS transformations for a call-by-value 
+$\lambda$-calculus with $n$-ary functions, recursive functions, data 
+types and pattern-matching. The transformations generalize Plotkin's 
+original call-by-value transformation and Danvy and Nielsen's 
+optimized transformation, respectively. We used the Coq proof 
+assistant to formalize the transformations and conduct and check the 
+proofs. Originalities of this work include the use of big-step 
+operational semantics to avoid difficulties with administrative 
+redexes, and of two-sorted de Bruijn indices to avoid difficulties 
+with $\alpha$-conversion.} 
+} 
+
+@techreport{Leroy-POPLmark, 
+author = {Xavier Leroy}, 
+title = {A locally nameless solution to the {POPLmark} challenge}, 
+year = {2007}, 
+month = jan, 
+institution = {INRIA}, 
+number = {6098}, 
+type = {\biling{Research report}{Rapport de recherche}}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/POPLmark-locally-nameless.pdf}, 
+urlpublisher = {http://hal.inria.fr/inria-00123945}, 
+xtopic = {mechsem}, 
+abstract = { 
+The POPLmark challenge is a collective experiment intended to assess 
+the usability of theorem provers and proof assistants in the context 
+of fundamental research on programming languages. In this report, 
+we present a solution to the challenge, developed with the Coq proof 
+assistant, and using the ``locally nameless'' presentation of terms with 
+binders introduced by McKinna, Pollack, Gordon, and McBride.} 
+} 
+
+@inproceedings{Blazy-Dargaye-Leroy-06, 
+author = {Sandrine Blazy and Zaynah Dargaye and Xavier Leroy}, 
+title = {Formal Verification of a {C} Compiler Front-End}, 
+booktitle = {FM 2006: Int. Symp. on Formal Methods}, 
+series = {\abbrev{Lecture Notes in Computer Science}{LNCS}}, 
+publisher = {Springer}, 
+volume = 4085, 
+year = 2006, 
+pages = {460--475}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/cfront.pdf}, 
+urlpublisher = {http://dx.doi.org/10.1007/11813040_31}, 
+abstract = {This paper presents the formal verification of a compiler front-end 
+that translates a subset of the C language into the Cminor 
+intermediate language. The semantics of the source and target 
+languages as well as the translation between them have been written in 
+the specification language of the Coq proof assistant. The proof of 
+observational semantic equivalence between the source and generated 
+code has been machine-checked using Coq. An executable compiler was 
+obtained by automatic extraction of executable Caml code from the Coq 
+specification of the translator, combined with a certified compiler 
+back-end generating PowerPC assembly code from Cminor, described in 
+previous work.}, 
+xtopic = {compcert} 
+} 
+
+@inproceedings{Leroy-compcert-06, 
+author = {Xavier Leroy}, 
+title = {Formal certification of a compiler back-end, or: 
+programming a compiler with a proof assistant}, 
+booktitle = {33rd symposium Principles of Programming Languages}, 
+year = 2006, 
+publisher = {ACM Press}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/compiler-certif.pdf}, 
+urlpublisher = {http://doi.acm.org/10.1145/1111037.1111042}, 
+pages = {42--54}, 
+abstract = {This paper reports on the development and formal certification (proof 
+of semantic preservation) of a compiler from Cminor (a C-like 
+imperative language) to PowerPC assembly code, using the Coq proof 
+assistant both for programming the compiler and for proving its 
+correctness. Such a certified compiler is useful in the context of 
+formal methods applied to the certification of critical software: the 
+certification of the compiler guarantees that the safety properties 
+proved on the source code hold for the executable compiled code as well.}, 
+xtopic = {compcert} 
+} 
+
+@inproceedings{Bertot-Gregoire-Leroy-05, 
+author = {Yves Bertot and Benjamin Grégoire and Xavier Leroy}, 
+title = {A structured approach to proving compiler 
+optimizations based on dataflow analysis}, 
+booktitle = {Types for Proofs and Programs, Workshop TYPES 2004}, 
+year = 2006, 
+series = {\abbrev{Lecture Notes in Computer Science}{LNCS}}, 
+volume = 3839, 
+pages = {66--81}, 
+publisher = {Springer}, 
+urllocal = {http://gallium.inria.fr/~xleroy/publi/proofs_dataflow_optimizations.pdf}, 
+urlpublisher = {http://www.springerlink.com/openurl.asp?genre=article&id=doi:10.1007/11617990_5}, 
+abstract = { 
+This paper reports on the correctness proof of compiler optimizations 
+based on data-flow analysis. We formulate the optimizations and 
+analyses as instances of a general framework for data-flow analyses and 
+transformations, and prove that the optimizations preserve the 
+behavior of the compiled programs. This development is a part of a 
+larger effort of certifying an optimizing compiler by proving semantic 
+equivalence between source and compiled code.}, 
+xtopic = {compcert} 
+} 
+
+ Jay McCarthy and Shriram Krishnamurthi. “Trusted Multiplexing of Cryptographic Protocols". International Workshop on Formal Aspects in Security and Trust, 2009. (PDF) (Code) 
+
+Jay McCarthy and Shriram Krishnamurthi. “Cryptographic Protocol Explication and End-Point Projection". European Symposium on Research in Computer Security, 2008. (PDF) (Code) 
+
+Jay McCarthy and Shriram Krishnamurthi. “Minimal Backups of Cryptographic Protocol Runs". Formal Methods in Security Engineering, 2008. (PDF) (Code 
+
+--- 
+
+Two papers are TBA.
+ @InProceedings{ZNMZ13, 
+author = {Jianzhou Zhao and Santosh Nagarakatte and Milo M. K. Martin and Steve Zdancewic}, 
+Title = {Formal Verification of {SSA}-Based Optimizations for {LLVM}}, 
+booktitle = {Proc. 2013 {ACM} SIGPLAN Conference on Programming Languages Design and Implementation (PLDI)}, 
+year = 2013, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/ZNMZ13.pdf", 
+abstract = " 
+Modern compilers, such as LLVM and GCC, use a \emph{static single assignment} 
+(SSA) intermediate representation (IR) to simplify and enable many advanced 
+optimizations. However, formally verifying the correctness of SSA-based 
+optimizations is challenging because SSA properties depend on a function's 
+entire control-flow graph. 
+
+This paper addresses this challenge by developing a proof technique 
+for proving SSA-based program invariants and compiler optimizations. 
+We use this technique in the Coq proof assistant to create 
+mechanized correctness proofs of several ``micro'' transformations 
+that form the building blocks for larger SSA optimizations. To demonstrate 
+the utility of this approach, we formally verify a variant of LLVM's 
+\memtoreg transformation in \Vellvm, a Coq-based formal 
+semantics of the LLVM IR. The extracted implementation generates code with performance 
+comparable to that of LLVM's unverified implementation." 
+} 
+
+@InProceedings{ZZ12, 
+author = {Jianzhou Zhao and Steve Zdancewic}, 
+title = {Mechanized Verification of Computing Dominators for Formalizing Compilers}, 
+booktitle = {The Second International Conference on Certified Programs and Proofs (CPP)}, 
+series	= lncs, 
+pages	 = {27--42}, 
+year = 2012, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/ZZ12.pdf", 
+abstract = " 
+One prerequisite to the formal verification of modern compilers is to formalize 
+computing dominators, which enable SSA forms, advanced optimizations, and 
+analysis. This paper provides an abstract specification of dominance 
+analysis that is sufficient for formalizing modern compilers; it describes a 
+certified implementation and instance of the specification that is simple to 
+design and reason about, and also reasonably efficient. The paper also presents 
+applications of dominance analysis: an SSA-form type checker, verifying 
+SSA-based optimizations, and constructing dominator trees. This development is a 
+part of the Vellvm project. All proofs and implementation have been carried 
+out in Coq." 
+} 
+
+@InProceedings{ZNMZ12, 
+author = {Jianzhou Zhao and Santosh Nagarakatte and Milo M.~K. Martin and Steve Zdancewic}, 
+title = {Formalizing the LLVM Intermediate Representation for Verified 
+Program Transformations},
+booktitle = {Proc. of the {ACM} Symposium on Principles of Programming Languages (POPL)}, 
+year = 2012, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/ZNMZ12.pdf", 
+abstract = " 
+This paper presents Vellvm (\textit{verified LLVM}), a framework 
+for reasoning about programs expressed in LLVM's intermediate 
+representation and transformations that operate on it. Vellvm 
+provides a mechanized formal semantics of LLVM's intermediate 
+representation, its type system, and properties of its SSA form. 
+The framework is built using the Coq interactive theorem prover. 
+It includes multiple operational semantics and proves relations among 
+them to facilitate different reasoning styles and proof 
+techniques. 
+
+To validate Vellvm's design, we extract an interpreter from the Coq 
+formal semantics that can execute programs from LLVM test suite and 
+thus be compared against LLVM reference implementations. 
+To demonstrate Vellvm's practicality, we formalize and verify a 
+previously proposed transformation that hardens C programs against 
+spatial memory safety violations. Vellvm's tools allow us to extract 
+a new, verified implementation of the transformation pass that plugs 
+into the real LLVM infrastructure; its performance is competitive with 
+the non-verified, ad-hoc original. 
+" 
+} 
+
+@InProceedings{ZZZ10, 
+author = {Jianzhou Zhao and Qi Zhang and Steve Zdancewic}, 
+title = {Relational Parametricity for Polymorphic Linear Lambda Calculus}, 
+booktitle = {Proceedings of the Eighth {ASIAN} Symposium on Programming Languages and Systems (APLAS)}, 
+year = 2010, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/ZZZ10.pdf", 
+abstract = " 
+This paper presents a novel syntactic logical relation for a polymorphic 
+linear lambda-calculus that treats all types as linear and introduces the 
+constructor ! to account for intuitionistic terms, and Fo---an 
+extension of System F that uses kinds to distinguish linear from intuitionistic 
+types. We define a logical relation for open values under both open linear and 
+intuitionistic contexts, then extend it for open terms with evaluation and 
+open relation substitutions. Relations that instantiate type quantifiers are 
+for open terms and types. We demonstrate the applicability of this logical 
+relation through its soundness with respect to contextual equivalence, along 
+with free theorems for linearity that are difficult to achieve by closed 
+logical relations. When interpreting types on only closed terms, the model 
+defaults to a closed logical relation that is both sound and complete with 
+respect to contextual equivalence and is sufficient to reason about 
+isomorphisms of type encodings. All of our results have been mechanically 
+verified in Coq. 
+" 
+} 
+
+@inproceedings{MZZ10, 
+author = {Karl Mazurak and 
+Jianzhou Zhao and 
+Steve Zdancewic}, 
+title = {Lightweight linear types in {System} {F}$^{\circ}$}, 
+booktitle = {ACM SIGPLAN International Workshop on Types in Languages Design and Implementation (TLDI)}, 
+year = 2010, 
+pages = {77-88}, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/MZZ10.pdf", 
+abstract = " 
+We present F$^{\circ}$, an extension of System F that uses 
+\emph{kinds} to distinguish between linear and unrestricted types, 
+simplifying the use of linearity for general-purpose programming. We 
+demonstrate through examples how F$^{\circ}$ can elegantly express many 
+useful protocols, and we prove that any protocol representable 
+as a DFA can be encoded as an F$^{\circ}$ type. We supply 
+mechanized proofs of F$^{\circ}$'s 
+soundness and parametricity properties, along with a 
+nonstandard operational semantics that formalizes common intuitions 
+about linearity and aids in reasoning about protocols. 
+
+We compare F$^{\circ}$ to other linear systems, noting that the simplicity of our 
+kind-based approach leads to a more explicit account of what linearity 
+is meant to capture, allowing otherwise-conflicting interpretations of 
+linearity (in particular, restrictions on \emph{aliasing} versus 
+restrictions on resource \emph{usage}) to coexist peacefully. 
+We also discuss extensions to F$^{\circ}$ aimed at making the 
+core language more practical, including the additive fragment of 
+linear logic, algebraic datatypes, and recursion. 
+" 
+} 
+
+
+@InProceedings{BPSW+09, 
+author = {Aaron Bohannon and Benjamin C. Pierce and Vilhelm Sj\"oberg and Stephanie Weirich and Steve Zdancewic}, 
+title = {Reactive Noninterference}, 
+booktitle = {ACM Computer and Communications Security Conference (CCS)}, 
+year = 2009, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/BPSW+09.pdf", 
+abstract = " 
+Many programs operate reactively---patiently waiting for user input, running 
+for a while producing output, and eventually returning to a state where they 
+are ready to accept another input (or occasionally diverging). When a 
+reactive program communicates with multiple parties, we would like to be 
+sure that it can be given secret information by one without leaking it to 
+others. 
+
+Motivated by web browsers and client-side web applications, 
+we explore definitions of noninterference for reactive programs and 
+identify two of special interest---one corresponding to 
+termination-insensitive noninterference for a simple sequential language, 
+the other to termination-sensitive noninterference. We focus on the former 
+and develop a proof technique for showing that program behaviors are secure 
+according to this definition. To demonstrate the viability of the approach, 
+we define a simple reactive language with an information-flow type system 
+and apply our proof technique to show that well-typed programs are secure. 
+" 
+} 
+
+@InProceedings{JVMZ+08, 
+author = {Limin Jia and Jeffrey A. Vaughan and Karl Mazurak and 
+Jianzhou Zhao and Luke Zarko and Joseph Schorr and Steve Zdancewic}, 
+title = {{AURA}: {A} Programming Language for Authorization and Audit},
+booktitle = {Proc. of the 13th ACM SIGPLAN International Conference on 
+Functional Programming (ICFP)}, 
+year =	 2008, 
+address =	 {Victoria, British Columbia, Canada}, 
+month =	 sep, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/JVMZ08.pdf", 
+abstract = " 
+This paper presents AURA, a programming language for access control that 
+treats ordinary programming constructs (e.g., integers and recursive functions) 
+and authorization logic constructs (e.g., principals and access control 
+policies) in a uniform way. 
+AURA is based on polymorphic DCC and uses dependent types to 
+permit assertions that refer directly to AURA values while keeping 
+computation out of the assertion level to ensure tractability. 
+The main technical results of this paper include fully mechanically 
+verified proofs of the decidability and soundness 
+for AURA's type system, and a prototype typechecker and interpreter. 
+" 
+} 
+
+@InProceedings{VJMZ08, 
+author = {Jeffrey A. Vaughan and Limin Jia and Karl Mazurak and 
+Steve Zdancewic}, 
+title = {Evidence-based Audit}, 
+booktitle = {Proc. of 21st IEEE Computer Security Foundations Symposium (CSF)}, 
+pages =	 "177--191", 
+year =	 2008, 
+publisher =	 ieee, 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/VJMZ08.pdf", 
+abstract = " 
+Authorization logics provide a principled and flexible approach to 
+specifying access control policies. One of their compelling benefits 
+is that a proof in the logic is \emph{evidence} that an access-control 
+decision has been made in accordance with policy. Using such proofs 
+for auditing reduces the trusted computing base and enables the ability to 
+detect flaws in complex authorization policies. Moreover, the proof 
+structure is itself useful, because proof 
+normalization can yield information about the relevance of policy 
+statements. Untrusted, but well-typed, applications that access 
+resources through an appropriate interface must obey the access 
+control policy and create proofs useful for audit. 
+
+This paper presents AURA, an authorization logic based on a 
+dependently-typed variant of DCC and proves the metatheoretic 
+properties of subject-reduction and normalization. It shows the 
+utility of proof-based auditing in a number of examples and discusses 
+several pragmatic issues that must be addressed in this context. 
+" 
+} 
+
+@InProceedings{ABFF05, 
+author = {Brian E. Aydemir and 
+Aaron Bohannon and 
+Matthew Fairbairn and 
+J. Nathan Foster and 
+Benjamin C. Pierce and 
+Peter Sewell and 
+Dimitrios Vytiniotis and 
+Geoffrey Washburn and 
+Stephanie Weirich and 
+Steve Zdancewic}, 
+title = {Mechanized Metatheory for the Masses: The POPLMark Challenge}, 
+booktitle =	 {International Conference on Theorem Proving in Higher Order Logics (TPHOLs)}, 
+year =	 2005, 
+pages = "50--65", 
+pdf = "http://www.cis.upenn.edu/~stevez/papers/ABFF05.pdf", 
+
+abstract = " How close are we to a world where every paper on 
+programming languages is accompanied by an electronic appendix with 
+machine-checked proofs? 
+
+We propose an initial set of benchmarks for measuring progress in 
+this area. Based on the metatheory of System F-Sub, a typed 
+lambda-calculus with second-order polymorphism, subtyping, and 
+records, these benchmarks embody many aspects of programming 
+languages that are challenging to formalize: variable binding at 
+both the term and type levels, syntactic forms with variable numbers 
+of components (including binders), and proofs demanding complex 
+induction principles. We hope that these benchmarks will help 
+clarify the current state of the art, provide a basis for comparing 
+competing technologies, and motivate further research. " 
+}
+ 
+ @article{kennedy2012every, 
+title={Every bit counts: The binary representation of typed data and programs}, 
+author={Kennedy, Andrew J and Vytiniotis, Dimitrios}, 
+journal={Journal of Functional Programming}, 
+volume={22}, 
+number={4-5}, 
+pages={529--573}, 
+year={2012}, 
+publisher={Cambridge University Press, The Edinburgh Building, Cambridge CB 2 2 RU United Kingdom} 
+} 
+
+@inproceedings{atkey2013abstraction, 
+title={Abstraction and invariance for algebraically indexed types}, 
+author={Atkey, Robert and Johann, Patricia and Kennedy, Andrew}, 
+booktitle={Proceedings of the 40th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages}, 
+pages={87--100}, 
+year={2013}, 
+organization={ACM} 
+} 
+
+@inproceedings{jensen2013high, 
+title={High-level separation logic for low-level code}, 
+author={Jensen, Jonas B and Benton, Nick and Kennedy, Andrew}, 
+booktitle={Proceedings of the 40th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages}, 
+pages={301--314}, 
+year={2013}, 
+organization={ACM} 
+} 
+
+@inproceedings{kennedy2013coq, 
+title={Coq: the world's best macro assembler?}, 
+author={Kennedy, Andrew and Benton, Nick and Jensen, Jonas B and Dagand, Pierre-Evariste}, 
+booktitle={Proceedings of the 15th Symposium on Principles and Practice of Declarative Programming}, 
+pages={13--24}, 
+year={2013}, 
+organization={ACM} 
+} 
+
+@article{benton2012strongly, 
+title={Strongly typed term representations in Coq}, 
+author={Benton, Nick and Hur, Chung-Kil and Kennedy, Andrew J and McBride, Conor}, 
+journal={Journal of Automated Reasoning}, 
+volume={49}, 
+number={2}, 
+pages={141--159}, 
+year={2012}, 
+publisher={Springer Netherlands} 
+} 
+
+@incollection{benton2009some, 
+title={Some domain theory and denotational semantics in Coq}, 
+author={Benton, Nick and Kennedy, Andrew and Varming, Carsten}, 
+booktitle={Theorem Proving in Higher Order Logics}, 
+pages={115--130}, 
+year={2009}, 
+publisher={Springer Berlin Heidelberg} 
+} 
+
+@inproceedings{benton2007relational, 
+title={Relational semantics for effect-based program transformations with dynamic allocation}, 
+author={Benton, Nick and Kennedy, Andrew and Beringer, Lennart and Hofmann, Martin}, 
+booktitle={Proceedings of the 9th ACM SIGPLAN international conference on Principles and practice of declarative programming}, 
+pages={87--96}, 
+year={2007}, 
+organization={ACM} 
+} 
+
+@inproceedings{benton2009relational, 
+title={Relational semantics for effect-based program transformations: Higher-order store}, 
+author={Benton, Nick and Kennedy, Andrew and Beringer, Lennart and Hofmann, Martin}, 
+booktitle={Proceedings of the 11th ACM SIGPLAN conference on Principles and practice of declarative programming}, 
+pages={301--312}, 
+year={2009}, 
+organization={ACM} 
+} 
+
+@incollection{benton2006reading, 
+title={Reading, writing and relations}, 
+author={Benton, Nick and Kennedy, Andrew and Hofmann, Martin and Beringer, Lennart}, 
+booktitle={Programming Languages and Systems}, 
+pages={114--130}, 
+year={2006}, 
+publisher={Springer Berlin Heidelberg} 
+} 
+
+
+
+
+ none yet
+ @inproceedings{conf/lics/AwodeyGS12, 
+added-at = {2012-09-07T00:00:00.000+0200}, 
+author = {Awodey, Steven and Gambino, Nicola and Sojakova, Kristina}, 
+biburl = {http://www.bibsonomy.org/bibtex/2a4d94a7e9197704741e2e93b48eb173c/dblp}, 
+booktitle = {LICS}, 
+crossref = {conf/lics/2012}, 
+ee = {http://dx.doi.org/10.1109/LICS.2012.21}, 
+interhash = {1fc76c9620b3db404774749da1156d9e}, 
+intrahash = {a4d94a7e9197704741e2e93b48eb173c}, 
+isbn = {978-1-4673-2263-8}, 
+keywords = {dblp}, 
+pages = {95-104}, 
+publisher = {IEEE}, 
+timestamp = {2012-09-07T00:00:00.000+0200}, 
+title = {Inductive Types in Homotopy Type Theory.}, 
+url = {http://dblp.uni-trier.de/db/conf/lics/lics2012.html#AwodeyGS12}, 
+year = 2012 
+}
+ @article{PVW1, 
+
+AUTHOR={Pelayo, A. and Voevodsky, V. and Warren, M. A.}, 
+TITLE={A preliminary univalent formalization of the p-adic numbers}, 
+JOURNAL={Submitted to Mathematical Structures in Computer Science (arXiv:1302.1207)}, 
+YEAR={2013}, 
+} 
+
+
+@article{VUFlib, 
+
+AUTHOR={Vladimir Voevodsky}, 
+TITLE={Experimental library of univalent formalization of mathematics}, 
+JOURNAL={Submitted to Mathematical Structures in Computer Science}, 
+YEAR={2013}, 
+} 
+ - Sylvie Boldo, François Clément, Jean-Christophe Filliâtre, Micaela Mayero, Guillaume Melquiond, and Pierre Weis. Wave equation numerical resolution: a comprehensive mechanized proof of a c program. J. Autom. Reasoning, 50(4):423-456, 2013. 
+
+- Erik Martin-Dorel, Micaela Mayero, Ioana Pasca, Laurence Rideau, and Laurent Théry. Certified, Efficient and Sharp Univariate Taylor Models in Coq. In Proceedings of SYNASC 2012 (International Symposium on Symbolic and Numeric Algorithms for Scientific Computing), 2013. To appear. 
+
+- Nicolas Brisebarre, Mioara Joldes, Erik Martin-Dorel, Micaela Mayero, Jean-Michel Muller, Ioana Pasca, Laurence Rideau, and Laurent Théry. Rigorous Polynomial Approximations using Taylor Models in Coq. In Proceedings of NFM 2012 (Nasa Formal Methods), volume 7226, pages 85-99. Springer-Verlag LNCS, 2012. 
+ Rely-Guarantee References for Refinement Types over Aliased Mutable Data. 
+In Proceedings of the 34th ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI'13), Seattle, WA, USA. June 2013. 
+Colin S. Gordon, Michael D. Ernst, and Dan Grossman.
+ %% inria-00432810, version 2 
+%% http://hal.inria.fr/inria-00432810 
+%% 
+
+@article{magaud:inria-00432810, 
+AUTHOR = {Magaud, Nicolas and Narboux, Julien and Schreck, Pascal}, 
+TITLE = {A Case Study in Formalizing Projective Geometry in Coq: Desargues Theorem},
+JOURNAL = {Computational Geometry : Theory and Applications},
+PUBLISHER = {Elsevier}, 
+NOTE = {page : to appear}, 
+YEAR = {2012}, 
+KEYWORDS = {formalization, projective geometry, Coq, rank, desargues, hessenberg, hexamy}, 
+DOI = {10.1016/j.comgeo.2010.06.004}, 
+URL = {http://hal.inria.fr/inria-00432810} 
+} 
+%% hal-00426563, version 2 
+%% http://hal.inria.fr/hal-00426563 
+%% 
+
+@article{janicic:hal-00426563, 
+AUTHOR = {Janicic, Predrag and Narboux, Julien and Quaresma, Pedro}, 
+TITLE = {The Area Method : a Recapitulation},
+JOURNAL = {Journal of Automated Reasoning},
+VOLUME = {48}, 
+NUMBER = {4}, 
+PAGES = {489-532}, 
+YEAR = {2012}, 
+KEYWORDS = {Coq; area method; formalization, automatic reasoning; geometry}, 
+DOI = {10.1007/s10817-010-9209-7}, 
+URL = {http://hal.inria.fr/hal-00426563} 
+} 
+%% hal-00655485, version 1 
+%% http://hal.inria.fr/hal-00655485 
+%% 
+
+@inproceedings{cuervoparrino:hal-00655485, 
+AUTHOR = {Cuervo Parrino, Bruno and Narboux, Julien and Violard, Eric and Magaud, Nicolas}, 
+TITLE = {Dealing with arithmetic overflows in the polyhedral model},
+YEAR = {2012}, 
+MONTH = Jan, 
+EDITOR = {Uday Bondhugula and Vincent Loechner}, 
+BOOKTITLE = {IMPACT 2012 - 2nd International Workshop on Polyhedral Compilation Techniques},
+ORGANIZATION = {Louis-Noel Pouchet}, 
+KEYWORDS = {overflows, polyhedral model, validation, compilation}, 
+ADDRESS = {Paris, France}, 
+URL = {http://hal.inria.fr/hal-00655485} 
+} 
+%% hal-00727117, version 2 
+%% http://hal.inria.fr/hal-00727117 
+%% 
+
+@inproceedings{braun:hal-00727117, 
+AUTHOR = {Braun, Gabriel and Narboux, Julien}, 
+TITLE = {From Tarski to Hilbert},
+YEAR = {2012}, 
+MONTH = Sep, 
+EDITOR = {Tetsuo Ida and Jacques Fleuriot}, 
+BOOKTITLE = {Automated Deduction in Geometry 2012},
+ORGANIZATION = {Jacques Fleuriot}, 
+KEYWORDS = {Tarski; Hilbert; formalization; Coq; formal proof; geometry}, 
+ADDRESS = {Edinburgh, United Kingdom}, 
+URL = {http://hal.inria.fr/hal-00727117} 
+} 
+%% inria-00584918, version 1 
+%% http://hal.inria.fr/inria-00584918 
+%% 
+
+@inproceedings{pham:inria-00584918, 
+AUTHOR = {Pham, Tuan Minh and Bertot, Yves and Narboux, Julien}, 
+TITLE = {A Coq-based Library for Interactive and Automated Theorem Proving in Plane Geometry},
+BOOKTITLE = {The 11th International Conference on Computational Science and Its Applications (ICCSA 2011)},
+YEAR = {2011}, 
+SERIES = {Lecture Notes in Computer Science}, 
+PUBLISHER = {Springer-Verlag}, 
+VOLUME = {6785}, 
+PAGES = {368-383}, 
+KEYWORDS = {formalization, geometry, Coq, area method, dynamic geometry}, 
+ADDRESS = {Santander, Spain}, 
+DOI = {10.1007/978-3-642-21898-9\_32}, 
+URL = {http://hal.inria.fr/inria-00584918} 
+} 
+%% inria-00618745, version 2 
+%% http://hal.inria.fr/inria-00618745 
+%% 
+
+@inproceedings{genevaux:inria-00618745, 
+AUTHOR = {Genevaux, Jean-David and Narboux, Julien and Schreck, Pascal}, 
+TITLE = {Formalization of Wu's simple method in Coq},
+BOOKTITLE = {CPP 2011 First International Conference on Certified Programs and Proofs},
+YEAR = {2011}, 
+MONTH = Dec, 
+SERIES = {Lecture Notes in Computer Science}, 
+EDITOR = {Jean-Pierre Jouannaud and Zhong Shao}, 
+PUBLISHER = {Springer-Verlag}, 
+VOLUME = {7086}, 
+PAGES = {71-86}, 
+KEYWORDS = {formalization; certification; Wu's method; Coq; formal proof; automated deduction; geometry}, 
+ADDRESS = {Kenting, Taiwan, Province Of China}, 
+DOI = {10.1007/978-3-642-25379-9\_8}, 
+URL = {http://hal.inria.fr/inria-00618745} 
+} 
+%% inria-00305998, version 3 
+%% http://hal.inria.fr/inria-00305998 
+%% 
+
+@inproceedings{magaud:inria-00305998, 
+AUTHOR = {Magaud, Nicolas and Narboux, Julien and Schreck, Pascal}, 
+TITLE = {Formalizing Projective Plane Geometry in Coq},
+BOOKTITLE = {Post-proceedings of Automated Deduction in Geometry (ADG) 2008},
+ORGANIZATION = {Thomas Sturm}, 
+YEAR = {2011}, 
+SERIES = {LNAI}, 
+EDITOR = {Thomas Sturm}, 
+PUBLISHER = {Springer}, 
+VOLUME = {6301}, 
+PAGES = {141-162}, 
+KEYWORDS = {formalization, Coq, projective plane geometry, duality, models, homogeneous coordinates, fano plane}, 
+ADDRESS = {Shanghai, China}, 
+DOI = {10.1007/978-3-642-21046-4}, 
+URL = {http://hal.inria.fr/inria-00305998} 
+} 
+%% inria-00335719, version 1 
+%% http://hal.inria.fr/inria-00335719 
+%% 
+
+@inproceedings{magaud:inria-00335719, 
+AUTHOR = {Magaud, Nicolas and Narboux, Julien and Schreck, Pascal}, 
+TITLE = {Formalizing Desargues' theorem in Coq using ranks in Coq},
+BOOKTITLE = {24th Annual ACM Symposium on Applied Computing},
+ORGANIZATION = {Xiao-Shan Gao, Robert Joan-Arinyo, Dominique Michelucci}, 
+YEAR = {2009}, 
+PUBLISHER = {ACM}, 
+PAGES = {1110-1115}, 
+KEYWORDS = {formalization, Coq, geometry, projective, rank, desargues}, 
+ADDRESS = {Honolulu, United States}, 
+DOI = {10.1145/1529282.1529527}, 
+URL = {http://hal.inria.fr/inria-00335719} 
+} 
+%% inria-00118903, version 1 
+%% http://hal.inria.fr/inria-00118903 
+%% 
+
+@article{narboux:inria-00118903, 
+AUTHOR = {Narboux, Julien}, 
+TITLE = {A Graphical User Interface for Formal Proofs in Geometry.},
+JOURNAL = {Journal of Automated Reasoning},
+PUBLISHER = {Springer}, 
+VOLUME = {39}, 
+NUMBER = {2}, 
+PAGES = {161-180}, 
+YEAR = {2007}, 
+KEYWORDS = {user interface, theorem prover, Coq, proof assistant, geometry, dynamic geometry}, 
+DOI = {10.1007/s10817-007-9071-4}, 
+URL = {http://hal.inria.fr/inria-00118903} 
+} 
+
+%% inria-00118812, version 1 
+%% http://hal.inria.fr/inria-00118812 
+%% 
+
+@inproceedings{narboux:inria-00118812, 
+AUTHOR = {Narboux, Julien}, 
+TITLE = {Mechanical Theorem Proving in Tarski's geometry.},
+BOOKTITLE = {Automated Deduction in Geometry 2006},
+ORGANIZATION = {Francisco Botana}, 
+YEAR = {2007}, 
+SERIES = {LNCS}, 
+EDITOR = {Eugenio Roanes Lozano, Francisco Botana}, 
+PUBLISHER = {Springer}, 
+VOLUME = {4869}, 
+PAGES = {139-156}, 
+KEYWORDS = {Tarski's axioms; Coq; Formal Proof; geometry}, 
+ADDRESS = {Pontevedra, Spain}, 
+DOI = {10.1007/978-3-540-77356-6}, 
+URL = {http://hal.inria.fr/inria-00118812} 
+} 
+%% inria-00495952, version 1 
+%% http://hal.inria.fr/inria-00495952 
+%% 
+
+@inproceedings{narboux:inria-00495952, 
+AUTHOR = {Narboux, Julien}, 
+TITLE = {Toward the use of a proof assistant to teach mathematics},
+YEAR = {2005}, 
+BOOKTITLE = {The Seventh International Conference on Technology in Mathematics Teaching (ICTMT7)},
+ADDRESS = {Bristol, United Kingdom}, 
+URL = {http://hal.inria.fr/inria-00495952} 
+} 
+%% inria-00001035, version 1 
+%% http://hal.inria.fr/inria-00001035 
+%% 
+
+@inproceedings{narboux:inria-00001035, 
+AUTHOR = {Narboux, Julien}, 
+TITLE = {A Decision Procedure for Geometry in Coq},
+BOOKTITLE = {Theorem Proving in Higher Order Logics 2004},
+YEAR = {2004}, 
+MONTH = Jul, 
+SERIES = {Lecture Notes in Computer Science}, 
+EDITOR = {Slind, Konrad; Bunker, Annette; Gopalakrishnan, Ganesh C.}, 
+PUBLISHER = {Springer}, 
+VOLUME = {3223}, 
+PAGES = {225-240}, 
+KEYWORDS = {area method, Coq, geometry, formal proof}, 
+ADDRESS = {Park City, USA, United States}, 
+DOI = {10.1007/b100400}, 
+URL = {http://hal.inria.fr/inria-00001035} 
+}
+
+@Comment Yosuke Yamamoto: Property-preserving program refinement. ASE 2012: 398-401
+
+@inproceedings{BolMel05, 
+author = {Sylvie Boldo and Guillaume Melquiond}, 
+title = {When double rounding is odd}, 
+booktitle = {Proceedings of the 17th IMACS World Congress on Computational and Applied Mathematics}, 
+address = {Paris, France}, 
+year = {2005}, 
+url = {http://www.lri.fr/~melquion/doc/05-imacs17_1-article.ps.gz} 
+} 
+
+@inproceedings{BDKM06, 
+author = {Sylvie Boldo and Marc Daumas and William Kahan and Guillaume Melquiond}, 
+title = {Proof and certification for an accurate discriminant}, 
+booktitle = {Proceedings of the 12th GAMM - IMACS International Symposium on 
+Scientific Computing, Computer Arithmetic and Validated Numerics}, 
+address = {Duisburg, Germany}, 
+year = {2006} 
+} 
+
+@article{BolMel08, 
+author = {Sylvie Boldo and Guillaume Melquiond}, 
+title = {Emulation of a {FMA} and correctly-rounded sums: Proved algorithms using rounding to odd}, 
+journal = {Transactions on Computers}, 
+publisher = {IEEE}, 
+year = {2008}, 
+volume = {57}, 
+number = {4}, 
+pages = {462--471}, 
+doi = {10.1109/TC.2007.70819} 
+} 
+
+@inproceedings{Mel08a, 
+author = {Guillaume Melquiond}, 
+title = {Floating-point arithmetic in the {C}oq system}, 
+booktitle = {Proceedings of the 8th Conference on Real Numbers and Computers}, 
+address = {Santiago de Compostela, Spain}, 
+year = {2008}, 
+pages = {93--102}, 
+url = {http://www.lri.fr/~melquion/doc/08-rnc8-article.pdf} 
+} 
+
+@inproceedings{Mel08b, 
+author = {Guillaume Melquiond}, 
+title = {Proving bounds on real-valued functions with computations}, 
+booktitle = {Proceedings of the 4th International Joint Conference on Automated Reasoning}, 
+editor = {Alessandro Armando and Peter Baumgartner and Gilles Dowek}, 
+address = {Sydney, Australia}, 
+year = {2008}, 
+volume = {5195}, 
+pages = {2--17}, 
+series = {Lecture Notes in Artificial Intelligence}, 
+doi = {10.1007/978-3-540-71070-7_2} 
+} 
+
+@article{RZBM09, 
+author = {Siegfried M. Rump and Paul Zimmermann and Sylvie Boldo and Guillaume Melquiond}, 
+title = {Computing predecessor and successor in rounding to nearest}, 
+journal = {BIT Numerical Mathematics}, 
+year = {2009}, 
+volume = {49}, 
+number = {2}, 
+pages = {419--431}, 
+doi = {10.1007/s10543-009-0218-z} 
+} 
+
+@inproceedings{BolFilMel09, 
+author = {Sylvie Boldo and Jean-Christophe Filli{\^a}tre and Guillaume Melquiond}, 
+title = {Combining {Coq} and {Gappa} for certifying floating-point programs}, 
+booktitle = {Proceedings of the 16th Calculemus Symposium}, 
+editor = {Jacques Carette and Lucas Dixon and Claudio Sarcedoti Coen and Stephen M. Watt}, 
+address = {Grand Bend, ON, Canada}, 
+year = {2009}, 
+volume = {5625}, 
+pages = {59--74}, 
+series = {Lecture Notes in Artificial Intelligence}, 
+doi = {10.1007/978-3-642-02614-0_10} 
+} 
+
+@inproceedings{BCFMMW10, 
+author = {Sylvie Boldo and François Cl{\'e}ment and Jean-Christophe Filli{\^a}tre and Micaela Mayero and Guillaume Melquiond and Pierre Weis}, 
+title = {Formal Proof of a Wave Equation Resolution Scheme: the Method Error}, 
+booktitle = {Proceedings of the 1st Interactive Theorem Proving Conference}, 
+year = {2010}, 
+series = {Lecture Notes on Computer Science}, 
+address = {Edinburgh, Scotland}, 
+editor = {Matt Kaufmann and Lawrence C. Paulson}, 
+volume = {6172}, 
+pages = {147--162}, 
+doi = {10.1007/978-3-642-14052-5_12} 
+} 
+
+@inproceedings{BolMel11, 
+author = {Sylvie Boldo and Guillaume Melquiond}, 
+title = {{Flocq}: A Unified Library for Proving Floating-point Algorithms in {Coq}},
+booktitle = {Proceedings of the 20th IEEE Symposium on Computer Arithmetic}, 
+editor = {Elisardo Antelo and David Hough and Paolo Ienne}, 
+address = {T{\"u}bingen, Germany}, 
+year = {2011}, 
+pages = {243--252}, 
+doi = {10.1109/ARITH.2011.40} 
+} 
+
+@inproceedings{LelMel12, 
+author = {Catherine Lelay and Guillaume Melquiond}, 
+title = {Diff\'erentiabilit\'e et int\'egrabilit\'e en {C}oq. {A}pplication \`a la formule de d'{A}lembert}, 
+booktitle = {23\`emes Journ\'ees Francophones des Langages Applicatifs}, 
+year = {2012}, 
+pages = {119--133}, 
+address = {Carnac, France}, 
+url = {http://hal.inria.fr/hal-00642206/fr/} 
+} 
+
+@article{Mel12, 
+author = {Guillaume Melquiond}, 
+title = {Floating-point arithmetic in the {C}oq system}, 
+journal = {Information and Computation}, 
+volume = {216}, 
+pages = {14--23}, 
+year = {2012}, 
+doi = {10.1016/j.ic.2011.09.005} 
+} 
+
+@inproceedings{BolLelMel12, 
+author = {Sylvie Boldo and Catherine Lelay and Guillaume Melquiond}, 
+title = {Improving Real Analysis in {Coq}: a User-Friendly Approach to Integrals and Derivatives}, 
+booktitle = {Proceedings of the 2nd International Conference on Certified Programs and Proofs}, 
+editor = {Chris Hawblitzel and Dale Miller}, 
+pages = {289--304}, 
+address = {Kyoto, Japan}, 
+year = {2012}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {7679}, 
+doi = {10.1007/978-3-642-35308-6_22} 
+} 
+
+@inproceedings{BJLM13, 
+author = {Sylvie Boldo and Jacques-Henri Jourdan and Xavier Leroy and Guillaume Melquiond}, 
+title = {A Formally-Verified {C} Compiler Supporting Floating-Point Arithmetic}, 
+booktitle = {Proceedings of the 21st IEEE Symposium on Computer Arithmetic}, 
+editor = {Alberto Nannarelli and Peter-Michael Seidel and Ping Tak Peter Tang}, 
+pages = {107--115}, 
+year = {2013}, 
+address = {Austin, TX, USA}, 
+doi = {10.1109/ARITH.2013.30} 
+}
+ See http://color.inria.fr/biblio.html .
+ In submission
+ 
+
+@unpublished{versionControl, 
+Author = {Wouter Swierstra and Andres L{\"o}h}, 
+Date-Added = {2013-07-15 08:54:15 +0000}, 
+Date-Modified = {2013-07-15 08:54:43 +0000}, 
+Note = {Submitted to ESOP 2014.}, 
+Title = {The Semantics of Version Control}} 
+
+@inproceedings{Xmonad, 
+author = {Swierstra, Wouter}, 
+title = {xmonad in Coq: Programming a Window Manager in a Proof Assistant}, 
+booktitle = {Proceedings of the 2012 Symposium on Haskell}, 
+series = {Haskell '12}, 
+year = {2012}, 
+location = {Copenhagen, Denmark}, 
+pages = {131--136}, 
+doi = {10.1145/2364506.2364523}, 
+} 
+@inproceedings{swierstra:hoare-state-monad, 
+author = {Swierstra, Wouter}, 
+title = {A Hoare Logic for the State Monad}, 
+booktitle = {Proceedings of the 22nd International Conference on Theorem Proving in Higher Order Logics}, 
+series = {TPHOLs '09}, 
+year = {2009}, 
+location = {Munich, Germany}, 
+pages = {440--451}, 
+publisher = {Springer-Verlag}, 
+
+} 
+ - Mtac: A Monad for Typed Tactic Programming in Coq. 
+B. Ziliani, D. Dreyer, N. R. Krishnaswami, A. Nanevski, V. Vafeiadis. 
+In International Conference of Functional Programming (ICFP 2013) 
+
+- How to Make Ad Hoc Proof Automation Less Ad Hoc. 
+G. Gonthier, B. Ziliani, A. Nanevski, D. Dreyer. 
+In Journal of Functional Programming (JFP 2013), Volume 23, July 2013. 
+
+- Lightweight proof by re?ection using a posteriori simulation of effectful computation. 
+G. Clauret, L. del C. González Huesca, Y. Régis-Gianas, B. Ziliani. 
+In Conference on Interactive Theorem Proving (ITP 2013). 
+
+- How to Make Ad Hoc Proof Automation Less Ad Hoc. 
+G. Gonthier, B. Ziliani, A. Nanevski, D. Dreyer. 
+In International Conference of Functional Programming (ICFP 2011).
+ In preparation.
+ @Article{ilik09, 
+author =	 {Danko Ilik and Gyesik Lee and Hugo Herbelin}, 
+title =	 {Kripke models for classical logic}, 
+journal =	 {Annals of Pure and Applied Logic}, 
+year =	 2010, 
+volume =	 161, 
+number =	 11, 
+pages =	 {1367-1378}, 
+month =	 {Aug}, 
+series =	 {Special Issue: Classical Logic and Computation 
+(2008)}, 
+} 
+
+@article{ilik11, 
+title =	 "Continuation-passing style models complete for 
+intuitionistic logic ", 
+journal =	 "Annals of Pure and Applied Logic ", 
+volume =	 164, 
+number =	 6, 
+pages =	 "651 - 662", 
+year =	 2013, 
+note =	 "Classical Logic and Computation 2010(CLAC 2010)", 
+issn =	 "0168-0072", 
+author =	 "Danko Ilik", 
+} 
+
+@Inproceedings{ilik12b, 
+author =	 "Ilik, Danko", 
+year =	 2013, 
+title =	 "Type Directed Partial Evaluation for Level-1 Shift 
+and Reset", 
+editor =	 "de'Liguoro, Ugo and Saurin, Alexis", 
+booktitle =	 "{\rm Proceedings First Workshop on} Control 
+Operators and their Semantics, {\rm Eindhoven, The 
+Netherlands, June 24-25, 2013 }", 
+series =	 "Electronic Proceedings in Theoretical Computer 
+Science", 
+volume =	 127, 
+publisher =	 "Open Publishing Association", 
+pages =	 "86-100", 
+} 
+ @InProceedings{conf/ecoop/ThomsenCADE13, 
+title =	"Reducing Lookups for Invariant Checking", 
+author =	"Jakob G. Thomsen and Christian Clausen and Kristoffer 
+J. Andersen and John Danaher and Erik Ernst", 
+bibdate =	"2013-06-27", 
+bibsource =	"DBLP, 
+http://dblp.uni-trier.de/db/conf/ecoop/ecoop2013.html#ThomsenCADE13", 
+booktitle =	"ECOOP", 
+booktitle =	"{ECOOP} 2013 - Object-Oriented Programming - 27th 
+European Conference, Montpellier, France, July 1-5, 
+2013. Proceedings", 
+publisher =	"Springer", 
+year = "2013", 
+volume =	"7920", 
+editor =	"Giuseppe Castagna", 
+ISBN = "978-3-642-39037-1", 
+pages =	"426--450", 
+series =	"Lecture Notes in Computer Science", 
+URL = "http://dx.doi.org/10.1007/978-3-642-39038-8", 
+} 
+
+@Article{journals/toplas/FraineES12, 
+title =	"Essential {AOP}: The a calculus", 
+author =	"Bruno De Fraine and Erik Ernst and Mario S{\"u}dholt", 
+journal =	"ACM Trans. Program. Lang. Syst", 
+year = "2012", 
+number =	"3", 
+volume =	"34", 
+bibdate =	"2012-12-05", 
+bibsource =	"DBLP, 
+http://dblp.uni-trier.de/db/journals/toplas/toplas34.html#FraineES12", 
+pages =	"12", 
+URL = "http://doi.acm.org/10.1145/2362389.2362391", 
+} 
+
+@Article{journals/jot/IngesmanE12, 
+title =	"Lifted Java: {A} Minimal Calculus for Translation 
+Polymorphism", 
+author =	"Matthias Diehn Ingesman and Erik Ernst", 
+journal =	"Journal of Object Technology", 
+year = "2012", 
+number =	"1", 
+volume =	"11", 
+bibdate =	"2012-05-10", 
+bibsource =	"DBLP, 
+http://dblp.uni-trier.de/db/journals/jot/jot11.html#IngesmanE12", 
+pages =	"1--23", 
+URL = "http://dx.doi.org/10.5381/jot.2012.11.1.a2", 
+} 
+
+@InProceedings{conf/tools/IngesmanE11, 
+title =	"Lifted Java: {A} Minimal Calculus for Translation 
+Polymorphism", 
+author =	"Matthias Diehn Ingesman and Erik Ernst", 
+bibdate =	"2011-07-05", 
+bibsource =	"DBLP, 
+http://dblp.uni-trier.de/db/conf/tools/tools49-2011.html#IngesmanE11", 
+booktitle =	"TOOLS (49)", 
+booktitle =	"Objects, Models, Components, Patterns - 49th 
+International Conference, {TOOLS} 2011, Zurich, 
+Switzerland, June 28-30, 2011. Proceedings", 
+publisher =	"Springer", 
+year = "2011", 
+volume =	"6705", 
+editor =	"Judith Bishop and Antonio Vallecillo", 
+ISBN = "978-3-642-21951-1", 
+pages =	"179--193", 
+series =	"Lecture Notes in Computer Science", 
+URL = "http://dx.doi.org/10.1007/978-3-642-21952-8", 
+} 
+
+@InProceedings{conf/ecoop/FraineES10, 
+title =	"Essential {AOP}: The {A} Calculus", 
+author =	"Bruno De Fraine and Erik Ernst and Mario S{\"u}dholt", 
+bibdate =	"2010-07-01", 
+bibsource =	"DBLP, 
+http://dblp.uni-trier.de/db/conf/ecoop/ecoop2010.html#FraineES10", 
+booktitle =	"ECOOP", 
+booktitle =	"{ECOOP} 2010 - Object-Oriented Programming, 24th 
+European Conference, Maribor, Slovenia, June 21-25, 
+2010. Proceedings", 
+publisher =	"Springer", 
+year = "2010", 
+volume =	"6183", 
+editor =	"Theo D'Hondt", 
+ISBN = "978-3-642-14106-5", 
+pages =	"101--125", 
+series =	"Lecture Notes in Computer Science", 
+URL = "http://dx.doi.org/10.1007/978-3-642-14107-2", 
+} 
+
+@InProceedings{conf/types/Ernst08, 
+title =	"First-Class Object Sets", 
+author =	"Erik Ernst", 
+publisher =	"Springer", 
+year = "2008", 
+volume =	"5497", 
+bibdate =	"2009-06-13", 
+bibsource =	"DBLP, 
+http://dblp.uni-trier.de/db/conf/types/types2008.html#Ernst08", 
+booktitle =	"TYPES", 
+crossref =	"conf/types/2008", 
+editor =	"Stefano Berardi and Ferruccio Damiani and Ugo 
+de'Liguoro", 
+ISBN = "978-3-642-02443-6", 
+pages =	"83--99", 
+series =	"Lecture Notes in Computer Science", 
+URL = "http://dx.doi.org/10.1007/978-3-642-02444-3", 
+} 
+ @article{BERTOT:GUILHOT:MAHBOUBI:2011, 
+hal_id = {inria-00503017}, 
+url = {http://hal.archives-ouvertes.fr/inria-00503017/}, 
+title = { {A} formal study of {B}ernstein coefficients and polynomials}, 
+author = {{B}ertot, {Y}ves and {G}uilhot, {F}r{\'e}derique and {M}ahboubi, {A}ssia}, 
+journal = {{M}athematical {S}tructures in {C}omputer {S}cience}, 
+volume = 21, 
+number = 4, 
+pages = {731--762}, 
+language = {{E}nglish}, 
+year = {2011}, 
+doi = {10.1017/S0960129511000090}, 
+url = {http://dx.doi.org/10.1017/S0960129511000090}, 
+affiliation = {{MARELLE} - {INRIA} {S}ophia {A}ntipolis - {INRIA} - {T}ypi{C}al - {INRIA} {S}aclay - {I}le de {F}rance - {INRIA} - {CNRS} : {UMR} - {P}olytechnique - {X} - {L}aboratoire d'informatique de l'{\'e}cole polytechnique - {LIX} - {CNRS} : {UMR}7161 - {P}olytechnique - {X} } 
+} 
+
+@inproceedings{Minh_UITP, 
+author = {Tuan-Minh Pham and Yves Bertot}, 
+title = {A combination of a dynamic geometry software with a proof assistant for interactive formal proofs}, 
+booktitle = {UITP'10, User-Interfaces for Theorem Provers}, 
+mon = jul, 
+year = {2010} 
+} 
+
+@inproceedings{DBLP:conf/itp/DufourdB10, 
+author = {Jean-Fran\c{c}ois Dufourd and 
+Yves Bertot}, 
+title = {Formal Study of Plane Delaunay Triangulation}, 
+pages = {211-226}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-14052-5_16}, 
+editor = {Matt Kaufmann and 
+Lawrence C. Paulson}, 
+booktitle = {Interactive Theorem Proving, First International Conference, 
+ITP 2010, Edinburgh, UK, July 11-14, 2010. Proceedings}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {6172}, 
+year = {2010}, 
+isbn = {978-3-642-14051-8}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-14052-5}, 
+url = {http://hal.archives-ouvertes.fr/inria-00504027/}, 
+bibsource = {DBLP, http://dblp.uni-trier.de}, 
+x-editorial-board = {yes}, 
+x-proceedings = {yes}, 
+x-international-audience = {yes}, 
+x-invited-conference = {no} 
+} 
+
+@inproceedings{DLBR09, 
+author = {D{\'e}n{\`e}s, Maxime and Lesage, Benjamin and Bertot, Yves 
+and Richard, Adrien}, 
+title = {Formal proof of theorems on genetic regulatory networks}, 
+booktitle = {Proceedings of the 11th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC 2009)}, 
+publisher = {IEEE}, 
+pages = {69-76}, 
+year = {2009}, 
+month = sep, 
+x-editorial-board = {yes}, 
+x-proceedings = {yes}, 
+x-international-audience = {yes}, 
+x-invited-conference = {no} 
+} 
+
+@inbook{Bertot:Kahn09, 
+author = {Yves Bertot}, 
+chapter = {Theorem proving support in programming language semantics}, 
+crossref = {TributeGilles09}, 
+pages = {337--361}, 
+url = {http://hal.inria.fr/inria-00160309/}, 
+x-editorial-board = {yes}, 
+x-international-audience = {yes}, 
+x-invited-conference = {no} 
+} 
+
+@inproceedings{Bertot:Lernet09, 
+author = {Yves Bertot}, 
+title = {Structural abstract interpretation, A formal study in Coq}, 
+booktitle = {Language Engineering and Rigorous Software Development, 
+International LerNet ALFA Summer School 2008, revised tutorial lectures}, 
+year = {2009}, 
+pages = {153-194}, 
+publisher = {Springer}, 
+editor = {A. Bove and L. S. Barbosa and A. Pardo and J. S. Pinto}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {5520}, 
+url = {http://hal.inria.fr/inria-00329572/}, 
+x-proceedings = {yes}, 
+x-editorial-board = {yes}, 
+x-international-audience = {yes}, 
+x-invited-conference = {no} 
+} 
+
+@inproceedings{BertotKomendantskaya:Types09, 
+author = {Yves Bertot and Ekaterina Komendantskaya}, 
+title = {Using Structural Recursion for Corecursion}, 
+booktitle = {Types for proofs and programs 2008}, 
+year = {2009}, 
+pages = {220-236}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+editor = {S. Berardi and F. Damiani and U de'Liguoro}, 
+volume = {5497}, 
+url = {http://hal.inria.fr/inria-00322331}, 
+x-proceedings = {yes}, 
+x-editorial-board = {yes}, 
+x-international-audience = {yes}, 
+x-invited-conference = {no} 
+} 
+
+@inproceedings{BerVKom08, 
+author = {Yves Bertot and Vladimir Komendantsky}, 
+title = {Fixed point semantics and partial recursion in Coq}, 
+booktitle = {PPDP '08: Proceedings of the 10th international ACM SIGPLAN conference on Principles and practice of declarative programming}, 
+year = {2008}, 
+isbn = {978-1-60558-117-0}, 
+pages = {89--96}, 
+location = {Valencia, Spain}, 
+doi = {http://doi.acm.org/10.1145/1389449.1389461}, 
+publisher = {ACM}, 
+address = {New York, NY, USA}, 
+x-editorial-board = {yes}, 
+x-proceedings = {yes}, 
+x-international-audience = {yes}, 
+url = {http://hal.inria.fr/inria-00190975/} 
+} 
+@inproceedings{BerEKom08, 
+author = {Yves Bertot and Ekaterina Komendantskaya}, 
+title = {{Inductive and Coinductive Components of Corecursive Functions in Coq}}, 
+booktitle = {Proceedings of CMCS'08, the 9th International Workshop on Coalgebraic Methods in Computer Science}, 
+volume = 203, 
+series = {ENTCS}, 
+year = 2008, 
+month = apr, 
+location = {Budapest}, 
+pages = {25 - 47}, 
+x-editorial-board = {yes}, 
+x-proceedings = {yes}, 
+x-international-audience = {yes}, 
+url = {http://hal.inria.fr/inria-00277075/en/} 
+} 
+
+@inproceedings{BGOBP:BIG08, 
+author = {Yves Bertot and Georges Gonthier and Sidi Ould Biha and 
+Ioana Pa{\c{s}}ca }, 
+title = {Canonical Big Operators},
+month = aug, 
+booktitle = {Proceedings of the 21st International Conference on Theorem Proving in Higher Order Logics (TPHOLs 2008)}, 
+year = 2008, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer}, 
+x-editorial-board = {yes}, 
+x-proceedings = {yes}, 
+x-international-audience = {yes}, 
+volume = 5170, 
+pages = {12--16}, 
+url = {http://hal.inria.fr/inria-00331193/} 
+} 
+
+@article{BertotMSCS06, 
+author = {Yves Bertot}, 
+title = {Affine functions and series with co-inductive real numbers}, 
+journal = {Mathematical Structure in Computer Sciences}, 
+publisher = {Cambridge University Press}, 
+year = 2007, 
+volume = 17, 
+number = 1, 
+pages = {37--63}, 
+url = {http://hal.inria.fr/inria-00001171} 
+} 
+
+inproceedings{BKT, 
+author = {Yves Bertot and Gilles Kahn and Laurent Th\'ery}, 
+title = {Proof by Pointing}, 
+booktitle = {{T}heoretical {A}spects of {C}omputer {S}oftware}, 
+location = {Sendai, Japan}, 
+series = {LNCS}, 
+volume = {789}, 
+pages = {141--160}, 
+year = 1994 
+} 
+
+@inproceedings{Bertot05b, 
+author = {Yves Bertot}, 
+title = {Filters on CoInductive streams, an application to Eratosthenes' sieve}, 
+booktitle = {Typed Lambda Calculi and Applications (TLCA'05)}, 
+publisher = {Springer}, 
+series = {LNCS}, 
+year = 2005 
+} 
+
+@inproceedings{reasonningexecutable, 
+title = {{R}easoning with {E}xecutable {S}pecifications}, 
+author = {Yves Bertot and Ranan Fraer}, 
+volume = 915, 
+pages = {531--545}, 
+location = {Aarhus, Denmark}, 
+year = 1995, 
+series = {LNCS}, 
+journal = {Springer-Verlag LNCS}, 
+booktitle = {Proceedings of the International Joint Conference on Theory 
+and Practice of Software Development (TAPSOFT'95)} 
+} 
+
+@article{RacineCarreeGMP, 
+author = {Yves Bertot and Nicolas Magaud and Paul Zimmermann}, 
+title = {A proof of {GMP} square root}, 
+journal = {Journal of Automated Reasoning}, 
+publisher = {Kluwer Academic Publishers}, 
+volume = {29}, 
+pages = {225-252}, 
+year = 2002 
+} 
+
+@inproceedings{Magaud03, 
+author = {Nicolas Magaud}, 
+title = {Changing Data Representation within the Coq system}, 
+crossref = {tphols03} 
+} 
+
+@article{Bertot05a, 
+author = {Yves Bertot}, 
+title = {V{\'e}rification formelle d'extractions de racines enti{\`e}res}, 
+journal = {Techniques et Sciences Informatiques}, 
+publisher = {Herm{\`e}s Sciences}, 
+volume = {24}, 
+number = {9}, 
+year = 2005, 
+pages = {1161--1185}, 
+note = {paru {\'e}galement comme rapport de recherche INRIA RR-5344}, 
+url = {http://hal.inria.fr/inria-00001172/} 
+} 
+
+@inproceedings{BalaaBertot02, 
+title = {Fonctions r\'ecursives g\'en\'erales par it\'eration en th\'eorie 
+des 
+types}, 
+author = {Antonia Balaa and Yves Bertot}, 
+booktitle = {Journ{\'e}es Francophones pour les Langages Applicatifs}, 
+month = jan, 
+year = 2002 
+} 
+
+@inproceedings{canonicalrationals03, 
+author = {Yves Bertot}, 
+title = {Simple canonical representation of rational numbers}, 
+booktitle = {Mathematics, Logic and Computation}, 
+series = {Electronic Notes in Theoretical Computer Science}, 
+volume = {85.7}, 
+year = 2004 
+} 
+
+@inproceedings{NiquiBertot04, 
+author = {Milad Niqui and Yves Bertot}, 
+title = {QArith: Coq Formalisation of Lazy Rational Arithmetic}, 
+editor = {S. Berardi and M. Coppo and F. Damiani}, 
+booktitle = {Post-Proceedings of TYPES 2003 Workshop}, 
+location = {Torino, Italy}, 
+volume = 3085, 
+series = {LNCS}, 
+publisher = {Springer-Verlag}, 
+year = 2004 
+} 
+
+@inproceedings{PichardieBertot01, 
+crossref = {tphols2001}, 
+title = {Formalizing Convex Hull Algorithms}, 
+author = {David Pichardie and Yves Bertot}, 
+pages = {346--361} 
+} 
+
+@inproceedings{Bertot05jfla, 
+author = {Yves Bertot}, 
+title = {Calcul de formules affines et de s{\'e}ries enti{\`e}res en 
+arithm{\'e}tique exacte avec types co-inductifs}, 
+year = {2005}, 
+booktitle = {Proceedings of JFLA'05} 
+} 
+
+@inproceedings{BertotCAV01, 
+title = {Formalizing a JVML verifier for initialization 
+in a theorem prover}, 
+author = {Yves Bertot}, 
+booktitle = {Computer Aided Verification (CAV'01)}, 
+publisher = {Springer-Verlag}, 
+address = {Paris, France}, 
+month = jul, 
+year = {2001}, 
+series = {LNCS}, 
+number = 2102 
+} 
+
+@proceedings{tphols03, 
+editor = {David Basin and Burkhart Wolff}, 
+booktitle = {Proceedings of the 16th International Conference on Theorem 
+Proving in Higher Order Logics (TPHOLs 2003)}, 
+title = {Proceedings of the 16th International Conference on Theorem 
+Proving in Higher Order Logics (TPHOLs 2003)}, 
+volume = 2758, 
+series = {LNCS}, 
+publisher = {Springer-Verlag}, 
+year = 2003 
+} 
+
+ All of the papers : http://www.informatik.uni-trier.de/~ley/pers/hd/m/Magaud:Nicolas 
+
+ 1. C. Hritcu, M. Greenberg, B. Karle, B. C. Pierce, and G. Morrisett. All your IFCException are belong to us. In Proceedings of the 34th IEEE Symposium on Security and Privacy (Oakland), May 2013. 
+
+2. G. Morrisett, G. Tan, J. Tassarotti, J.-B. Tristan, and E. Gan. Rocksalt: better, faster, stronger sfi for the x86. In Proceedings of the 33rd ACM SIGPLAN conference on Programming Language Design and Implementation, PLDI '12, pages 395-404, New York, NY, USA, 2012. 
+
+3. J.-B. Tristan, P. Govereau, and G. Morrisett. Evaluating value-graph translation validation for LLVM. In Proceedings of the ACM SIGPLAN Conference on Programming Design and Implementation (PLDI), New York, NY, USA, 2011. 
+
+4. G. Malecha and G. Morrisett. Mechanized verification with sharing. In 7th International Colloquium on Theoretical Aspects of Computing, Sept. 2010. 
+
+5. G. Malecha, G. Morrisett, A. Shinnar, and R. Wisnesky. Toward a verified relational database management system. In POPL '10: Proceedings of the 37th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages, pages 237-248, New York, NY, USA, 2010. 
+
+6. A. Chlipala, G. Malecha, G. Morrisett, A. Shinnar, and R. Wisnesky. Effective interactive proofs for higher-order imperative programs. In ICFP '09: Proceedings of the 14th ACM SIGPLAN International Conference on Functional Programming, September 2009. 
+
+7. R. Wisnesky, G. Malecha, and G. Morrisett. Certified web services in Ynot. In 5th International Workshop on Automated Specification and Verification of Web Systems, July 2009. 
+
+8. G. Morrisett. Technical perspective a compiler's story. Commun. ACM, 52(7):106-106, 2009. 
+
+9. A. Nanevski, P. Govereau, and G. Morrisett. Towards type-theoretic semantics for transactional concurrency. In ACM SIGPLAN Workshop on Types in Language Design and Implementation, January 2009. 
+
+10. A. Nanevski, G. Morrisett, A. Shinnar, P. Govereau, and L. Birkedal. Ynot: Dependent types for imperative programs. In ICFP '08: Proceedings of the 13th ACM SIGPLAN International Conference on Functional Programming, September 2008. 
+
+11. A. Nanevski, A. Ahmed, G. Morrisett, and L. Birkedal. Abstract predicates and mutable ADTs in Hoare type theory. In 16th European Symposium on Programming, ESOP 2007, volume 4421 of Lecture Notes in Computer Science, pages 189-204. Springer, 2007. [
+ 
+@inproceedings{BodinChargueraudFilarettiGardnerMaffeisNaudziunieneSchmittSmith-POPL-2014, 
+Author = {Bodin, Martin and Chargu{\'e}raud, Arthur and Filaretti, Daniele and Gardner, Philippa and Maffeis, Sergio and Naudziuniene, Daiva and Schmitt, Alan and Smith, Gareth}, 
+Booktitle = {Proceedings of the 41st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL 2014)}, 
+Month = jan, 
+Title = {A Trusted Mechanised JavaScript Specification}, 
+Year = {2014}} 
+
+
+@inproceedings{BodinJensenSchmitt-Festschrift-Schmidt-2013, 
+Author = {Bodin, Martin and Jensen, Thomas and Schmitt, Alan}, 
+Booktitle = {Semantics, Abstract Interpretation, and Reasoning about Programs: Essays Dedicated to David A. Schmidt on the Occasion of his Sixtieth Birthday}, 
+Month = sep, 
+Pages = {360--383}, 
+Series = {EPTCS}, 
+Title = {Pretty-big-step-semantics-based Certified Abstract Interpretation (Preliminary version)}, 
+Volume = {129}, 
+Year = {2013}} 
+
+
+@inproceedings{BoulierSchmitt-JFLA-2012, 
+Author = {Boulier, Simon and Schmitt, Alan}, 
+Booktitle = {Actes des 23{\`e}mes Journ{\'e}es Francophones des Langages Applicatifs}, 
+Month = jan, 
+Title = {Formalisation de HOCore en Coq}, 
+Year = {2012}} 
+ @inproceedings{SAS13:Blazy:al, 
+author = {Sandrine Blazy and Vincent Laporte and Andr\'e Maroneze and David Pichardie}, 
+title = {Formal Verification of a {C} Value Analysis Based on Abstract Interpretation}, 
+booktitle = {Proc. of the 20th Static Analysis Symposium (SAS 2013)}, 
+year = {2013}, 
+series = {Lecture Notes in Computer Science}, 
+publisher = {Springer-Verlag}, 
+pages = {324-344}, 
+volume = {7935}, 
+abstract = {Static analyzers based on abstract interpretation are complex 
+pieces of software implementing delicate algorithms. Even if 
+static analysis techniques are well understood, their 
+implementation on real languages is still error-prone. 
+
+This paper presents a formal verification using the Coq proof 
+assistant: a formalization of a value analysis (based on abstract 
+interpretation), and a soundness proof of the value analysis. The 
+formalization relies on generic interfaces. The mechanized proof 
+is facilitated by a translation validation of a Bourdoncle 
+fixpoint iterator. 
+
+The work has been integrated into the CompCert verified 
+C-compiler. Our verified analysis directly operates over an 
+intermediate language of the compiler having the same 
+expressiveness as C. The automatic extraction of our value 
+analysis into OCaml yields a program with competitive results, 
+obtained from experiments on a number of benchmarks and 
+comparisons with the Frama-C tool.} 
+}
+ @INPROCEEDINGS{Cohen2010, 
+author =	 {Cyril Cohen}, 
+title =	 {Types quotients en {C}oq}, 
+booktitle =	 {Actes des 21ème journées francophones des langages 
+applicatifs (JFLA 2010)}, 
+year =	 2010, 
+editor =	 {Hermann}, 
+keywords =	 {coq, ssreflect, théorie des types, quotient, calcul 
+des constructions inductives, mathématiques 
+constructives}, 
+timestamp =	 {2010.08.24}, 
+url =	 {http://jfla.inria.fr/2010/actes/PDF/cyrilcohen.pdf}, 
+month =	 jan, 
+address =	 {Vieux-Port La Ciotat, France}, 
+publisher =	 {INRIA}, 
+} 
+
+@article{CohenMahboubi11, 
+hal_id =	 {inria-00593738}, 
+url =	 {http://hal.inria.fr/inria-00593738}, 
+title =	 {Formal proofs in real algebraic geometry: from 
+ordered fields to quantifier elimination},
+author =	 {Cohen, Cyril and Mahboubi, Assia}, 
+abstract =	 {This paper describes a formalization of discrete 
+real closed fields in the {C}oq proof 
+assistant. This abstract structure captures for 
+instance the theory of real algebraic numbers, a 
+decidable subset of real numbers with good 
+algorithmic properties. The theory of real algebraic 
+numbers and more generally of semi-algebraic 
+varieties is at the core of a number of effective 
+methods in real analysis, including decision 
+procedures for non linear arithmetic or optimization 
+methods for real valued functions. After defining an 
+abstract structure of discrete real closed field and 
+the elementary theory of real roots of polynomials, 
+we describe the formalization of an algebraic proof 
+of quantifier elimination based on pseudo-remainder 
+sequences following the standard computer algebra 
+literature on the topic. This formalization covers a 
+large part of the theory which underlies the 
+efficient algorithms implemented in practice in 
+computer algebra. The success of this work paves the 
+way for formal certification of these efficient 
+methods.}, 
+keywords =	 {Formal proofs; {C}oq; quantifier elimination; small 
+scale reflection; real algebraic geometry; real 
+closed fields}, 
+language =	 {English}, 
+affiliation =	 {Microsoft Research - Inria Joint Centre - MSR - 
+INRIA , TypiCal - INRIA Saclay - Ile de France , 
+Laboratoire d'informatique de l'{\'E}cole 
+polytechnique - LIX}, 
+publisher =	 {IfCoLog (International Federation of Computational 
+Logic)}, 
+pages =	 {1-40}, 
+journal =	 {Logical Methods in Computer Science}, 
+volume =	 8, 
+number =	 {1:02 }, 
+audience =	 {internationale }, 
+doi =	 {10.2168/LMCS-8 (1:02) 2012 }, 
+year =	 2012, 
+month =	 Feb, 
+pdf = 
+{http://hal.inria.fr/inria-00593738/PDF/1201.3731.pdf}, 
+} 
+
+
+@inproceedings{qe_closedF, 
+title =	 { {A} formal quantifier elimination for algebraically 
+closed fields}, 
+author =	 lime_C}ohen, {C}yril and {M}ahboubi, {A}ssia}, 
+keywords =	 {coq; quantifier elimination; closed fields; 
+continuation passing style; algebra}, 
+booktitle =	 {{S}ymposium on the {I}ntegration of {S}ymbolic 
+{C}omputation and {M}echanised {R}easoning, 
+{C}alculemus {I}ntelligent {C}omputer {M}athematics 
+}, 
+publisher =	 {{S}pringer }, 
+pages =	 {189-203 }, 
+address =	 {{P}aris {F}rance }, 
+volume =	 {6167 }, 
+series =	 {{C}omputer {S}cience }, 
+audience =	 {internationale }, 
+doi =	 {10.1007/978-3-642-14128-7_17 }, 
+day =	 29, 
+month =	 06, 
+year =	 2010, 
+} 
+
+@inproceedings{realalg, 
+hal_id =	 {hal-00671809}, 
+url =	 {http://hal.inria.fr/hal-00671809}, 
+title =	 {{Construction of real algebraic numbers in Coq}}, 
+author =	 {Cohen, Cyril}, 
+abstract =	 {This paper shows a construction in Coq of the set 
+of real algebraic numbers, together with a formal 
+proof that this set has a structure of discrete 
+archimedian real closed field. This construction 
+hence implements an interface of real closed 
+field. Instances of such an interface immediately 
+enjoy quantifier elimination thanks to a previous 
+work. This work also intends to be a basis for the 
+construction of complex algebraic numbers and to be 
+a reference implementation for the certification of 
+numerous algorithms relying on algebraic numbers in 
+computer algebra.}, 
+keywords =	 {coq; real algebraic numbers; formalization of 
+mathematics; quotient; real closure; small scale 
+reflexion}, 
+language =	 {English}, 
+affiliation =	 {Microsoft Research - Inria Joint Centre - MSR - 
+INRIA , TypiCal - INRIA Saclay - Ile de France , 
+Laboratoire d'informatique de l'{\'e}cole 
+polytechnique - LIX}, 
+booktitle =	 {ITP - 3rd International Conference on Interactive 
+Theorem Proving - 2012},
+publisher =	 {Springer}, 
+address =	 {Princeton, United States}, 
+editor =	 {Lennart Beringer and Amy Felty }, 
+audience =	 {internationale }, 
+year =	 2012, 
+month =	 Aug, 
+pdf =	 {http://hal.inria.fr/hal-00671809/PDF/main.pdf}, 
+} 
+
+@InProceedings{reelalg, 
+author =	 {Cyril Cohen}, 
+title =	 {Construction des nombres alg\'ebriques en {C}oq},
+year =	 2012, 
+booktitle =	 {Proceedings of JFLA2012}, 
+note =	 {http://perso.crans.org/cohen/work/realalg/}, 
+} Science", 
+volume =	 6841, 
+pages =	 "71-90", 
+year =	 2011 
+} 
+
+@incollection{CC13, 
+year =	 2013, 
+isbn =	 {978-3-642-39633-5}, 
+booktitle =	 {Interactive Theorem Proving}, 
+volume =	 7998, 
+series =	 {Lecture Notes in Computer Science}, 
+editor =	 {Blazy, Sandrine and Paulin-Mohring, Christine and 
+Pichardie, David}, 
+doi =	 {10.1007/978-3-642-39634-2_17}, 
+title =	 {Pragmatic Quotient Types in Coq},
+url =	 {http://dx.doi.org/10.1007/978-3-642-39634-2_17}, 
+publisher =	 {Springer Berlin Heidelberg}, 
+keywords =	 {Quotient types; Formalization of mathematics; Coq}, 
+author =	 {Cohen, Cyril}, 
+pages =	 {213-228} 
+} 
+
+@incollection{FTT13, 
+year =	 2013, 
+isbn =	 {978-3-642-39633-5}, 
+booktitle =	 {Interactive Theorem Proving}, 
+volume =	 7998, 
+series =	 {Lecture Notes in Computer Science}, 
+editor =	 {Blazy, Sandrine and Paulin-Mohring, Christine and 
+Pichardie, David}, 
+doi =	 {10.1007/978-3-642-39634-2_14}, 
+title =	 {A Machine-Checked Proof of the Odd Order Theorem}, 
+url =	 {http://dx.doi.org/10.1007/978-3-642-39634-2_14}, 
+publisher =	 {Springer Berlin Heidelberg}, 
+author =	 {Gonthier, Georges and Asperti, Andrea and Avigad, 
+Jeremy and Bertot, Yves and Cohen, Cyril and 
+Garillot, François and Roux, Stéphane and Mahboubi, 
+Assia and O’Connor, Russell and Ould Biha, Sidi and 
+Pasca, Ioana and Rideau, Laurence and Solovyev, 
+Alexey and Tassi, Enrico and Théry, Laurent}, 
+pages =	 {163-179} 
+} 
+
+@incollection{refinements_for_free, 
+year =	 2013, 
+isbn =	 {978-3-319-03544-4}, 
+booktitle =	 {Certified Programs and Proofs}, 
+volume =	 8307, 
+series =	 {Lecture Notes in Computer Science}, 
+editor =	 {Gonthier, Georges and Norrish, Michael}, 
+doi =	 {10.1007/978-3-319-03545-1_10}, 
+title =	 {Refinements for Free!}, 
+url =	 {http://dx.doi.org/10.1007/978-3-319-03545-1_10}, 
+publisher =	 {Springer International Publishing}, 
+keywords =	 {Coq; Data refinements; Formal proofs; Efficient 
+algorithms and data structures; Parametricity}, 
+author =	 {Cohen, Cyril and Dénès, Maxime and Mörtberg, Anders}, 
+pages =	 {147-162} 
+} 
+
+@phdthesis{cohen_phd, 
+title =	 {Formalized algebraic numbers: construction and 
+first-order theory},
+author =	 {Cohen, Cyril}, 
+keywords =	 {Coq; Formal proofs; Formalization of mathematics; 
+Small scale reflection; Algebraic numbers; 
+Constructive mathematics; Quantifier elimination; 
+Real numbers}, 
+language =	 {English}, 
+affiliation =	 {Laboratoire d'informatique de l'{\'E}cole 
+polytechnique - LIX, INRIA Saclay - Ile de France, 
+Microsoft Research - Inria Joint Centre}, 
+school =	 {{\'E}cole polytechnique}},
+year =	 2012, 
+month =	 {{Nov}}, 
+pdf =	 {http://perso.crans.org/cohen/papers/thesis.pdf}, 
+} 
+ @inproceedings{DBLP:conf/ifl/SieczkowskiBB10, 
+author = {Filip Sieczkowski and 
+Malgorzata Biernacka and 
+Dariusz Biernacki}, 
+title = {Automating Derivations of Abstract Machines from Reduction 
+Semantics: - A Generic Formalization of Refocusing in Coq}, 
+booktitle = {IFL}, 
+year = {2010}, 
+pages = {72-88}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-24276-2_5}, 
+crossref = {DBLP:conf/ifl/2010}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/ifl/2010, 
+editor = {Jurriaan Hage and 
+Marco T. Moraz{\'a}n}, 
+title = {Implementation and Application of Functional Languages - 
+22nd International Symposium, IFL 2010, Alphen aan den Rijn, 
+The Netherlands, September 1-3, 2010, Revised Selected Papers}, 
+booktitle = {IFL}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {6647}, 
+year = {2011}, 
+isbn = {978-3-642-24275-5}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-24276-2}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+ @INPROCEEDINGS{Cohen2010, 
+author =	 {Cyril Cohen}, 
+title =	 {Types quotients en {C}oq}, 
+booktitle =	 {Actes des 21ème journées francophones des langages 
+applicatifs (JFLA 2010)}, 
+year =	 2010, 
+editor =	 {Hermann}, 
+keywords =	 {coq, ssreflect, théorie des types, quotient, calcul 
+des constructions inductives, mathématiques 
+constructives}, 
+timestamp =	 {2010.08.24}, 
+url =	 {http://jfla.inria.fr/2010/actes/PDF/cyrilcohen.pdf}, 
+month =	 jan, 
+address =	 {Vieux-Port La Ciotat, France}, 
+publisher =	 {INRIA}, 
+} 
+
+@article{CohenMahboubi11, 
+hal_id =	 {inria-00593738}, 
+url =	 {http://hal.inria.fr/inria-00593738}, 
+title =	 {Formal proofs in real algebraic geometry: from 
+ordered fields to quantifier elimination},
+author =	 {Cohen, Cyril and Mahboubi, Assia}, 
+abstract =	 {This paper describes a formalization of discrete 
+real closed fields in the {C}oq proof 
+assistant. This abstract structure captures for 
+instance the theory of real algebraic numbers, a 
+decidable subset of real numbers with good 
+algorithmic properties. The theory of real algebraic 
+numbers and more generally of semi-algebraic 
+varieties is at the core of a number of effective 
+methods in real analysis, including decision 
+procedures for non linear arithmetic or optimization 
+methods for real valued functions. After defining an 
+abstract structure of discrete real closed field and 
+the elementary theory of real roots of polynomials, 
+we describe the formalization of an algebraic proof 
+of quantifier elimination based on pseudo-remainder 
+sequences following the standard computer algebra 
+literature on the topic. This formalization covers a 
+large part of the theory which underlies the 
+efficient algorithms implemented in practice in 
+computer algebra. The success of this work paves the 
+way for formal certification of these efficient 
+methods.}, 
+keywords =	 {Formal proofs; {C}oq; quantifier elimination; small 
+scale reflection; real algebraic geometry; real 
+closed fields}, 
+language =	 {English}, 
+affiliation =	 {Microsoft Research - Inria Joint Centre - MSR - 
+INRIA , TypiCal - INRIA Saclay - Ile de France , 
+Laboratoire d'informatique de l'{\'E}cole 
+polytechnique - LIX}, 
+publisher =	 {IfCoLog (International Federation of Computational 
+Logic)}, 
+pages =	 {1-40}, 
+journal =	 {Logical Methods in Computer Science}, 
+volume =	 8, 
+number =	 {1:02 }, 
+audience =	 {internationale }, 
+doi =	 {10.2168/LMCS-8 (1:02) 2012 }, 
+year =	 2012, 
+month =	 Feb, 
+pdf = 
+{http://hal.inria.fr/inria-00593738/PDF/1201.3731.pdf}, 
+} 
+
+
+@inproceedings{qe_closedF, 
+title =	 { {A} formal quantifier elimination for algebraically 
+closed fields}, 
+author =	 lime_C}ohen, {C}yril and {M}ahboubi, {A}ssia}, 
+keywords =	 {coq; quantifier elimination; closed fields; 
+continuation passing style; algebra}, 
+booktitle =	 {{S}ymposium on the {I}ntegration of {S}ymbolic 
+{C}omputation and {M}echanised {R}easoning, 
+{C}alculemus {I}ntelligent {C}omputer {M}athematics 
+}, 
+publisher =	 {{S}pringer }, 
+pages =	 {189-203 }, 
+address =	 {{P}aris {F}rance }, 
+volume =	 {6167 }, 
+series =	 {{C}omputer {S}cience }, 
+audience =	 {internationale }, 
+doi =	 {10.1007/978-3-642-14128-7_17 }, 
+day =	 29, 
+month =	 06, 
+year =	 2010, 
+} 
+
+@inproceedings{realalg, 
+hal_id =	 {hal-00671809}, 
+url =	 {http://hal.inria.fr/hal-00671809}, 
+title =	 {{Construction of real algebraic numbers in Coq, 
+author =	 {Cohen, Cyril}, 
+abstract =	 {This paper shows a construction in Coq of the set 
+of real algebraic numbers, together with a formal 
+proof that this set has a structure of discrete 
+archimedian real closed field. This construction 
+hence implements an interface of real closed 
+field. Instances of such an interface immediately 
+enjoy quantifier elimination thanks to a previous 
+work. This work also intends to be a basis for the 
+construction of complex algebraic numbers and to be 
+a reference implementation for the certification of 
+numerous algorithms relying on algebraic numbers in 
+computer algebra.}, 
+keywords =	 {coq; real algebraic numbers; formalization of 
+mathematics; quotient; real closure; small scale 
+reflexion}, 
+language =	 {English}, 
+affiliation =	 {Microsoft Research - Inria Joint Centre - MSR - 
+INRIA , TypiCal - INRIA Saclay - Ile de France , 
+Laboratoire d'informatique de l'{\'e}cole 
+polytechnique - LIX}, 
+booktitle =	 {ITP - 3rd International Conference on Interactive 
+Theorem Proving - 2012},
+publisher =	 {Springer}, 
+address =	 {Princeton, United States}, 
+editor =	 {Lennart Beringer and Amy Felty }, 
+audience =	 {internationale }, 
+year =	 2012, 
+month =	 Aug, 
+pdf =	 {http://hal.inria.fr/hal-00671809/PDF/main.pdf}, 
+} 
+
+@InProceedings{reelalg, 
+author =	 {Cyril Cohen}, 
+title =	 {Construction des nombres alg\'ebriques en {C}oq},
+year =	 2012, 
+booktitle =	 {Proceedings of JFLA2012}, 
+note =	 {http://perso.crans.org/cohen/work/realalg/},  
+volume =	 6841, 
+pages =	 "71-90", 
+year =	 2011 
+} 
+
+@incollection{CC13, 
+year =	 2013, 
+isbn =	 {978-3-642-39633-5}, 
+booktitle =	 {Interactive Theorem Proving}, 
+volume =	 7998, 
+series =	 {Lecture Notes in Computer Science}, 
+editor =	 {Blazy, Sandrine and Paulin-Mohring, Christine and 
+Pichardie, David}, 
+doi =	 {10.1007/978-3-642-39634-2_17}, 
+title =	 {Pragmatic Quotient Types in Coq},
+url =	 {http://dx.doi.org/10.1007/978-3-642-39634-2_17}, 
+publisher =	 {Springer Berlin Heidelberg}, 
+keywords =	 {Quotient types; Formalization of mathematics; Coq}, 
+author =	 {Cohen, Cyril}, 
+pages =	 {213-228} 
+} 
+
+@incollection{FTT13, 
+year =	 2013, 
+isbn =	 {978-3-642-39633-5}, 
+booktitle =	 {Interactive Theorem Proving}, 
+volume =	 7998, 
+series =	 {Lecture Notes in Computer Science}, 
+editor =	 {Blazy, Sandrine and Paulin-Mohring, Christine and 
+Pichardie, David}, 
+doi =	 {10.1007/978-3-642-39634-2_14}, 
+title =	 {A Machine-Checked Proof of the Odd Order Theorem}, 
+url =	 {http://dx.doi.org/10.1007/978-3-642-39634-2_14}, 
+publisher =	 {Springer Berlin Heidelberg}, 
+author =	 {Gonthier, Georges and Asperti, Andrea and Avigad, 
+Jeremy and Bertot, Yves and Cohen, Cyril and 
+Garillot, François and Roux, Stéphane and Mahboubi, 
+Assia and O’Connor, Russell and Ould Biha, Sidi and 
+Pasca, Ioana and Rideau, Laurence and Solovyev, 
+Alexey and Tassi, Enrico and Théry, Laurent}, 
+pages =	 {163-179} 
+} 
+
+@incollection{refinements_for_free, 
+year =	 2013, 
+isbn =	 {978-3-319-03544-4}, 
+booktitle =	 {Certified Programs and Proofs}, 
+volume =	 8307, 
+series =	 {Lecture Notes in Computer Science}, 
+editor =	 {Gonthier, Georges and Norrish, Michael}, 
+doi =	 {10.1007/978-3-319-03545-1_10}, 
+title =	 {Refinements for Free!}, 
+url =	 {http://dx.doi.org/10.1007/978-3-319-03545-1_10}, 
+publisher =	 {Springer International Publishing}, 
+keywords =	 {Coq; Data refinements; Formal proofs; Efficient 
+algorithms and data structures; Parametricity}, 
+author =	 {Cohen, Cyril and Dénès, Maxime and Mörtberg, Anders}, 
+pages =	 {147-162} 
+} 
+
+@phdthesis{cohen_phd, 
+title =	 {Formalized algebraic numbers: construction and 
+first-order theory},
+author =	 {Cohen, Cyril}, 
+keywords =	 {Coq; Formal proofs; Formalization of mathematics; 
+Small scale reflection; Algebraic numbers; 
+Constructive mathematics; Quantifier elimination; 
+Real numbers}, 
+language =	 {English}, 
+affiliation =	 {Laboratoire d'informatique de l'{\'E}cole 
+polytechnique - LIX, INRIA Saclay - Ile de France, 
+Microsoft Research - Inria Joint Centre}, 
+school =	 {\'E}cole polytechnique}},
+year =	 2012, 
+month =	 {{Nov, 
+pdf =	 {http://perso.crans.org/cohen/papers/thesis.pdf}, 
+} 
+ @inproceedings{PicoCoq2013:POPL, 
+title = {A Verified Information-Flow Architecture}, 
+author = { 
+Arthur {Azevedo de Amorim} and 
+Nathan Collins and 
+Andr\'e DeHon and 
+Delphine Demange and 
+C\u{a}t\u{a}lin Hri\c{t}cu and 
+David Pichardie and 
+Benjamin C. Pierce and 
+Randy Pollack and 
+Andrew Tolmach 
+}, 
+booktitle = {Proceedings of the 41st Symposium on Principles of Programming Languages}, 
+series = {POPL}, 
+month = jan, 
+year = 2014, 
+url = {http://www.infsec.cs.uni-saarland.de/~hritcu/publications/verified-ifc-draft.pdf} 
+} 
+
+
+
+@inproceedings{McCreight:2010:CFC:1863543.1863584, 
+author = {McCreight, Andrew and Chevalier, Tim and Tolmach, Andrew}, 
+title = {A Certified Framework for Compiling and Executing Garbage-collected Languages}, 
+booktitle = {Proceedings of the 15th ACM SIGPLAN International Conference on Functional Programming}, 
+series = {ICFP '10}, 
+year = {2010}, 
+isbn = {978-1-60558-794-3}, 
+location = {Baltimore, Maryland, USA}, 
+pages = {273--284}, 
+numpages = {12}, 
+url = {http://doi.acm.org/10.1145/1863543.1863584}, 
+doi = {10.1145/1863543.1863584}, 
+acmid = {1863584}, 
+publisher = {ACM}, 
+address = {New York, NY, USA}, 
+keywords = {certified compilation, garbage collection, haskell compilation, program proof, the coq theorem prover}, 
+} 
+
+ 
+%% inria-00352524, version 1 
+%% http://hal.inria.fr/inria-00352524 
+@article{blazy:inria-00352524, 
+hal_id = {inria-00352524}, 
+url = {http://hal.inria.fr/inria-00352524}, 
+title = {Mechanized semantics for the Clight subset of the C language},
+author = {Blazy, S. and Leroy, X.}, 
+pages = {263-288}, 
+journal = {Journal of Automated Reasoning}, 
+volume = {43}, 
+number = {3 }, 
+year = {2009}, 
+pdf = {http://hal.inria.fr/inria-00352524/PDF/paper.pdf}, 
+} 
+
+%% inria-00289542, version 1 
+%% http://hal.inria.fr/inria-00289542 
+@article{leroy:inria-00289542, 
+hal_id = {inria-00289542}, 
+url = {http://hal.inria.fr/inria-00289542}, 
+title = {Formal verification of a C-like memory model and its uses for verifying program transformations},
+author = {Leroy, X. and Blazy, S.}, 
+pages = {1-31}, 
+journal = {Journal of Automated Reasoning}, 
+volume = {41}, 
+number = {1 }, 
+year = {2008}, 
+pdf = {http://hal.inria.fr/inria-00289542/PDF/memory-model-journal.pdf}, 
+} 
+
+%% inria-00292049, version 1 
+%% http://hal.inria.fr/inria-00292049 
+@article{blazy:inria-00292049, 
+hal_id = {inria-00292049}, 
+url = {http://hal.inria.fr/inria-00292049}, 
+title = {Comment gagner confiance en C ?},
+author = {Blazy, S.}, 
+pages = {1195-1200}, 
+journal = {Revue Technique et Science Informatiques (TSI)}, 
+volume = {26}, 
+number = {9 }, 
+year = {2007}, 
+pdf = {http://hal.inria.fr/inria-00292049/PDF/TSIchronique\_sansentete.pdf}, 
+} 
+
+%% hal-00908848, version 1 
+%% http://hal.inria.fr/hal-00908848 
+@inproceedings{kriener:hal-00908848, 
+hal_id = {hal-00908848}, 
+url = {http://hal.inria.fr/hal-00908848}, 
+title = {Proofs You Can Believe In. Proving Equivalences Between Prolog Semantics in Coq},
+author = {Kriener, J. and King, A. and Blazy, S.}, 
+booktitle = {15th International Symposium on Principles and Practice of Declarative Programming (PPDP)},
+pages = {37-48}, 
+year = {2013}, 
+pdf = {http://hal.inria.fr/hal-00908848/PDF/main.pdf}, 
+} 
+
+%% hal-00848703, version 1 
+%% http://hal.inria.fr/hal-00848703 
+@inproceedings{blazy:hal-00848703, 
+hal_id = {hal-00848703}, 
+url = {http://hal.inria.fr/hal-00848703}, 
+title = {Formal Verification of Loop Bound Estimation for WCET Analysis},
+author = {Blazy, S. and Maroneze, A. and Pichardie, D.}, 
+booktitle = lime_VSTTE - Verified Software: Theories, Tools and Experiments, 
+pages = {281-303}, 
+volume = {8164}, 
+series = {Lecture Notes in Computer Science }, 
+year = {2013}, 
+pdf = {http://hal.inria.fr/hal-00848703/PDF/paper.pdf}, 
+} 
+
+%% hal-00812515, version 1 
+%% http://hal.inria.fr/hal-00812515 
+@inproceedings{blazy:hal-00812515, 
+hal_id = {hal-00812515}, 
+url = {http://hal.inria.fr/hal-00812515}, 
+title = {Formal Verification of a C Value Analysis Based on Abstract Interpretation},
+author = {Blazy, S. and Laporte, V. and Maroneze, A. and Pichardie, D.}, 
+booktitle = {SAS - 20th Static Analysis Symposium},
+pages = {324-344}, 
+volume = {Lecture Notes in Computer Science}, 
+year = {2013}, 
+pdf = {http://hal.inria.fr/hal-00812515/PDF/paper.pdf}, 
+} 
+
+%% hal-00762330, version 1 
+%% http://hal.inria.fr/hal-00762330 
+@inproceedings{blazy:hal-00762330, 
+hal_id = {hal-00762330}, 
+url = {http://hal.inria.fr/hal-00762330}, 
+title = {Towards a formally verified obfuscating compiler},
+author = {Blazy, S. and Giacobazzi, R.}, 
+booktitle = {SSP 2012 - 2nd ACM SIGPLAN Software Security and Protection Workshop},
+year = {2012}, 
+pdf = {http://hal.inria.fr/hal-00762330/PDF/paper-ieee.pdf}, 
+} 
+
+%% inria-00477689, version 1 
+%% http://hal.inria.fr/inria-00477689 
+@inproceedings{blazy:inria-00477689, 
+hal_id = {inria-00477689}, 
+url = {http://hal.inria.fr/inria-00477689}, 
+title = {Formal Verification of Coalescing Graph-Coloring Register Allocation},
+author = {Blazy, S. and Robillard, B. and Appel, A. W., W.}, 
+booktitle = {19th European Symposium on Programming (ESOP)},
+pages = {145-164}, 
+volume = {6012}, 
+series = {Lecture Notes in Computer Science }, 
+year = {2010}, 
+pdf = {http://hal.inria.fr/inria-00477689/PDF/2010ESOP.pdf}, 
+} 
+
+%% inria-00292441, version 1 
+%% http://hal.inria.fr/inria-00292441 
+@inproceedings{blazy:inria-00292441, 
+hal_id = {inria-00292441}, 
+url = {http://hal.inria.fr/inria-00292441}, 
+title = {Which C semantics to embed in the front-end of a formally verified compiler?},
+author = {Blazy, S.}, 
+booktitle = {TTVSI (Tools and Techniques for Verification of System Infrastructure)},
+pages = {31}, 
+year = {2008}, 
+} 
+
+%% inria-00202713, version 1 
+%% http://hal.inria.fr/inria-00202713 
+@inproceedings{blazy:inria-00202713, 
+hal_id = {inria-00202713}, 
+url = {http://hal.inria.fr/inria-00202713}, 
+title = {V{\'e}rification formelle d'un algorithme d'allocation de registres par coloration de graphe},
+author = {Blazy, S. and Robillard, B. and Soutif, E.}, 
+booktitle = {JFLA (Journ{\'e}es Francophones des Langages Applicatifs)},
+pages = {31-46}, 
+year = {2008}, 
+pdf = {http://hal.inria.fr/inria-00202713/PDF/Robillard.pdf}, 
+} 
+
+%% inria-00260712, version 1 
+%% http://hal.inria.fr/inria-00260712 
+@inproceedings{robillard:inria-00260712, 
+hal_id = {inria-00260712}, 
+url = {http://hal.inria.fr/inria-00260712}, 
+title = lime_Coloration avec pr{\'e}f{\'e}rences : complexit{\'e}, in{\'e}galit{\'e}s valides et v{\'e}rification formelle, 
+author = {Robillard, B. and Blazy, S. and Soutif, E.}, 
+booktitle = lime_ROADEF'08, 9e congr{\`e}s de la Soci{\'e}t{\'e} Fran{\c c}aise de Recherche Op{\'e}rationnelle et d'Aide {\`a} la D{\'e}cision, 
+pages = {123-138}, 
+year = {2008}, 
+pdf = {http://hal.inria.fr/inria-00260712/PDF/ROADEF08.pdf}, 
+} 
+
+%% inria-00165915, version 1 
+%% http://hal.inria.fr/inria-00165915 
+@inproceedings{appel:inria-00165915, 
+hal_id = {inria-00165915}, 
+url = {http://hal.inria.fr/inria-00165915}, 
+title = {Separation Logic for Small-step Cminor},
+author = {Appel, A. W., W. and Blazy, S.}, 
+booktitle = {20th Int. Conference on Theorem Proving in Higher Order Logics (TPHOLs 2007)},
+pages = {5-21}, 
+volume = {4732}, 
+series = {Lecture Notes in Computer Science }, 
+year = {2007}, 
+pdf = {http://hal.inria.fr/inria-00165915/PDF/paperTPHOL.pdf}, 
+} 
+
+%% inria-00292045, version 1 
+%% http://hal.inria.fr/inria-00292045 
+@inproceedings{blazy:inria-00292045, 
+hal_id = {inria-00292045}, 
+url = {http://hal.inria.fr/inria-00292045}, 
+title = {Coloration avec pr{\'e}f{\'e}rences dans les graphes triangul{\'e}s},
+author = {Blazy, S. and Robillard, B. and Soutif, E.}, 
+booktitle = {Journ{\'e}es Graphes et algorithmes (JGA'07)},
+pages = {32}, 
+year = {2007}, 
+} 
+
+%% inria-00292043, version 1 
+%% http://hal.inria.fr/inria-00292043 
+@inproceedings{blazy:inria-00292043, 
+hal_id = {inria-00292043}, 
+url = {http://hal.inria.fr/inria-00292043}, 
+title = {Experiments in validating formal semantics for C},
+author = {Blazy, S.}, 
+booktitle = {C/C++ Verification Workshop},
+pages = {95-102}, 
+year = {2007}, 
+pdf = {http://hal.inria.fr/inria-00292043/PDF/C07Blazy.pdf}, 
+} 
+
+%% inria-00106401, version 1 
+%% http://hal.inria.fr/inria-00106401 
+@inproceedings{blazy:inria-00106401, 
+hal_id = {inria-00106401}, 
+url = {http://hal.inria.fr/inria-00106401}, 
+title = {Formal Verification of a C Compiler Front-end},
+author = {Blazy, S. and Dargaye, Z. and Leroy, X.}, 
+booktitle = {FM'06: 14th Symposium on Formal Methods},
+pages = {pp.460-475}, 
+volume = {4085}, 
+series = {Lecture Notes in Computer Science }, 
+year = {2006}, 
+pdf = {http://hal.inria.fr/inria-00106401/PDF/fm06Blazy.pdf}, 
+} 
+
+%% inria-00077921, version 1 
+%% http://hal.inria.fr/inria-00077921 
+@inproceedings{blazy:inria-00077921, 
+hal_id = {inria-00077921}, 
+url = {http://hal.inria.fr/inria-00077921}, 
+title = {Formal verification of a memory model for C-like imperative languages},
+author = {Blazy, S. and Leroy, X.}, 
+booktitle = {ICFEM'05: 7th International Conference on Formal Engineering Methods},
+pages = {280-299}, 
+volume = {3785}, 
+series = {Lecture Notes in Computer Science }, 
+year = {2005}, 
+pdf = {http://hal.inria.fr/inria-00077921/PDF/icfem05Blazy.pdf}, 
+} 
+
+%% hal-00653367, version 1 
+%% http://hal.inria.fr/hal-00653367 
+@inproceedings{bedinfranca:hal-00653367, 
+hal_id = {hal-00653367}, 
+url = {http://hal.inria.fr/hal-00653367}, 
+title = {Formally verified optimizing compilation in ACG-based flight control software},
+author = {Bedin Fran{\c c}a, R. and Blazy, S. and Favre-Felix, D. and Leroy, X. and Pantel, M. and Souyris, J.}, 
+booktitle = {ERTS2 2012: Embedded Real Time Software and Systems},
+year = {2012}, 
+pdf = {http://hal.inria.fr/hal-00653367/PDF/erts2012.pdf}, 
+} 
+
+%% hal-00905435, version 1 
+%% http://hal.inria.fr/hal-00905435 
+@incollection{leroy:hal-00905435, 
+hal_id = {hal-00905435}, 
+url = {http://hal.inria.fr/hal-00905435}, 
+title = {The CompCert memory model},
+author = {Leroy, X. and Appel, A., W. and Blazy, S. and Stewart, G.}, 
+booktitle = {Program Logics for Certified Compilers},
+year = {2013}, 
+} 
+
+%% tel-00336576, version 1 
+%% http://tel.archives-ouvertes.fr/tel-00336576 
+@phdthesis{blazy:tel-00336576, 
+hal_id = {tel-00336576}, 
+url = {http://tel.archives-ouvertes.fr/tel-00336576}, 
+title = {S{\'e}mantiques formelles},
+author = {Blazy, S.}, 
+type = {HDR}, 
+pdf = {http://tel.archives-ouvertes.fr/tel-00336576/PDF/hdr.pdf}, 
+}
+ @inproceedings{rts, 
+author = {Chung-Kil Hur and Derek Dreyer and Georg Neis and Viktor Vafeiadis}, 
+title = {The marriage of bisimulations and Kripke logical relations},
+booktitle = {POPL}, 
+publisher = {ACM}, 
+year = {2012}, 
+} 
+
+@inproceedings{paco, 
+author = {Chung-Kil Hur and Georg Neis and Derek Dreyer and Viktor Vafeiadis}, 
+title = {The power of parameterization in coinductive proof},
+booktitle = {POPL}, 
+publisher = {ACM}, 
+year = {2013}, 
+} 
+
+@inproceedings{mtac, 
+author = {Beta Ziliani and Derek Dreyer and Neelakantan R. Krishnaswami and Aleksandar Nanevski and Viktor Vafeiadis}, 
+title = {Mtac}: {A} monad for typed tactic programming in {C}oq}},
+booktitle = {ICFP}, 
+publisher = {ACM}, 
+year = {2013}, 
+} 
+
+@inproceedings{ftpar, 
+author = {Mustafa Zengin and Viktor Vafeiadis}, 
+title = {A programming language approach to fault tolerance for fork-join parallelism}, 
+booktitle = {TASE}, 
+year = {2013}, 
+publisher = {IEEE} 
+} 
+
+@inproceedings{relaxed-sl, 
+author = {Viktor Vafeiadis and Chinmay Narayan}, 
+title = {Relaxed Separation Logic: A Program Logic for {C11} Concurrency}, 
+booktitle = {OOPSLA}, 
+year = {2013}, 
+publisher = {ACM}, 
+} 
+
+@inproceedings{fence-elim, 
+author = {Viktor Vafeiadis and Francesco Zappa Nardelli}, 
+title = {Verifying Fence Elimination Optimisations}, 
+booktitle = {SAS}, 
+year = {2011}, 
+pages = {146-162}, 
+OPTeditor = {Eran Yahav}, 
+publisher = {Springer}, 
+series = {LNCS}, 
+volume = {6887}, 
+} 
+
+@inproceedings{adjustable-refs, 
+author = {Viktor Vafeiadis}, 
+title = {Adjustable References}, 
+booktitle = {ITP}, 
+pages = {328-337}, 
+OPTeditor = {Sandrine Blazy and Christine Paulin-Mohring and David Pichardie}, 
+publisher = {Springer}, 
+series = {LNCS}, 
+volume = {7998}, 
+year = {2013}, 
+} 
+
+@inproceedings{compcerttso-conf, 
+author = {Jaroslav \v{S}ev\v{c}\'{\i}k and 
+Viktor Vafeiadis and 
+Francesco {Zappa Nardelli} and 
+Suresh Jagannathan and 
+Peter Sewell}, 
+title = {Relaxed-memory concurrency and verified compilation}, 
+booktitle = {POPL}, 
+year = {2011}, 
+pages = {43-54}, 
+publisher = {ACM}, 
+} 
+
+@article{compcerttso, 
+author = {Jaroslav \v{S}ev\v{c}\'{\i}k and 
+Viktor Vafeiadis and 
+Francesco {Zappa Nardelli} and 
+Suresh Jagannathan and 
+Peter Sewell}, 
+title = {{CompCertTSO}: A Verified Compiler for Relaxed-Memory Concurrency}, 
+journal = {J. ACM}, 
+volume = {60}, 
+number = {3}, 
+year = {2013}, 
+pages = {22}, 
+} 
+
+@inproceedings{htt, 
+author = {Aleksandar Nanevski and 
+Viktor Vafeiadis and 
+Josh Berdine}, 
+title = {Structuring the verification of heap-manipulating programs}, 
+booktitle = {POPL}, 
+year = {2010}, 
+pages = {261-274}, 
+publisher = {ACM}, 
+} 
+ ICFP 2010 : ReCaml : execution state as the cornerstone of dynamic reconfiguration
+ @inproceedings{DBLP:conf/mkm/AllamigeonGMW13, 
+author = {Xavier Allamigeon and 
+St{\'e}phane Gaubert and 
+Victor Magron and 
+Benjamin Werner}, 
+title = {Certification of Bounds of Non-linear Functions: The Templates 
+Method}, 
+booktitle = {MKM/Calculemus/DML}, 
+year = {2013}, 
+pages = {51-65}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-39320-4_4}, 
+crossref = {DBLP:conf/mkm/2013}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/mkm/2013, 
+editor = {Jacques Carette and 
+David Aspinall and 
+Christoph Lange and 
+Petr Sojka and 
+Wolfgang Windsteiger}, 
+title = {Intelligent Computer Mathematics - MKM, Calculemus, DML, 
+and Systems and Projects 2013, Held as Part of CICM 2013, 
+Bath, UK, July 8-12, 2013. Proceedings}, 
+booktitle = {MKM/Calculemus/DML}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {7961}, 
+year = {2013}, 
+isbn = {978-3-642-39319-8}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-39320-4}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/cpp/ArmandFGKTW11, 
+author = {Micha{\"e}l Armand and 
+Germain Faure and 
+Benjamin Gr{\'e}goire and 
+Chantal Keller and 
+Laurent Th{\'e}ry and 
+Benjamin Werner}, 
+title = {A Modular Integration of SAT/SMT Solvers to Coq through 
+Proof Witnesses}, 
+booktitle = {CPP}, 
+year = {2011}, 
+pages = {135-150}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-25379-9_12}, 
+crossref = {DBLP:conf/cpp/2011}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/cpp/2011, 
+editor = {Jean-Pierre Jouannaud and 
+Zhong Shao}, 
+title = {Certified Programs and Proofs - First International Conference, 
+CPP 2011, Kenting, Taiwan, December 7-9, 2011. Proceedings}, 
+booktitle = {CPP}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {7086}, 
+year = {2011}, 
+isbn = {978-3-642-25378-2}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-25379-9}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/itp/KellerW10, 
+author = {Chantal Keller and 
+Benjamin Werner}, 
+title = {Importing HOL Light into Coq}, 
+booktitle = {ITP}, 
+year = {2010}, 
+pages = {307-322}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-14052-5_22}, 
+crossref = {DBLP:conf/itp/2010}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/itp/2010, 
+editor = {Matt Kaufmann and 
+Lawrence C. Paulson}, 
+title = {Interactive Theorem Proving, First International Conference, 
+ITP 2010, Edinburgh, UK, July 11-14, 2010. Proceedings}, 
+booktitle = {ITP}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {6172}, 
+year = {2010}, 
+isbn = {978-3-642-14051-8}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-14052-5}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@article{DBLP:journals/lmcs/Werner08, 
+author = {Benjamin Werner}, 
+title = {On the Strength of Proof-irrelevant Type Theories}, 
+journal = {Logical Methods in Computer Science}, 
+volume = {4}, 
+number = {3}, 
+year = {2008}, 
+ee = {http://dx.doi.org/10.2168/LMCS-4(3:13)2008}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+@inproceedings{DBLP:conf/tphol/GarillotW07, 
+author = {Fran\c{c}ois Garillot and 
+Benjamin Werner}, 
+title = {Simple Types in Type Theory: Deep and Shallow Encodings}, 
+booktitle = {TPHOLs}, 
+year = {2007}, 
+pages = {368-382}, 
+ee = {http://dx.doi.org/10.1007/978-3-540-74591-4_27}, 
+crossref = {DBLP:conf/tphol/2007}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/tphol/2007, 
+editor = {Klaus Schneider and 
+Jens Brandt}, 
+title = {Theorem Proving in Higher Order Logics, 20th International 
+Conference, TPHOLs 2007, Kaiserslautern, Germany, September 
+10-13, 2007, Proceedings}, 
+booktitle = {TPHOLs}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {4732}, 
+year = {2007}, 
+isbn = {978-3-540-74590-7}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+
+@inproceedings{DBLP:conf/flops/GregoireTW06, 
+author = {Benjamin Gr{\'e}goire and 
+Laurent Th{\'e}ry and 
+Benjamin Werner}, 
+title = {A Computational Approach to Pocklington Certificates in 
+Type Theory}, 
+booktitle = {FLOPS}, 
+year = {2006}, 
+pages = {97-113}, 
+ee = {http://dx.doi.org/10.1007/11737414_8}, 
+crossref = {DBLP:conf/flops/2006}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/flops/2006, 
+editor = {Masami Hagiya and 
+Philip Wadler}, 
+title = {Functional and Logic Programming, 8th International Symposium, 
+FLOPS 2006, Fuji-Susono, Japan, April 24-26, 2006, Proceedings}, 
+booktitle = {FLOPS}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {3945}, 
+year = {2006}, 
+isbn = {3-540-33438-6}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+@inproceedings{DBLP:conf/tacs/Werner97, 
+author = {Benjamin Werner}, 
+title = {Sets in Types, Types in Sets}, 
+booktitle = {TACS}, 
+year = {1997}, 
+pages = {530-346}, 
+ee = {http://dx.doi.org/10.1007/BFb0014566}, 
+crossref = {DBLP:conf/tacs/1997}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/tacs/1997, 
+editor = {Mart\'{\i}n Abadi and 
+Takayasu Ito}, 
+title = {Theoretical Aspects of Computer Software, Third International 
+Symposium, TACS '97, Sendai, Japan, September 23-26, 1997, 
+Proceedings}, 
+booktitle = {TACS}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {1281}, 
+year = {1997}, 
+isbn = {3-540-63388-X}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+@article{DBLP:journals/jsc/Paulin-MohringW93, 
+author = {Christine Paulin-Mohring and 
+Benjamin Werner}, 
+title = {Synthesis of ML Programs in the System Coq}, 
+journal = {J. Symb. Comput.}, 
+volume = {15}, 
+number = {5/6}, 
+year = {1993}, 
+pages = {607-640}, 
+ee = {http://dx.doi.org/10.1016/S0747-7171(06)80007-6}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+ S. Awodey, N. Gambino and K. Sojakova Inductive types in Homotopy Type Theory, written with Proceedings of the 2012 27th Annual ACM/IEEE Symposium on Logic in Computer Science (LICS 2012), pp. 95-104.
+ Paper submitted to PLDI 2014 and still under review.
+ A List-machine Benchmark for Mechanized Metatheory. Andrew W. Appel, Robert Dockins and Xavier Leroy. Journal of Automated Reasoning. Volume 49, issue 3. Pages 453-491. October 2012. 
+Operational Refinement for Compiler Correctness. Doctoral Dissertation, Princeton University. September 2012. 
+Time Bounds for General Function Pointers. Robert Dockins and Aquinas Hobor. In Mathematical Foundations of Prgramming Semantics (MFPS XXVIII). ENTCS 286. Pages 139-155. June 2012. 
+A Logical Mix of Approximation and Separation Invited tutoral/paper in APLAS 2010, November 2010. 
+A Theory of Indirection via Approximation Aquinas Hobor, Robert Dockins and Andrew W. Appel. In POPL 2010: The 37th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, January 2010. 
+A Fresh Look at Separation Algrbras and Share Accounting Robert Dockins, Aquinas Hobor, and Andrew W. Appel. In the 7th Asian Symposium on Programming Languages and Systems, December 2009. 
+Comparing Semantic and Syntactic Methods in Mechanized Proof Frameworks C.J. Bell, Robert Dockins, Aquinas Hobor, Andrew W. Appel, David Walker. Workshop paper. In 2nd International Workshop on Proof-Carrying Code (PCC). June 2008. 
+Multimodal Separation Logic for Reasoning about Operational Semantics Robert Dockins, Andrew W. Appel and Aquinas Hobor. In Proc. Twenty-fourth Conference on the Mathematical Foundations of Programming Semantics. ENTCS, Volume 218. Pages 5-20. October 2008. Elsevier. 
+ @techreport{RijkeSpitters, 
+Author = {Egbert Rijke and Bas Spitters}, 
+Note = {arXiv:1305.3835}, 
+Title = {Sets in homotopy type theory}, 
+Year = 2013, 
+eprint={1305.3835}} 
+
+@inproceedings{ITP:Picard, 
+author = {Evgeny Makarov and Bas Spitters}, 
+title = {The {P}icard Algorithm for Ordinary Differential Equations in {C}oq}, 
+booktitle = {Interactive Theorem Proving (ITP2013)}, 
+year = {2013}, 
+editor = {Blazy and Paulin-Mohring and Picardie}, 
+pages = {463--468}, 
+publisher = {Springer}, 
+series={} 
+} 
+
+@article{LMCS, 
+title={Type classes for efficient exact real arithmetic in {C}oq}, 
+author={Robbert Krebbers and Bas Spitters}, 
+journal={Logical Methods in Computer Science}, 
+year={2013}, 
+volume=9, 
+number={1:1}, 
+pages={1--27}, 
+doi={10.2168/LMCS-9(1:01)2013}, 
+url = "http://arxiv.org/abs/1106.3448/" 
+} 
+
+@incollection{Robbert, 
+title={Computer certified efficient exact reals in {C}oq}, 
+author={Robbert Krebbers and Bas Spitters}, 
+booktitle={Intelligent Computer Mathematics}, 
+series = {Lecture Notes in Computer Science}, 
+editor = {Davenport, James and Farmer, William and Urban, Josef and Rabe, Florian}, 
+pages={90--106}, 
+year={2011}, 
+volume = {6824}, 
+publisher={Springer}, 
+doi={10.1007/978-3-642-22673-1_7} 
+} 
+
+@article{math-classes, 
+author = {Bas Spitters and Eelis van der Weegen}, 
+title = {Type Classes for Mathematics in Type Theory}, 
+journal = "{MSCS, special issue on `Interactive theorem proving and the formalization of mathematics'}", 
+volume = 21, 
+pages = {1--31}, 
+doi = {10.1017/S0960129511000119}, 
+publisher = {Cambridge University Press}, 
+year = {2011} 
+} 
+
+@article{Riemann, 
+title = {A computer verified, monadic, functional implementation of the integral.}, 
+author = {Russell O'Connor and Bas Spitters}, 
+url = "http://arxiv.org/abs/0809.1552", 
+journal ="Theoretical Computer Science", 
+doi="doi:10.1016/j.tcs.2010.05.031" ,
+volume=411, 
+number={37}, 
+year=2010, 
+pages={3386--3402} 
+} 
+
+@inproceedings{lcf:spi:03, 
+author = "L. Cruz-Filipe and B. Spitters", 
+booktitle = "Theorem Proving in Higher Order Logics, 16th International Conference, TPHOLs 2003", 
+editor = "D. Basin and B. Wolff", 
+pages = "205--220", 
+publisher = "Springer--Verlag", 
+series = "LNCS", 
+title = "Program Extraction from Large Proof Developments", 
+volume = "2758", 
+year = "2003" 
+} 
+
+@Book{hottbook, 
+author = {The {Univalent Foundations Program}}, 
+title = {Homotopy Type Theory: Univalent Foundations for Mathematics}, 
+publisher = {\url{http://homotopytypetheory.org/book}}, 
+address = {Institute for Advanced Study}, 
+year = 2013}
+ @inproceedings{DBLP:conf/cpp/CorbineauDL11, 
+author = {Pierre Corbineau and 
+Mathilde Duclos and 
+Yassine Lakhnech}, 
+title = {Certified Security Proofs of Cryptographic Protocols in 
+the Computational Model: An Application to Intrusion Resilience}, 
+booktitle = {CPP}, 
+year = {2011}, 
+pages = {378-393}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-25379-9_27}, 
+crossref = {DBLP:conf/cpp/2011}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/cpp/2011, 
+editor = {Jean-Pierre Jouannaud and 
+Zhong Shao}, 
+title = {Certified Programs and Proofs - First International Conference, 
+CPP 2011, Kenting, Taiwan, December 7-9, 2011. Proceedings}, 
+booktitle = {CPP}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {7086}, 
+year = {2011}, 
+isbn = {978-3-642-25378-2}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-25379-9}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+
+
+@inproceedings{DBLP:conf/itp/MonniauxC11, 
+author = {David Monniaux and 
+Pierre Corbineau}, 
+title = {On the Generation of Positivstellensatz Witnesses in Degenerate 
+Cases}, 
+booktitle = {ITP}, 
+year = {2011}, 
+pages = {249-264}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-22863-6_19}, 
+crossref = {DBLP:conf/itp/2011}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/itp/2011, 
+editor = {Marko C. J. D. van Eekelen and 
+Herman Geuvers and 
+Julien Schmaltz and 
+Freek Wiedijk}, 
+title = {Interactive Theorem Proving - Second International Conference, 
+ITP 2011, Berg en Dal, The Netherlands, August 22-25, 2011. 
+Proceedings}, 
+booktitle = {ITP}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {6898}, 
+year = {2011}, 
+isbn = {978-3-642-22862-9}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-22863-6}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/types/BarrasCGHS08, 
+author = {Bruno Barras and 
+Pierre Corbineau and 
+Benjamin Gr{\'e}goire and 
+Hugo Herbelin and 
+Jorge Luis Sacchini}, 
+title = {A New Elimination Rule for the Calculus of Inductive Constructions}, 
+booktitle = {TYPES}, 
+year = {2008}, 
+pages = {32-48}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-02444-3_3}, 
+crossref = {DBLP:conf/types/2008}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/types/2008, 
+editor = {Stefano Berardi and 
+Ferruccio Damiani and 
+Ugo de'Liguoro}, 
+title = {Types for Proofs and Programs, International Conference, 
+TYPES 2008, Torino, Italy, March 26-29, 2008, Revised Selected 
+Papers}, 
+booktitle = {TYPES}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {5497}, 
+year = {2009}, 
+isbn = {978-3-642-02443-6}, 
+ee = {http://dx.doi.org/10.1007/978-3-642-02444-3}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/mkm/CorbineauK07, 
+author = {Pierre Corbineau and 
+Cezary Kaliszyk}, 
+title = {Cooperative Repositories for Formal Proofs}, 
+booktitle = {Calculemus/MKM}, 
+year = {2007}, 
+pages = {221-234}, 
+ee = {http://dx.doi.org/10.1007/978-3-540-73086-6_19}, 
+crossref = {DBLP:conf/mkm/2007}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/mkm/2007, 
+editor = {Manuel Kauers and 
+Manfred Kerber and 
+Robert Miner and 
+Wolfgang Windsteiger}, 
+title = {Towards Mechanized Mathematical Assistants, 14th Symposium, 
+Calculemus 2007, 6th International Conference, MKM 2007, 
+Hagenberg, Austria, June 27-30, 2007, Proceedings}, 
+booktitle = {Calculemus/MKM}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {4573}, 
+year = {2007}, 
+isbn = {978-3-540-73083-5}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/types/Corbineau07, 
+author = {Pierre Corbineau}, 
+title = {A Declarative Language for the Coq Proof Assistant}, 
+booktitle = {TYPES}, 
+year = {2007}, 
+pages = {69-84}, 
+ee = {http://dx.doi.org/10.1007/978-3-540-68103-8_5}, 
+crossref = {DBLP:conf/types/2007}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/types/2007, 
+editor = {Marino Miculan and 
+Ivan Scagnetto and 
+Furio Honsell}, 
+title = {Types for Proofs and Programs, International Conference, 
+TYPES 2007, Cividale del Friuli, Italy, May 2-5, 2007, Revised 
+Selected Papers}, 
+booktitle = {TYPES}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {4941}, 
+year = {2008}, 
+isbn = {978-3-540-68084-0}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@inproceedings{DBLP:conf/types/Corbineau06, 
+author = {Pierre Corbineau}, 
+title = {Deciding Equality in the Constructor Theory}, 
+booktitle = {TYPES}, 
+year = {2006}, 
+pages = {78-92}, 
+ee = {http://dx.doi.org/10.1007/978-3-540-74464-1_6}, 
+crossref = {DBLP:conf/types/2006}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/types/2006, 
+editor = {Thorsten Altenkirch and 
+Conor McBride}, 
+title = {Types for Proofs and Programs, International Workshop, TYPES 
+2006, Nottingham, UK, April 18-21, 2006, Revised Selected 
+Papers}, 
+booktitle = {TYPES}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {4502}, 
+year = {2007}, 
+isbn = {978-3-540-74463-4}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+
+
+@inproceedings{DBLP:conf/cade/ContejeanC05, 
+author = {Evelyne Contejean and 
+Pierre Corbineau}, 
+title = {Reflecting Proofs in First-Order Logic with Equality}, 
+booktitle = {CADE}, 
+year = {2005}, 
+pages = {7-22}, 
+ee = {http://dx.doi.org/10.1007/11532231_2}, 
+crossref = {DBLP:conf/cade/2005}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/cade/2005, 
+editor = {Robert Nieuwenhuis}, 
+title = {Automated Deduction - CADE-20, 20th International Conference 
+on Automated Deduction, Tallinn, Estonia, July 22-27, 2005, 
+Proceedings}, 
+booktitle = {CADE}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {3632}, 
+year = {2005}, 
+isbn = {3-540-28005-7}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+
+
+@inproceedings{DBLP:conf/types/Corbineau03, 
+author = {Pierre Corbineau}, 
+title = {First-Order Reasoning in the Calculus of Inductive Constructions}, 
+booktitle = {TYPES}, 
+year = {2003}, 
+pages = {162-177}, 
+ee = {http://dx.doi.org/10.1007/978-3-540-24849-1_11}, 
+crossref = {DBLP:conf/types/2003}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
+
+@proceedings{DBLP:conf/types/2003, 
+editor = {Stefano Berardi and 
+Mario Coppo and 
+Ferruccio Damiani}, 
+title = {Types for Proofs and Programs, International Workshop, TYPES 
+2003, Torino, Italy, April 30 - May 4, 2003, Revised Selected 
+Papers}, 
+booktitle = {TYPES}, 
+publisher = {Springer}, 
+series = {Lecture Notes in Computer Science}, 
+volume = {3085}, 
+year = {2004}, 
+isbn = {3-540-22164-6}, 
+bibsource = {DBLP, http://dblp.uni-trier.de} 
+} 
