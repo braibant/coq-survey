@@ -1,3 +1,0 @@
-true: package(unix)
-true: package(netclient)
-true: package(yojson)

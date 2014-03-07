@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+.hlabel{
+  font: 10px sans-serif;
+  font-weight: bold;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  display: inline-block;
+  width:100px
+}
+
+.hbar{
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+  display: inline-block;
+}
+</style>
+
+<script src="graph.js"></script>
+
+<div>
+
+<h1>Numbers</h1>
+
+<h2>How many respondents to the survey?</h2>
+
+<div id="respondents"> </div>
+<script>
+  var g = new hgraph("respondents","400px",1);
+
+  g.hbar("Total answers",410);
+  g.hbar("Complete answers",141);
+  g.hbar("Researchers",112);
+  g.hbar("Teachers", 47);
+</script>
+
+<p>
+  There were 141 complete responses, and we only processed those. This
+  avoids multiple responses by the same person, or biases due to
+  people dropping the survey in the middle. All the following data are
+  based on these 141 answers. Summing the number of students involved
+  in courses by the teachers amounts to something around 1500. Of
+  course, it is likely that there is some overlap there.
+</p>
+
+<!--  -->
+
+<h2>Proximity with a conference</h2>
+
+<div id="proximity"> </div>
+<script>
+  var g = new hgraph("proximity","400px",1);
+
+  g.hbar("POPL", 58);
+  g.hbar("PLDI", 20);
+  g.hbar("ITP", 47);
+  g.hbar("CPP", 42);
+  g.hbar("ICFP",42);
+  g.hbar("CAV", 6);
+  g.hbar("Others < 5", 39);
+
+</script>
+
+<p>
+  We asked people about which conference they felt close (multiple
+  answer question). Here, "others" sums all the answers that got
+  stricly less than 5 answers. Based on this data, it seems that
+  there is a bias toward PL conferences.  </p>
+
+<!--  -->
+
+<h2>Field of work</h2>
+
+<div id="field"> </div>
+<script>
+  var g = new hgraph("field","400px",1);
+
+  g.hbar("PL", 72);
+  g.hbar("Maths", 16);
+  g.hbar("Formal", 12);
+  g.hbar("Logic", 11);
+  g.hbar("Types", 9);
+  g.hbar("Algebra", 6);
+
+</script>
+
+<p>
+  This question was an open one. To process it, we grepped for
+  keywords to get a rough idea. This data should be taken with a grain
+  of salt, and an ulterior survey should provide a multiple choice
+  question.
+</p>
+
+<!--  -->
+
+<h2>Papers</h2>
+
+<div id="papers"> </div>
+<script>
+  var g = new hgraph("papers","400px",1);
+
+  g.hbar("In the last 2 years", 215);
+  g.hbar("In the last 5 years", 507);
+  g.hbar("Bibitems", 427);
+</script>
+
+<p> In these questions, we asked people how many papers of theirs used
+  Coq significantly, and we asked for the corresponding bibitems.
+  Unfortunately, the survey software mangled the data of the bibitems,
+  so they are not easily usable, and we cannot easily sift
+  duplicates. The two other values are sums based on the declarative
+  fields. (Note that we have the bibitems, but putting them in a
+  useful format would take time. Please volunteer to contribute to the
+  recovery effort.)  </p>
+
+<!--  -->
+
+<h2>IDEs</h2>
+
+<div id="ide1"> </div>
+<script>
+  var g = new hgraph("ide1","400px",1);
+
+  g.hbar("CoqIDE", 39);
+  g.hbar("ProofGeneral", 94);
+  g.hbar("Vim or Proofweb", 8);
+</script>
+
+<p>
+  In this question, we asked people what IDE they were using preferentially.
+</p>
+
+<div id="ide2"> </div>
+<script>
+  var g = new hgraph("ide2","400px",1);
+
+  g.hbar("CoqIDE", 17);
+  g.hbar("ProofGeneral", 19);
+  g.hbar("Proofweb", 3);
+</script>
+
+<p>
+  Then, we asked them which IDE they were using when they were with
+  students.
+</p>
+
+<!--  -->
+
+<h2>Coqs versions in use</h2>
+
+<div id="coqs"> </div>
+<script>
+  var g = new hgraph("coqs","400px",1);
+
+  g.hbar("HoTT", 3);
+  g.hbar("Trunk", 5);
+  g.hbar("8.4pl3", 75);
+  g.hbar("8.4pl2", 66);
+  g.hbar("8.3", 21);
+  g.hbar("8.2 or earlier", 1);
+  g.hbar("Others", 8);
+</script>
+
+<p>
+  In this question, we asked people which Coq version they were
+  using. One thing to note is that at the time of the survey, 8.4pl3
+  was out for a very short time, which seems to indicate that most
+  people are eager to upgrade. Others corresponds to various patched
+  versions of Coq (for instance, with respect to coqdoc).
+</p>
+
+<h2>Porting Coq developments</h2>
+<div id="porting" class="hbars"> </div>
+
+<script>
+var g = new hbars("porting","400px",1);
+g.label("Project with old Coq");
+g.hbar(32,"steelblue")
+g.hbar(87,"green")
+g.hbar(22,"goldenrod")
+g.endline();
+
+g.label("Porting is a burden");
+g.hbar(22,"steelblue")
+g.hbar(77,"green")
+g.hbar(42,"goldenrod")
+g.endline();
+</script>
+
+<p> In this questions, we asked people whether one of the projects
+they were still working on dependend on an old version of Coq. Then,
+we asked they felt that porting a project that used an old version of
+Coq would be a burden. Interestingly, it seems that more than 75% of
+Coq developments have been ported on at most three versions of Coq.
+
+(The color code is as follows: <span
+style="background-color:steelblue;">Yes</span> <span
+style="background-color:green;">No</span> <span
+style="background-color:goldenrod;">No answer</span>.) </p>
+
+<h2>OS</h2>
+<div id="os"> </div>
+<script>
+  var g = new hgraph("os","400px",1);
+
+  g.hbar("Gnu/Linux", 86);
+  g.hbar("Mac OS X", 45);
+  g.hbar("Windows", 9);
+</script>
+
+<p> In this question we asked people what was the operating system
+they were using mainly, when using Coq. This should be taken with a
+grain of salt, since it appears that we did not had many students
+taking this survey, and that other sources indicate that the students
+use mainly Windows.</p>
+
+<h1>Use of various Coq components</h1>
+<h2>Use of the standard library</h2>
+<div id="stdlib"> </div>
+<script>
+var g = new hgraph("os","400px",1);
+g.hbar("Init",103);
+g.hbar("Logic",84);
+g.hbar("Structures",25);
+g.hbar("Bool",72);
+g.hbar("Arith",94;
+g.hbar("{P,Z,N}Arith",55);
+g.hbar("Numbers",18);
+g.hbar("Relation",37);
+g.hbar("Sets",20);
+g.hbar("Classes/Setoids",46);
+g.hbar("List",95);
+g.hbar("Vectors",22);
+g.hbar("Sorting",10);
+g.hbar("Well-founded",44);
+g.hbar("MSets",9);
+g.hbar("FSets",21);
+g.hbar("Strings",24);
+g.hbar("Reals",16);
+g.hbar("Program",40);
+g.hbar("Unicode",23);
+</script>
+
+<p>Here we asked what part of the Standard Library people were
+using directly.</p>
+
+<h2> </h2>
+
+</div>
+
